@@ -1,0 +1,57 @@
+$v-background-color: hsl(215, 100%, 78%);
+//$v-font-size: 18px;
+//$v-border-radius: 8px !default;
+
+
+@import "../valo/valo.scss";
+
+
+@mixin darktheme {
+  @include valo;
+
+  //.v-app {
+  //  background-color: red;
+  //}
+  .v-button {
+    background-image: none;
+    background-color: #fffac5;
+    height: 20px;
+    font-size: 12px;
+    align-content: center;
+  }
+
+  .v-panel {
+    background-image: none;
+    background-color: #ffffff;
+    width: 300px;
+    height: 340px;
+    margin: 20px;
+  }
+
+  .panelCounter {
+    width: 170px;
+    height: 80px;
+    //margin-left: 30px;
+  }
+
+  .backColorBlue{
+    background-color: #91e5f9;
+  }
+
+  .backColorGreen{
+    background-color: #ffffff;
+  }
+
+  .backColorGray{
+    background-color: #ffffff;
+    border-radius: 8px;
+  }
+
+  .layoutDayItem{
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 250px;
+    height: 70px;
+  }
+
+}
