@@ -9,7 +9,10 @@ import com.vaadin.ui.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -95,23 +98,32 @@ public class MainUI extends UI {
         dayToday2.setStyleName("layoutDayItem");
         dayToday2.setHeight("180px");
 
-        String jsonMoney = Currency.getStringJson();
+        String jsonMoney = CurrencyService.getStringJson();
 
-        double usdValue = JsonPath.read(jsonMoney, "$.Valute.USD.Value");
-        double usdPrevious = JsonPath.read(jsonMoney, "$.Valute.USD.Previous");
-        double eurValue = JsonPath.read(jsonMoney, "$.Valute.EUR.Value");
-        double eurPrevious = JsonPath.read(jsonMoney, "$.Valute.EUR.Previous");
+        Currency usd = new Currency();
+        usd.setName(JsonPath.read(jsonMoney, "$.Valute.USD.CharCode"));
+        usd.setValue(JsonPath.read(jsonMoney, "$.Valute.USD.Value"));
+        usd.setPrevious(JsonPath.read(jsonMoney, "$.Valute.USD.Previous"));
 
-        Label usdV = new Label(String.valueOf(usdValue));
-        Label usdP = new Label(String.valueOf(usdPrevious));
-        Label eurV = new Label(String.valueOf(eurValue));
-        Label eurP = new Label(String.valueOf(eurPrevious));
+        Currency eur = new Currency();
+        eur.setName(JsonPath.read(jsonMoney, "$.Valute.EUR.CharCode"));
+        eur.setValue(JsonPath.read(jsonMoney, "$.Valute.EUR.Value"));
+        eur.setPrevious(JsonPath.read(jsonMoney, "$.Valute.EUR.Previous"));
 
-        dayToday2.addComponent(usdV);
-        dayToday2.addComponent(usdP);
-        dayToday2.addComponent(eurV);
-        dayToday2.addComponent(eurP);
 
+        // Have some data
+        List<Currency> valute = Arrays.asList(usd, eur);
+
+        // Create a grid bound to the list
+        Grid<Currency> grid = new Grid<>();
+        grid.setWidth("260px");
+        grid.setHeight("150px") ;
+        grid.setItems(valute);
+        grid.addColumn(Currency::getName).setCaption("Валюта");
+        grid.addColumn(Currency::getValue).setCaption("Сегодня");
+        grid.addColumn(Currency::getPrevious).setCaption("Вчера");
+
+        dayitem2.addComponent(grid);
 
         dayitem2.addComponent(dayToday2);
 

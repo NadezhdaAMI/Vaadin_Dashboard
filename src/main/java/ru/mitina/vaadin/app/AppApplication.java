@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import static ru.mitina.vaadin.app.Currency.downloadUsingStream;
+import static ru.mitina.vaadin.app.CurrencyService.downloadUsingStream;
 
 
 @SpringBootApplication
@@ -38,7 +38,7 @@ public class AppApplication {
 		}
 
 		try {
-			downloadUsingStream(Currency.url, "/home/user/demo/app/daily_json.js");
+			downloadUsingStream(CurrencyService.url, "/home/user/demo/app/daily_json.js");
 		} catch (IOException e) {
 			e.printStackTrace();
 			logger.error("File was not downloaded!");
