@@ -3,10 +3,13 @@ package ru.mitina.vaadin.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+
+import static ru.mitina.vaadin.app.Currency.downloadUsingStream;
 
 
 @SpringBootApplication
@@ -32,6 +35,13 @@ public class AppApplication {
 		} catch (UnknownHostException e) {
 			logger.error("Your current IP address is not available!");
 			e.printStackTrace();
+		}
+
+		try {
+			downloadUsingStream(Currency.url, "/home/user/demo/app/daily_json.js");
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.error("File was not downloaded!");
 		}
 
 	}

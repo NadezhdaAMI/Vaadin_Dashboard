@@ -95,6 +95,23 @@ public class MainUI extends UI {
         dayToday2.setStyleName("layoutDayItem");
         dayToday2.setHeight("180px");
 
+        String jsonMoney = Currency.getStringJson();
+
+        double usdValue = JsonPath.read(jsonMoney, "$.Valute.USD.Value");
+        double usdPrevious = JsonPath.read(jsonMoney, "$.Valute.USD.Previous");
+        double eurValue = JsonPath.read(jsonMoney, "$.Valute.EUR.Value");
+        double eurPrevious = JsonPath.read(jsonMoney, "$.Valute.EUR.Previous");
+
+        Label usdV = new Label(String.valueOf(usdValue));
+        Label usdP = new Label(String.valueOf(usdPrevious));
+        Label eurV = new Label(String.valueOf(eurValue));
+        Label eurP = new Label(String.valueOf(eurPrevious));
+
+        dayToday2.addComponent(usdV);
+        dayToday2.addComponent(usdP);
+        dayToday2.addComponent(eurV);
+        dayToday2.addComponent(eurP);
+
 
         dayitem2.addComponent(dayToday2);
 
