@@ -12,6 +12,10 @@
             <AppenderRef ref="Console"/>
         </Logger>
 
+        <Logger name= "ru.mitina.vaadin.app.GetCurrentIP" level="debug" additivity="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
         <!-- Root Logger -->
         <Root level="error">
             <AppenderRef ref="Console"/>

@@ -113,7 +113,7 @@ public class MainUI extends UI {
 
         // Create a grid bound to the list
         Grid<Currency> grid = new Grid<>();
-        grid.setWidth("260px");
+        grid.setWidth("270px");
         grid.setHeight("150px") ;
         grid.setItems(valute);
         grid.addColumn(Currency::getName).setCaption("Валюта");
@@ -154,7 +154,7 @@ public class MainUI extends UI {
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 
         Label stateInfo = new Label("Информация по состоянию на " + dateFormat.format(date));
-        Label ipInfo = new Label("Ваш IP-адрес: " + AppApplication.ip.getHostAddress());
+        Label ipInfo = new Label("Ваш IP-адрес: " + GetCurrentIP.getIpAddress());
 
         layoutAb.addComponent(stateInfo, "left: 10px; bottom: 0px;");
         layoutAb.addComponent(ipInfo, "right: 10px; bottom: 0px;");
