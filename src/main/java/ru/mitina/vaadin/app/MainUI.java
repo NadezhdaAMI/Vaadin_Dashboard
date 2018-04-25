@@ -90,13 +90,10 @@ public class MainUI extends UI {
         //Money panel
         Panel panelM = new Panel("Курсы валют");
         // Create the content
-        FormLayout content2 = new FormLayout();
-        VerticalLayout dayitem2 = new VerticalLayout();
-        dayitem2.setStyleName("backColorGreen");
-        dayitem2.setMargin(false);
-        HorizontalLayout dayToday2 = new HorizontalLayout(); // table
-        dayToday2.setStyleName("layoutDayItem");
-        dayToday2.setHeight("180px");
+        FormLayout contentM = new FormLayout();
+        VerticalLayout vertLayout = new VerticalLayout();
+        vertLayout.setStyleName("backColorGreen");
+        vertLayout.setMargin(false);
 
         String jsonMoney = CurrencyService.getStringJson();
 
@@ -123,16 +120,14 @@ public class MainUI extends UI {
         grid.addColumn(Currency::getValue).setCaption("Сегодня");
         grid.addColumn(Currency::getPrevious).setCaption("Вчера");
 
-        dayitem2.addComponent(grid);
-
-        dayitem2.addComponent(dayToday2);
+        vertLayout.addComponent(grid);
 
         Button buttonM = new Button("Обновить");
-        dayitem2.addComponent(buttonM);
-        dayitem2.setComponentAlignment(buttonM, Alignment.MIDDLE_CENTER);
+        vertLayout.addComponent(buttonM);
+        vertLayout.setComponentAlignment(buttonM, Alignment.MIDDLE_CENTER);
 
-        content2.addComponent(dayitem2);
-        panelM.setContent(content2);
+        contentM.addComponent(vertLayout);
+        panelM.setContent(contentM);
 
 
         Panel panelCounter = new Panel("Счетчик посещений");
