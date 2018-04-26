@@ -20,12 +20,7 @@ public class AppApplication {
 
 		logger.info("Entering application!");
 
-		try {
-			downloadUsingStream(CurrencyService.url, "/home/user/demo/app/daily_json.js");
-		} catch (IOException e) {
-			e.printStackTrace();
-			logger.error("File was not downloaded!");
-		}
+
 
 	}
 }

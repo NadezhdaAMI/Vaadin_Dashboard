@@ -7,6 +7,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -95,7 +96,15 @@ public class MainUI extends UI {
         vertLayout.setStyleName("backColorGreen");
         vertLayout.setMargin(false);
 
-        String jsonMoney = CurrencyService.getStringJson();
+        String jsonMoney = null;
+        try {
+            jsonMoney = CurrencyService.jsonToString();
+        } catch (IOException e) {
+            logger.error("Не удалось получить строку по ссылке");
+            e.printStackTrace();
+        }
+
+        System.out.println("Length: " + jsonMoney.length());
 
         Currency usd = new Currency();
         usd.setName(JsonPath.read(jsonMoney, "$.Valute.USD.CharCode"));
