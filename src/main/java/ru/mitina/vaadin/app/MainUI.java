@@ -36,16 +36,6 @@ public class MainUI extends UI {
         HorizontalLayout layoutHor = new HorizontalLayout();
 
         //Weather panel
-
-        // Content for the PopupView
-        VerticalLayout popupContent = new VerticalLayout();
-        popupContent.addComponent(new Label("Санкт-Петербург"));
-        popupContent.addComponent(new Label("Москва"));
-        popupContent.addComponent(new Label("Новосибирск"));
-        popupContent.addComponent(new Label("Барнаул"));
-
-        PopupView popup = new PopupView("Выберите город", popupContent);
-
         Panel panelW = new Panel("Прогноз погоды ");
 
         // Create the content
@@ -56,43 +46,27 @@ public class MainUI extends UI {
         dayitem.setStyleName("backColorGreen");
         dayitem.setMargin(false);
 
-        //today item
-        HorizontalLayout dayToday = new HorizontalLayout();
-        DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ");
-        Date date = new Date();
-        Label todayInfo = new Label(dateFormatday.format(date)); // сегодня
-        dayToday.addComponent(todayInfo);
+        VerticalLayout popupContent = new VerticalLayout();
+        popupContent.addComponent(new Label("Санкт-Петербург"));
+        popupContent.addComponent(new Label("Москва"));
+        popupContent.addComponent(new Label("Новосибирск"));
 
-        VerticalLayout dayOptions = new VerticalLayout();
-        dayOptions.setMargin(false);
-
-        dayOptions.addComponent(new Label("днем " + WeatherService.paramToday().gettDay() + " C"));
-        dayOptions.addComponent(new Label("ночью " + WeatherService.paramToday().gettNigth() + " C"));
-        dayOptions.addComponent(new Label("ветер " + WeatherService.paramToday().getWindSpeed() + " м/с"));
-        dayToday.addComponent(dayOptions);
-
-        //tomorrow item
-        HorizontalLayout dayTomorrow = new HorizontalLayout();
-        dayToday.setStyleName("layoutDayItem");
-        dayTomorrow.setStyleName("layoutDayItem");
-        Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-        Label tomorrowInfo = new Label(dateFormatday.format(dateT)); // завтра
-        dayTomorrow.addComponent(tomorrowInfo);
-
-        VerticalLayout tomOptions = new VerticalLayout();
-        tomOptions.setMargin(false);
-
-        tomOptions.addComponent(new Label("днем " + WeatherService.paramTomor().gettDay() + " C"));
-        tomOptions.addComponent(new Label("ночью " + WeatherService.paramTomor().gettNigth() + " C"));
-        tomOptions.addComponent(new Label("ветер " + WeatherService.paramTomor().getWindSpeed() + " м/с"));
-        dayTomorrow.addComponent(tomOptions);
-
-
+        PopupView popup = new PopupView("Выберите город", popupContent);
         dayitem.addComponent(popup);
-        dayitem.addComponent(dayToday);
-        dayitem.addComponent(dayTomorrow);
+
+        VerticalLayout itemsL = new VerticalLayout();
+        itemsL.setMargin(false);
+        dayitem.addComponent(itemsL);
+
+        WeatherService.fillItems(itemsL);
 
         Button buttonW = new Button("Обновить");
+
+        buttonW.addClickListener( e -> {
+            itemsL.removeAllComponents();
+            WeatherService.fillItems(itemsL);
+        });
+
         dayitem.addComponent(buttonW);
 
         dayitem.setComponentAlignment(buttonW, Alignment.MIDDLE_CENTER);
@@ -108,7 +82,6 @@ public class MainUI extends UI {
         VerticalLayout vertLayout = new VerticalLayout();
         vertLayout.setStyleName("backColorGreen");
         vertLayout.setMargin(false);
-
 
         Grid<Currency> grid = new Grid<>();
         grid.setWidth("270px");
@@ -142,17 +115,18 @@ public class MainUI extends UI {
         layoutHor.setComponentAlignment(panelW, Alignment.MIDDLE_CENTER);
         layoutHor.setComponentAlignment(panelM, Alignment.MIDDLE_CENTER);
 
-        HorizontalLayout layoutlangVersion = new HorizontalLayout();
+        HorizontalLayout layoutLang = new HorizontalLayout();
         Button button1 = new Button("Rus");
         Button button2 = new Button("Eng");
-        layoutlangVersion.addComponent(button1);
-        layoutlangVersion.addComponent(button2);
-        layoutAb.addComponent(layoutlangVersion, "right: 10px; top: 10px;");
+        layoutLang.addComponent(button1);
+        layoutLang.addComponent(button2);
+        layoutAb.addComponent(layoutLang, "right: 10px; top: 10px;");
 
         layoutAb.addComponent(layoutHor);
 
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 
+        Date date = new Date();
         Label stateInfo = new Label("Информация по состоянию на " + dateFormat.format(date));
         Label ipInfo = new Label("Ваш IP-адрес: " + GetCurrentIP.getIpAddress());
 

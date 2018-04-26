@@ -20,7 +20,7 @@ public class Weather {
 
     public double gettDay() {
         this.tDay = tDay - 273;
-        String formattedDouble = String.format("%.1f", this.tDay);
+        String formattedDouble = String.format("%.2f", this.tDay);
         this.tDay = Double.parseDouble(formattedDouble);
         return this.tDay;
     }
@@ -31,7 +31,7 @@ public class Weather {
 
     public double gettNigth() {
         this.tNigth = tNigth - 273;
-        String formattedDouble = String.format("%.1f", this.tNigth);
+        String formattedDouble = String.format("%.2f", this.tNigth);
         this.tNigth = Double.parseDouble(formattedDouble);
         return this.tNigth;
     }
@@ -41,7 +41,7 @@ public class Weather {
     }
 
     public double getWindSpeed() {
-        String formattedDouble = String.format("%.1f", this.windSpeed);
+        String formattedDouble = String.format("%.2f", this.windSpeed);
         this.windSpeed = Double.parseDouble(formattedDouble);
         return this.windSpeed;
     }
