@@ -14,17 +14,38 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
+import java.util.TreeMap;
 
 import static org.springframework.http.HttpHeaders.USER_AGENT;
 
 public class WeatherService {
 
+    private static final String beginURL = "http://api.openweathermap.org/data/2.5/forecast?id=";
+
+    private static final String endURL = "&APPID=fd05633695761f3e038d2270479047af";
+
     public static String url = "http://api.openweathermap.org/data/2.5/forecast?id=1496747&APPID=fd05633695761f3e038d2270479047af"; // Novosibirsk
+
+    private static Map<Integer, String> map = new TreeMap<>();
+
+    static {
+        map.put(498817, "Санкт-Петербург");
+        map.put(524901, "Москва");
+        map.put(1496747, "Новосибирск");
+    }
+
+    public static Map<Integer, String> getMap() {
+        return map;
+    }
+
 
     public static String jsonToString() throws IOException {
 
         CloseableHttpClient client = HttpClientBuilder.create().build();
+
         HttpGet request = new HttpGet(url);
 
         // add request header
@@ -122,5 +143,26 @@ public class WeatherService {
         dayitem.addComponent(dayToday);
         dayitem.addComponent(dayTomorrow);
 
+    }
+
+    public static void buildUrl(String cityName){
+
+        int cityId = 0;
+        Collection<Integer> collection = map.keySet();
+        for (Integer key : collection) {
+            Object obj = map.get(key);
+            if (key != null) {
+                if (cityName.equals(obj)) {
+                    cityId = key;
+                    break;
+                }
+            }
+        }
+        StringBuilder s = new StringBuilder();
+        s.append(beginURL);
+        s.append(cityId);
+        s.append(endURL);
+
+        url = s.toString();
     }
 }

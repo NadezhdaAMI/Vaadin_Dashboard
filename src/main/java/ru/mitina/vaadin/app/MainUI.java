@@ -7,7 +7,7 @@ import com.vaadin.ui.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -46,13 +46,20 @@ public class MainUI extends UI {
         dayitem.setStyleName("backColorGreen");
         dayitem.setMargin(false);
 
-        VerticalLayout popupContent = new VerticalLayout();
-        popupContent.addComponent(new Label("Санкт-Петербург"));
-        popupContent.addComponent(new Label("Москва"));
-        popupContent.addComponent(new Label("Новосибирск"));
+        Map<Integer, String> map = WeatherService.getMap();
 
-        PopupView popup = new PopupView("Выберите город", popupContent);
-        dayitem.addComponent(popup);
+        NativeSelect sample = new NativeSelect<>("", map.values());
+
+        sample.setEmptySelectionAllowed(false);
+        sample.setSelectedItem(map.get(1496747));
+
+        sample.addValueChangeListener(event -> {
+                    String cityName = String.valueOf(event.getValue());
+                    WeatherService.buildUrl(cityName);
+                });
+
+
+        dayitem.addComponent(sample);
 
         VerticalLayout itemsL = new VerticalLayout();
         itemsL.setMargin(false);
