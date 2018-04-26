@@ -1,18 +1,14 @@
 package ru.mitina.vaadin.app;
 
-import com.jayway.jsonpath.JsonPath;
 import com.vaadin.annotations.Theme;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
 
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -96,42 +92,20 @@ public class MainUI extends UI {
         vertLayout.setStyleName("backColorGreen");
         vertLayout.setMargin(false);
 
-        String jsonMoney = null;
-        try {
-            jsonMoney = CurrencyService.jsonToString();
-        } catch (IOException e) {
-            logger.error("Не удалось получить строку по ссылке");
-            e.printStackTrace();
-        }
 
-        System.out.println("Length: " + jsonMoney.length());
-
-        Currency usd = new Currency();
-        usd.setName(JsonPath.read(jsonMoney, "$.Valute.USD.CharCode"));
-        usd.setValue(JsonPath.read(jsonMoney, "$.Valute.USD.Value"));
-        usd.setPrevious(JsonPath.read(jsonMoney, "$.Valute.USD.Previous"));
-
-        Currency eur = new Currency();
-        eur.setName(JsonPath.read(jsonMoney, "$.Valute.EUR.CharCode"));
-        eur.setValue(JsonPath.read(jsonMoney, "$.Valute.EUR.Value"));
-        eur.setPrevious(JsonPath.read(jsonMoney, "$.Valute.EUR.Previous"));
-
-
-        // Have some data
-        List<Currency> valute = Arrays.asList(usd, eur);
-
-        // Create a grid bound to the list
         Grid<Currency> grid = new Grid<>();
         grid.setWidth("270px");
         grid.setHeight("150px") ;
-        grid.setItems(valute);
-        grid.addColumn(Currency::getName).setCaption("Валюта");
-        grid.addColumn(Currency::getValue).setCaption("Сегодня");
-        grid.addColumn(Currency::getPrevious).setCaption("Вчера");
-
+        CurrencyService.fillGrid(grid);
         vertLayout.addComponent(grid);
 
         Button buttonM = new Button("Обновить");
+
+        buttonM.addClickListener( e -> {// Добавим коллбек на нажатие кнопки
+            grid.removeAllColumns();
+            CurrencyService.fillGrid(grid);
+        });
+
         vertLayout.addComponent(buttonM);
         vertLayout.setComponentAlignment(buttonM, Alignment.MIDDLE_CENTER);
 

@@ -3,11 +3,8 @@ package ru.mitina.vaadin.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.IOException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-
-import static ru.mitina.vaadin.app.CurrencyService.downloadUsingStream;
 
 
 @SpringBootApplication
