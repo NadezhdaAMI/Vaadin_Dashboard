@@ -47,7 +47,7 @@ public class WeatherService {
         return result.toString();
     }
 
-    public static Weather paramDay(){
+    public static Weather paramToday(){
 
         String jsonWeather = null;
         try {
@@ -57,7 +57,26 @@ public class WeatherService {
         }
 
         Weather day = new Weather();
-        day.settDay(JsonPath.read(jsonWeather, "$.list[0].main.temp"));
+        day.settDay(JsonPath.read(jsonWeather, "$.list[2].main.temp")); // состояние на 15:00
+        day.settNigth(JsonPath.read(jsonWeather, "$.list[6].main.temp")); // состояние на 3:00! (следующий день, 3:00)
+        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[2].wind.speed")); // состояние на 3:00! (следующий день, 3:00)
+
+        return day;
+    }
+
+    public static Weather paramTomor(){
+
+        String jsonWeather = null;
+        try {
+            jsonWeather = WeatherService.jsonToString();
+        } catch (IOException exp) {
+            exp.printStackTrace();
+        }
+
+        Weather day = new Weather();
+        day.settDay(JsonPath.read(jsonWeather, "$.list[10].main.temp")); // состояние на 15:00 завтрашнего дня
+        day.settNigth(JsonPath.read(jsonWeather, "$.list[14].main.temp")); // состояние на 3:00! (следующий день, 3:00)
+        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[10].wind.speed")); // состояние на 3:00! (следующий день, 3:00)
 
         return day;
     }

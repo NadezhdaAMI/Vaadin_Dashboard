@@ -50,6 +50,7 @@ public class MainUI extends UI {
 
         // Create the content
         FormLayout content = new FormLayout();
+        content.setMargin(false);
         VerticalLayout dayitem = new VerticalLayout();
 
         dayitem.setStyleName("backColorGreen");
@@ -59,15 +60,15 @@ public class MainUI extends UI {
         HorizontalLayout dayToday = new HorizontalLayout();
         DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ");
         Date date = new Date();
-        Label todayInfo = new Label(dateFormatday.format(date)); // today
+        Label todayInfo = new Label(dateFormatday.format(date)); // сегодня
         dayToday.addComponent(todayInfo);
 
         VerticalLayout dayOptions = new VerticalLayout();
+        dayOptions.setMargin(false);
 
-        WeatherService.paramDay().gettDay();
-        dayOptions.addComponent(new Label("сейчас " + WeatherService.paramDay().gettDay() + " C"));
-
-
+        dayOptions.addComponent(new Label("днем " + WeatherService.paramToday().gettDay() + " C"));
+        dayOptions.addComponent(new Label("ночью " + WeatherService.paramToday().gettNigth() + " C"));
+        dayOptions.addComponent(new Label("ветер " + WeatherService.paramToday().getWindSpeed() + " м/с"));
         dayToday.addComponent(dayOptions);
 
         //tomorrow item
@@ -75,8 +76,17 @@ public class MainUI extends UI {
         dayToday.setStyleName("layoutDayItem");
         dayTomorrow.setStyleName("layoutDayItem");
         Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-        Label tomorrowInfo = new Label(dateFormatday.format(dateT)); // tomorrow
+        Label tomorrowInfo = new Label(dateFormatday.format(dateT)); // завтра
         dayTomorrow.addComponent(tomorrowInfo);
+
+        VerticalLayout tomOptions = new VerticalLayout();
+        tomOptions.setMargin(false);
+
+        tomOptions.addComponent(new Label("днем " + WeatherService.paramTomor().gettDay() + " C"));
+        tomOptions.addComponent(new Label("ночью " + WeatherService.paramTomor().gettNigth() + " C"));
+        tomOptions.addComponent(new Label("ветер " + WeatherService.paramTomor().getWindSpeed() + " м/с"));
+        dayTomorrow.addComponent(tomOptions);
+
 
         dayitem.addComponent(popup);
         dayitem.addComponent(dayToday);
@@ -108,7 +118,7 @@ public class MainUI extends UI {
 
         Button buttonM = new Button("Обновить");
 
-        buttonM.addClickListener( e -> {// Добавим коллбек на нажатие кнопки
+        buttonM.addClickListener( e -> {
             grid.removeAllColumns();
             CurrencyService.fillGrid(grid);
         });
