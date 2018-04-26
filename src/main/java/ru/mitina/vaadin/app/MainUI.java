@@ -1,7 +1,6 @@
 package ru.mitina.vaadin.app;
 
 import com.vaadin.annotations.Theme;
-import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
@@ -63,6 +62,14 @@ public class MainUI extends UI {
         Label todayInfo = new Label(dateFormatday.format(date)); // today
         dayToday.addComponent(todayInfo);
 
+        VerticalLayout dayOptions = new VerticalLayout();
+
+        WeatherService.paramDay().gettDay();
+        dayOptions.addComponent(new Label("сейчас " + WeatherService.paramDay().gettDay() + " C"));
+
+
+        dayToday.addComponent(dayOptions);
+
         //tomorrow item
         HorizontalLayout dayTomorrow = new HorizontalLayout();
         dayToday.setStyleName("layoutDayItem");
@@ -75,7 +82,7 @@ public class MainUI extends UI {
         dayitem.addComponent(dayToday);
         dayitem.addComponent(dayTomorrow);
 
-        Button buttonW = new Button("Обновить", VaadinIcons.REFRESH);
+        Button buttonW = new Button("Обновить");
         dayitem.addComponent(buttonW);
 
         dayitem.setComponentAlignment(buttonW, Alignment.MIDDLE_CENTER);
@@ -95,7 +102,7 @@ public class MainUI extends UI {
 
         Grid<Currency> grid = new Grid<>();
         grid.setWidth("270px");
-        grid.setHeight("150px") ;
+        grid.setHeight("120px") ;
         CurrencyService.fillGrid(grid);
         vertLayout.addComponent(grid);
 

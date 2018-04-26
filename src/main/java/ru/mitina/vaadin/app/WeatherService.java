@@ -1,23 +1,20 @@
 package ru.mitina.vaadin.app;
 
-
 import com.jayway.jsonpath.JsonPath;
-import com.vaadin.ui.Grid;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 
-import java.io.*;
-import java.util.Arrays;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import static org.springframework.http.HttpHeaders.USER_AGENT;
 
+public class WeatherService {
 
-public class CurrencyService {
-
-    public static String url = "https://www.cbr-xml-daily.ru/daily_json.js";
+    public static String url = "http://api.openweathermap.org/data/2.5/forecast?id=1496747&APPID=fd05633695761f3e038d2270479047af"; // Novosibirsk
 
     public static String jsonToString() throws IOException {
 
@@ -50,37 +47,18 @@ public class CurrencyService {
         return result.toString();
     }
 
-    public static List<Currency> getGridContent(){
+    public static Weather paramDay(){
 
-        String jsonMoney = null;
+        String jsonWeather = null;
         try {
-            jsonMoney = CurrencyService.jsonToString();
+            jsonWeather = WeatherService.jsonToString();
         } catch (IOException exp) {
             exp.printStackTrace();
         }
 
-        Currency usd = new Currency();
-        usd.setName(JsonPath.read(jsonMoney, "$.Valute.USD.CharCode"));
-        usd.setValue(JsonPath.read(jsonMoney, "$.Valute.USD.Value"));
-        usd.setPrevious(JsonPath.read(jsonMoney, "$.Valute.USD.Previous"));
+        Weather day = new Weather();
+        day.settDay(JsonPath.read(jsonWeather, "$.list[0].main.temp"));
 
-        Currency eur = new Currency();
-        eur.setName(JsonPath.read(jsonMoney, "$.Valute.EUR.CharCode"));
-        eur.setValue(JsonPath.read(jsonMoney, "$.Valute.EUR.Value"));
-        eur.setPrevious(JsonPath.read(jsonMoney, "$.Valute.EUR.Previous"));
-
-        // Have some data
-        List<Currency> valute = Arrays.asList(usd, eur);
-        return valute;
-    }
-
-    public static Grid fillGrid(Grid<Currency> grid){
-
-        grid.setItems(CurrencyService.getGridContent());
-        grid.addColumn(Currency::getName).setCaption("Валюта");
-        grid.addColumn(Currency::getValue).setCaption("Сегодня");
-        grid.addColumn(Currency::getPrevious).setCaption("Вчера");
-
-        return grid;
+        return day;
     }
 }
