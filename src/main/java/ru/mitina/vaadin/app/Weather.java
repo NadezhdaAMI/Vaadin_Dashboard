@@ -4,7 +4,7 @@ public class Weather {
 
     private String date;
 
-    private double tDay;
+    private String tDay;
 
     private double tNigth;
 
@@ -18,14 +18,13 @@ public class Weather {
         this.date = date;
     }
 
-    public double gettDay() {
-        this.tDay = tDay - 273;
-        String formattedDouble = String.format("%.2f", this.tDay);
-        this.tDay = Double.parseDouble(formattedDouble);
-        return this.tDay;
+    public String gettDay() {
+        double d = Double.parseDouble(tDay) - 273;
+        String day = String.format("%.2f", d);
+        return day;
     }
 
-    public void settDay(double tDay) {
+    public void settDay(String tDay) {
         this.tDay = tDay;
     }
 

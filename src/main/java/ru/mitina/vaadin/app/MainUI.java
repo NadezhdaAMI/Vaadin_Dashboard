@@ -21,6 +21,7 @@ public class MainUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
         layout.setMargin(true);
@@ -34,6 +35,12 @@ public class MainUI extends UI {
         layout.setComponentAlignment(layoutAb, Alignment.MIDDLE_CENTER);
 
         HorizontalLayout layoutHor = new HorizontalLayout();
+
+        Label count = new Label(String.valueOf(CounterService.getCounter()));
+        Panel panelCounter = new Panel("Счетчик посещений");
+        panelCounter.setWidth("160px");
+        panelCounter.setHeight("80px");
+        panelCounter.setContent(count);
 
         //Weather panel
         Panel panelW = new Panel("Прогноз погоды ");
@@ -72,6 +79,8 @@ public class MainUI extends UI {
         buttonW.addClickListener( e -> {
             itemsL.removeAllComponents();
             WeatherService.fillItems(itemsL);
+            CounterService.incCounter();
+            panelCounter.setContent(new Label(String.valueOf(CounterService.getCounter())));
         });
 
         dayitem.addComponent(buttonW);
@@ -101,6 +110,8 @@ public class MainUI extends UI {
         buttonM.addClickListener( e -> {
             grid.removeAllColumns();
             CurrencyService.fillGrid(grid);
+            CounterService.incCounter();
+            panelCounter.setContent(new Label(String.valueOf(CounterService.getCounter())));
         });
 
         vertLayout.addComponent(buttonM);
@@ -110,11 +121,9 @@ public class MainUI extends UI {
         panelM.setContent(contentM);
 
 
-        Panel panelCounter = new Panel("Счетчик посещений");
-        panelCounter.setWidth("160px");
-        panelCounter.setHeight("80px");
-        Label count = new Label("192");
-        panelCounter.setContent(count);
+
+//        Label count = new Label(String.valueOf(CounterService.getCounter()));
+
         layoutAb.addComponent(panelCounter, "right: 10px; top: 150px;");
 
         layoutHor.addComponent(panelW);

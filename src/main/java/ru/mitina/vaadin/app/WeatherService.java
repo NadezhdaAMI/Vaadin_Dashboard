@@ -84,7 +84,7 @@ public class WeatherService {
         }
 
         Weather day = new Weather();
-        day.settDay(JsonPath.read(jsonWeather, "$.list[2].main.temp")); // состояние на 15:00
+        day.settDay(JsonPath.read(jsonWeather, "$.list[2].main.temp").toString()); // состояние на 15:00
         day.settNigth(JsonPath.read(jsonWeather, "$.list[6].main.temp")); // состояние на 3:00! (следующий день, 3:00)
         day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[2].wind.speed")); // состояние на 3:00! (следующий день, 3:00)
 
@@ -101,7 +101,7 @@ public class WeatherService {
         }
 
         Weather day = new Weather();
-        day.settDay(JsonPath.read(jsonWeather, "$.list[10].main.temp")); // состояние на 15:00 завтрашнего дня
+        day.settDay((JsonPath.read(jsonWeather, "$.list[10].main.temp")).toString()); // состояние на 15:00 завтрашнего дня
         day.settNigth(JsonPath.read(jsonWeather, "$.list[14].main.temp")); // состояние на 3:00! (следующий день, 3:00)
         day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[10].wind.speed")); // состояние на 3:00! (следующий день, 3:00)
 
