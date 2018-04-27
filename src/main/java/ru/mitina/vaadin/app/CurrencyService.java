@@ -3,18 +3,12 @@ package ru.mitina.vaadin.app;
 
 import com.jayway.jsonpath.JsonPath;
 import com.vaadin.ui.Grid;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.springframework.http.HttpHeaders.USER_AGENT;
 
 
 public class CurrencyService {

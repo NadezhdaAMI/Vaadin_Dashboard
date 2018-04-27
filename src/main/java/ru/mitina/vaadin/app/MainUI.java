@@ -11,6 +11,7 @@ import java.util.*;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import ru.mitina.vaadin.app.mongodb.Counter;
 
 
 @SpringUI
@@ -18,6 +19,8 @@ import org.apache.logging.log4j.LogManager;
 public class MainUI extends UI {
 
     static final Logger logger = LogManager.getLogger(MainUI.class.getName());
+
+    public static Counter counter;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -36,12 +39,11 @@ public class MainUI extends UI {
 
         HorizontalLayout layoutHor = new HorizontalLayout();
 
-        Label count = new Label(String.valueOf(CounterService.getCounter()));
         Panel panelCounter = new Panel("Счетчик посещений");
         panelCounter.setWidth("180px");
         panelCounter.setHeight("70px");
 
-        panelCounter.setContent(count);
+        panelCounter.setContent(new Label(String.valueOf(counter)));
 
         Panel panelW = new Panel("Прогноз погоды ");
 
@@ -78,8 +80,6 @@ public class MainUI extends UI {
             itemsL.removeAllComponents();
             WeatherService.setJsonWeather();
             WeatherService.fillItems(itemsL);
-            CounterService.incCounter();
-            panelCounter.setContent(new Label(String.valueOf(CounterService.getCounter())));
         });
 
         dayitem.addComponent(buttonW);
@@ -106,8 +106,11 @@ public class MainUI extends UI {
         buttonM.addClickListener( e -> {
             grid.removeAllColumns();
             CurrencyService.fillGrid(grid);
-            CounterService.incCounter();
-            panelCounter.setContent(new Label(String.valueOf(CounterService.getCounter())));
+
+//            counter = AppApplication.repository.findAll().get(0);
+//            counter.incCounter();
+//            AppApplication.repository.save(counter);
+//            panelCounter.setContent(new Label(String.valueOf(AppApplication.repository.findAll().get(0))));
         });
 
         vertLayout.addComponent(buttonM);
