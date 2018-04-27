@@ -106,11 +106,6 @@ public class MainUI extends UI {
         buttonM.addClickListener( e -> {
             grid.removeAllColumns();
             CurrencyService.fillGrid(grid);
-
-//            counter = AppApplication.repository.findAll().get(0);
-//            counter.incCounter();
-//            AppApplication.repository.save(counter);
-//            panelCounter.setContent(new Label(String.valueOf(AppApplication.repository.findAll().get(0))));
         });
 
         vertLayout.addComponent(buttonM);
@@ -144,6 +139,8 @@ public class MainUI extends UI {
         layoutAb.addComponent(stateInfo, "left: 10px; bottom: 0px;");
         layoutAb.addComponent(ipInfo, "right: 10px; bottom: 0px;");
         setContent(layout);
+
+        panelCounter.setContent(new Label(String.valueOf(counter)));
 
         logger.info("Добро пожаловать на сайт!");
     }

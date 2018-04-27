@@ -30,17 +30,26 @@ public class AppApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+//		repository.deleteAll();
+//		MainUI.counter = new Counter(0);
+//		repository.save(MainUI.counter);
+
+		repository.findAll().get(0).getId();
+		logger.info("get(0).getId() = " + repository.findAll().get(0).getId());
+		logger.info("get(0) = " + repository.findAll().get(0));
+
+		logger.info("до - " + repository.findAll().get(0));
+		int n = repository.findAll().get(0).incCounter();
+		logger.info("после - " + n);
 		repository.deleteAll();
+		Counter count = new Counter(n);
+		repository.save(count);
 
-		MainUI.counter = new Counter(0);
-		MainUI.counter.incCounter();
-		repository.save(MainUI.counter);
+		logger.info("get(0).getId() = " + repository.findAll().get(0).getId());
+		logger.info("get(0) = " + repository.findAll().get(0));
+		logger.info("size: " + repository.findAll().size());
 
-		for (Counter counter : repository.findAll()) {
-			System.out.println("Counter!" + counter);
-		}
-		System.out.println("findById: " + repository.findAll().get(0));
-		System.out.println();
+		logger.info("Инициализация счетчика посещений");
 	}
 }
 

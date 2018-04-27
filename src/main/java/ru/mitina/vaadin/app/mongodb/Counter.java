@@ -19,8 +19,9 @@ public class Counter {
         this.count = count;
     }
 
-    public void incCounter(){
+    public int incCounter(){
         count++;
+        return count;
     }
 
     public String getId() {
