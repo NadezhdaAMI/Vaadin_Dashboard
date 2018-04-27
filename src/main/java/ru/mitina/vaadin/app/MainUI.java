@@ -65,7 +65,6 @@ public class MainUI extends UI {
                     WeatherService.buildUrl(cityName);
                 });
 
-
         dayitem.addComponent(sample);
 
         VerticalLayout itemsL = new VerticalLayout();
@@ -78,6 +77,7 @@ public class MainUI extends UI {
 
         buttonW.addClickListener( e -> {
             itemsL.removeAllComponents();
+            WeatherService.setJsonWeather();
             WeatherService.fillItems(itemsL);
             CounterService.incCounter();
             panelCounter.setContent(new Label(String.valueOf(CounterService.getCounter())));
@@ -89,7 +89,6 @@ public class MainUI extends UI {
 
         content.addComponent(dayitem);
         panelW.setContent(content);
-
 
         //Money panel
         Panel panelM = new Panel("Курсы валют");
@@ -120,9 +119,6 @@ public class MainUI extends UI {
         contentM.addComponent(vertLayout);
         panelM.setContent(contentM);
 
-
-
-//        Label count = new Label(String.valueOf(CounterService.getCounter()));
 
         layoutAb.addComponent(panelCounter, "right: 10px; top: 150px;");
 

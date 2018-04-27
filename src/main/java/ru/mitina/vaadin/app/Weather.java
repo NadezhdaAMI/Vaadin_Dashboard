@@ -2,21 +2,11 @@ package ru.mitina.vaadin.app;
 
 public class Weather {
 
-    private String date;
-
     private String tDay;
 
-    private double tNigth;
+    private String tNigth;
 
-    private double windSpeed;
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
+    private String windSpeed;
 
     public String gettDay() {
         double d = Double.parseDouble(tDay) - 273;
@@ -28,24 +18,23 @@ public class Weather {
         this.tDay = tDay;
     }
 
-    public double gettNigth() {
-        this.tNigth = tNigth - 273;
-        String formattedDouble = String.format("%.2f", this.tNigth);
-        this.tNigth = Double.parseDouble(formattedDouble);
-        return this.tNigth;
+    public String gettNigth() {
+        double d = Double.parseDouble(tNigth) - 273;
+        String n = String.format("%.2f", d);
+        return n;
     }
 
-    public void settNigth(double tNigth) {
+    public void settNigth(String tNigth) {
         this.tNigth = tNigth;
     }
 
-    public double getWindSpeed() {
-        String formattedDouble = String.format("%.2f", this.windSpeed);
-        this.windSpeed = Double.parseDouble(formattedDouble);
-        return this.windSpeed;
+    public String getWindSpeed() {
+        double d = Double.parseDouble(windSpeed);
+        String w = String.format("%.2f", d);
+        return w;
     }
 
-    public void setWindSpeed(double windSpeed) {
+    public void setWindSpeed(String windSpeed) {
         this.windSpeed = windSpeed;
     }
 }

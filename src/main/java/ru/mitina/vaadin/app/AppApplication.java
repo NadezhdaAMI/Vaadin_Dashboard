@@ -17,7 +17,5 @@ public class AppApplication {
 
 		logger.info("Entering application!");
 
-
-
 	}
 }

@@ -8,16 +8,15 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 import static org.springframework.http.HttpHeaders.USER_AGENT;
 
@@ -31,16 +30,41 @@ public class WeatherService {
 
     private static Map<Integer, String> map = new TreeMap<>();
 
+    private static final Logger log = LogManager.getLogger(WeatherService.class);
+
+    private static String jsonWeather = null;
+
     static {
         map.put(498817, "Санкт-Петербург");
         map.put(524901, "Москва");
         map.put(1496747, "Новосибирск");
+
+        try {
+            jsonWeather = WeatherService.jsonToString();
+            log.info("Данные с сайта сохранились в строку");
+        } catch (IOException exp) {
+            log.error("Данные с сайта не сохранились в строку!");
+            exp.printStackTrace();
+        }
     }
 
     public static Map<Integer, String> getMap() {
         return map;
     }
 
+    public static String getJsonWeather() {
+        return jsonWeather;
+    }
+
+    public static void setJsonWeather() {
+        try {
+            jsonWeather = WeatherService.jsonToString();
+            log.info("Данные с сайта сохранились в строку");
+        } catch (IOException exp) {
+            log.error("Данные с сайта не сохранились в строку!");
+            exp.printStackTrace();
+        }
+    }
 
     public static String jsonToString() throws IOException {
 
@@ -59,8 +83,7 @@ public class WeatherService {
 
         BufferedReader rd = null;
         try {
-            rd = new BufferedReader(
-                    new InputStreamReader(response.getEntity().getContent()));
+            rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,37 +97,20 @@ public class WeatherService {
         return result.toString();
     }
 
-    public static Weather paramToday(){
-
-        String jsonWeather = null;
-        try {
-            jsonWeather = WeatherService.jsonToString();
-        } catch (IOException exp) {
-            exp.printStackTrace();
-        }
-
-        Weather day = new Weather();
+    public static Weather paramToday(Weather day){
         day.settDay(JsonPath.read(jsonWeather, "$.list[2].main.temp").toString()); // состояние на 15:00
-        day.settNigth(JsonPath.read(jsonWeather, "$.list[6].main.temp")); // состояние на 3:00! (следующий день, 3:00)
-        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[2].wind.speed")); // состояние на 3:00! (следующий день, 3:00)
-
+        day.settNigth(JsonPath.read(jsonWeather, "$.list[6].main.temp").toString()); // состояние на 3:00! (следующий день, 3:00)
+        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[2].wind.speed").toString()); // состояние на 3:00! (следующий день, 3:00)
+        log.info("Заполнен layout сегодняшнего дня");
         return day;
     }
 
-    public static Weather paramTomor(){
+    public static Weather paramTomor(Weather day){
 
-        String jsonWeather = null;
-        try {
-            jsonWeather = WeatherService.jsonToString();
-        } catch (IOException exp) {
-            exp.printStackTrace();
-        }
-
-        Weather day = new Weather();
         day.settDay((JsonPath.read(jsonWeather, "$.list[10].main.temp")).toString()); // состояние на 15:00 завтрашнего дня
-        day.settNigth(JsonPath.read(jsonWeather, "$.list[14].main.temp")); // состояние на 3:00! (следующий день, 3:00)
-        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[10].wind.speed")); // состояние на 3:00! (следующий день, 3:00)
-
+        day.settNigth(JsonPath.read(jsonWeather, "$.list[14].main.temp").toString()); // состояние на 3:00! (следующий день, 3:00)
+        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[10].wind.speed").toString()); // состояние на 3:00! (следующий день, 3:00)
+        log.info("Заполнен layout завтрашнего дня");
         return day;
     }
 
@@ -112,7 +118,7 @@ public class WeatherService {
 
         HorizontalLayout dayToday = new HorizontalLayout();
         dayToday.setStyleName("layoutDayItem");
-        DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ");
+        DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
         Date date = new Date();
         Label todayInfo = new Label(dateFormatday.format(date)); // сегодня
         dayToday.addComponent(todayInfo);
@@ -120,9 +126,11 @@ public class WeatherService {
         VerticalLayout dayOptions = new VerticalLayout();
         dayOptions.setMargin(false);
 
-        dayOptions.addComponent(new Label("днем " + WeatherService.paramToday().gettDay() + " C"));
-        dayOptions.addComponent(new Label("ночью " + WeatherService.paramToday().gettNigth() + " C"));
-        dayOptions.addComponent(new Label("ветер " + WeatherService.paramToday().getWindSpeed() + " м/с"));
+        Weather day = new Weather();
+        paramToday(day);
+        dayOptions.addComponent(new Label("днем " + day.gettDay() + " C"));
+        dayOptions.addComponent(new Label("ночью " + day.gettNigth() + " C"));
+        dayOptions.addComponent(new Label("ветер " + day.getWindSpeed() + " м/с"));
         dayToday.addComponent(dayOptions);
 
         //tomorrow item
@@ -135,14 +143,16 @@ public class WeatherService {
         VerticalLayout tomOptions = new VerticalLayout();
         tomOptions.setMargin(false);
 
-        tomOptions.addComponent(new Label("днем " + WeatherService.paramTomor().gettDay() + " C"));
-        tomOptions.addComponent(new Label("ночью " + WeatherService.paramTomor().gettNigth() + " C"));
-        tomOptions.addComponent(new Label("ветер " + WeatherService.paramTomor().getWindSpeed() + " м/с"));
+        Weather tom = new Weather();
+        paramTomor(tom);
+        tomOptions.addComponent(new Label("днем " + tom.gettDay() + " C"));
+        tomOptions.addComponent(new Label("ночью " + tom.gettNigth() + " C"));
+        tomOptions.addComponent(new Label("ветер " + tom.getWindSpeed() + " м/с"));
         dayTomorrow.addComponent(tomOptions);
 
         dayitem.addComponent(dayToday);
         dayitem.addComponent(dayTomorrow);
-
+        log.info("Заполнены layout-ы каждого дня данными о погоде");
     }
 
     public static void buildUrl(String cityName){
@@ -162,7 +172,7 @@ public class WeatherService {
         s.append(beginURL);
         s.append(cityId);
         s.append(endURL);
-
         url = s.toString();
+        log.info("Получен url с учетом id города");
     }
 }
