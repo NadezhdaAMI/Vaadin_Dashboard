@@ -2,7 +2,6 @@
 //$v-font-size: 18px;
 //$v-border-radius: 8px !default;
 
-
 @import "../valo/valo.scss";
 
 
@@ -23,10 +22,20 @@
   .v-panel {
     background-image: none;
     background-color: #ffffff;
+    font-size: 14px;
     width: 310px;
     height: 370px;
     margin: 20px;
   }
+
+  .v-grid {
+    background-image: none;
+    background-color: #ffffff;
+    width: 270px;
+    height: 120px;
+    //margin: 20px;
+  }
+
 
   .panelCounter {
     width: 170px;

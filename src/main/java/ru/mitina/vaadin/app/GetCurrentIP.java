@@ -14,7 +14,7 @@ public class GetCurrentIP {
 
     public static String getIpAddress() {
 
-        log.info("Getting an IP address...");
+        log.info("Получение IP адреса...");
         URL url;
         BufferedReader in;
         String ipAddress;
@@ -27,11 +27,13 @@ public class GetCurrentIP {
                 try {
                     InetAddress ip = InetAddress.getLocalHost();
                     ipAddress = (ip.getHostAddress()).trim();
+
                 } catch(Exception exp) {
                     ipAddress = "ERROR";
-                    log.error("Your current IP address is not available!");
+                    log.error("Ваш текущий IP адрес не доступен!");
                 }
             }
+            log.info("Ваш текущий IP адрес получен");
         } catch (Exception ex) {
 
             try {
@@ -39,11 +41,11 @@ public class GetCurrentIP {
                 ipAddress = (ip.getHostAddress()).trim();
             } catch(Exception exp) {
                 ipAddress = "ERROR";
-                log.error("Your current IP address is not available!");
+                log.error("Ваш текущий IP адрес не доступен!");
             }
         }
 
-        log.info("Your current IP address is available!");
+
         return ipAddress;
     }
 }

@@ -2,7 +2,7 @@ package ru.mitina.vaadin.app;
 
 public class CounterService {
 
-    private static int counter = 5;
+    private static int counter = 1;
 
     public static int getCounter() {
         return counter;

@@ -39,13 +39,7 @@ public class WeatherService {
         map.put(524901, "Москва");
         map.put(1496747, "Новосибирск");
 
-        try {
-            jsonWeather = WeatherService.jsonToString();
-            log.info("Данные с сайта сохранились в строку");
-        } catch (IOException exp) {
-            log.error("Данные с сайта не сохранились в строку!");
-            exp.printStackTrace();
-        }
+        setJsonWeather();
     }
 
     public static Map<Integer, String> getMap() {
@@ -58,43 +52,12 @@ public class WeatherService {
 
     public static void setJsonWeather() {
         try {
-            jsonWeather = WeatherService.jsonToString();
+            jsonWeather = MainService.jsonToString(url);
             log.info("Данные с сайта сохранились в строку");
         } catch (IOException exp) {
             log.error("Данные с сайта не сохранились в строку!");
             exp.printStackTrace();
         }
-    }
-
-    public static String jsonToString() throws IOException {
-
-        CloseableHttpClient client = HttpClientBuilder.create().build();
-
-        HttpGet request = new HttpGet(url);
-
-        // add request header
-        request.addHeader("User-Agent", USER_AGENT);
-        CloseableHttpResponse response = null;
-        try {
-            response = client.execute(request);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        BufferedReader rd = null;
-        try {
-            rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        StringBuffer result = new StringBuffer();
-        String line;
-        while ((line = rd.readLine()) != null) {
-            result.append(line);
-        }
-
-        return result.toString();
     }
 
     public static Weather paramToday(Weather day){

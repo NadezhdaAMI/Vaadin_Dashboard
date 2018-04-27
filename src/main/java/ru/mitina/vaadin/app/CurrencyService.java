@@ -7,6 +7,8 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.util.Arrays;
@@ -19,43 +21,16 @@ public class CurrencyService {
 
     public static String url = "https://www.cbr-xml-daily.ru/daily_json.js";
 
-    public static String jsonToString() throws IOException {
-
-        CloseableHttpClient client = HttpClientBuilder.create().build();
-        HttpGet request = new HttpGet(url);
-
-        // add request header
-        request.addHeader("User-Agent", USER_AGENT);
-        CloseableHttpResponse response = null;
-        try {
-            response = client.execute(request);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        BufferedReader rd = null;
-        try {
-            rd = new BufferedReader(
-                    new InputStreamReader(response.getEntity().getContent()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        StringBuffer result = new StringBuffer();
-        String line;
-        while ((line = rd.readLine()) != null) {
-            result.append(line);
-        }
-
-        return result.toString();
-    }
+    private static final Logger log = LogManager.getLogger(WeatherService.class);
 
     public static List<Currency> getGridContent(){
 
         String jsonMoney = null;
         try {
-            jsonMoney = CurrencyService.jsonToString();
+            jsonMoney = MainService.jsonToString(url);
+            log.info("json с сайта валют сохранен в строку");
         } catch (IOException exp) {
+            log.error("json с сайта валют не сохранен в строку!");
             exp.printStackTrace();
         }
 
@@ -69,8 +44,9 @@ public class CurrencyService {
         eur.setValue(JsonPath.read(jsonMoney, "$.Valute.EUR.Value"));
         eur.setPrevious(JsonPath.read(jsonMoney, "$.Valute.EUR.Previous"));
 
-        // Have some data
         List<Currency> valute = Arrays.asList(usd, eur);
+        log.info("получен контент для grid");
+
         return valute;
     }
 
@@ -80,7 +56,7 @@ public class CurrencyService {
         grid.addColumn(Currency::getName).setCaption("Валюта");
         grid.addColumn(Currency::getValue).setCaption("Сегодня");
         grid.addColumn(Currency::getPrevious).setCaption("Вчера");
-
+        log.info("grid заполнена данными по валюте");
         return grid;
     }
 }

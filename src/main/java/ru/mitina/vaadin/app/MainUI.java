@@ -28,7 +28,7 @@ public class MainUI extends UI {
         layout.setSpacing(true);
 
         AbsoluteLayout layoutAb = new AbsoluteLayout();
-        layoutAb.setWidth("900px");
+        layoutAb.setWidth("950px");
         layoutAb.setHeight("500px");
         layoutAb.setStyleName("backColorGray");
         layout.addComponent(layoutAb);
@@ -38,14 +38,13 @@ public class MainUI extends UI {
 
         Label count = new Label(String.valueOf(CounterService.getCounter()));
         Panel panelCounter = new Panel("Счетчик посещений");
-        panelCounter.setWidth("160px");
-        panelCounter.setHeight("80px");
+        panelCounter.setWidth("180px");
+        panelCounter.setHeight("70px");
+
         panelCounter.setContent(count);
 
-        //Weather panel
         Panel panelW = new Panel("Прогноз погоды ");
 
-        // Create the content
         FormLayout content = new FormLayout();
         content.setMargin(false);
         VerticalLayout dayitem = new VerticalLayout();
@@ -84,15 +83,12 @@ public class MainUI extends UI {
         });
 
         dayitem.addComponent(buttonW);
-
         dayitem.setComponentAlignment(buttonW, Alignment.MIDDLE_CENTER);
 
         content.addComponent(dayitem);
         panelW.setContent(content);
 
-        //Money panel
         Panel panelM = new Panel("Курсы валют");
-        // Create the content
         FormLayout contentM = new FormLayout();
         VerticalLayout vertLayout = new VerticalLayout();
         vertLayout.setStyleName("backColorGreen");
@@ -100,9 +96,10 @@ public class MainUI extends UI {
 
         Grid<Currency> grid = new Grid<>();
         grid.setWidth("270px");
-        grid.setHeight("120px") ;
+        grid.setHeight("115px");
         CurrencyService.fillGrid(grid);
         vertLayout.addComponent(grid);
+        vertLayout.setComponentAlignment(grid, Alignment.MIDDLE_CENTER);
 
         Button buttonM = new Button("Обновить");
 
@@ -114,11 +111,10 @@ public class MainUI extends UI {
         });
 
         vertLayout.addComponent(buttonM);
-        vertLayout.setComponentAlignment(buttonM, Alignment.MIDDLE_CENTER);
-
+        vertLayout.setComponentAlignment(buttonM, Alignment.BOTTOM_CENTER);
         contentM.addComponent(vertLayout);
-        panelM.setContent(contentM);
 
+        panelM.setContent(contentM);
 
         layoutAb.addComponent(panelCounter, "right: 10px; top: 150px;");
 
@@ -145,5 +141,7 @@ public class MainUI extends UI {
         layoutAb.addComponent(stateInfo, "left: 10px; bottom: 0px;");
         layoutAb.addComponent(ipInfo, "right: 10px; bottom: 0px;");
         setContent(layout);
+
+        logger.info("Добро пожаловать на сайт!");
     }
 }
