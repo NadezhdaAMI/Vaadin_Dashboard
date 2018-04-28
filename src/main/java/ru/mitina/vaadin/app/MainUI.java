@@ -32,20 +32,12 @@ public class MainUI extends UI{
     protected void init(VaadinRequest vaadinRequest) {
 
         try {
-            repository.findAll().get(0).getId();
-            logger.info("Достаем из базы значение счетчика посещений");
-            logger.info("get(0).getId() = " + repository.findAll().get(0).getId());
-            logger.info("get(0) = " + repository.findAll().get(0));
             logger.info("до - " + repository.findAll().get(0));
             int n = repository.findAll().get(0).incCounter();
             logger.info("после - " + n);
             repository.deleteAll();
             counter = new Counter(n);
             repository.save(counter);
-
-            logger.info("get(0).getId() = " + repository.findAll().get(0).getId());
-            logger.info("get(0) = " + repository.findAll().get(0));
-            logger.info("size: " + repository.findAll().size());
             logger.info("Счетчик посещений увеличен на 1");
 
         } catch (NullPointerException ex){
@@ -54,32 +46,33 @@ public class MainUI extends UI{
         }
 
         VerticalLayout layout = new VerticalLayout();
-        layout.setSizeFull();
-        layout.setMargin(true);
-        layout.setSpacing(true);
+        setContent(layout);
+        layout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+        layout.setMargin(false);
+        layout.setStyleName("backColorFon");
 
-        AbsoluteLayout layoutAb = new AbsoluteLayout();
-        layoutAb.setWidth("950px");
-        layoutAb.setHeight("500px");
-        layoutAb.setStyleName("backColorGray");
-        layout.addComponent(layoutAb);
-        layout.setComponentAlignment(layoutAb, Alignment.MIDDLE_CENTER);
+        //MAIN
+        HorizontalLayout h2 = new HorizontalLayout();
+        h2.setWidth("950px");
+        h2.setHeight("550px");
+        h2.setMargin(false);
+        h2.setStyleName("backColorBlue");
+        h2.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
-        HorizontalLayout layoutHor = new HorizontalLayout();
-
-        Panel panelCounter = new Panel("Счетчик посещений");
-        panelCounter.setStyleName("panelCounter");
-        panelCounter.setWidth("180px");
-        panelCounter.setContent(new Label(String.valueOf(counter)));
-
-        Panel panelW = new Panel("Прогноз погоды ");
-
-        FormLayout content = new FormLayout();
-        content.setMargin(false);
+            //WEATHER
         VerticalLayout dayitem = new VerticalLayout();
-
+        dayitem.setWidth("310px");
+        dayitem.setHeight("450px");
         dayitem.setStyleName("backColorGreen");
-        dayitem.setMargin(false);
+        dayitem.setMargin(true);
+
+        VerticalLayout dayitemF = new VerticalLayout();
+        dayitemF.setHeight("30px");
+        dayitemF.setStyleName("backColorFon2");
+        dayitemF.setMargin(false);
+
+        Label labelW = new Label("Прогноз погоды ");
+        dayitemF.addComponent(labelW);
 
         Map<Integer, String> map = WeatherService.getMap();
 
@@ -89,17 +82,19 @@ public class MainUI extends UI{
         sample.setSelectedItem(map.get(1496747));
 
         sample.addValueChangeListener(event -> {
-                    String cityName = String.valueOf(event.getValue());
-                    WeatherService.buildUrl(cityName);
-                });
+            String cityName = String.valueOf(event.getValue());
+            WeatherService.buildUrl(cityName);
+        });
 
-        dayitem.addComponent(sample);
+        dayitemF.addComponent(sample);
+        dayitem.addComponent(dayitemF);
 
         VerticalLayout itemsL = new VerticalLayout();
+        itemsL.setStyleName("backColorYellow");
         itemsL.setMargin(false);
         dayitem.addComponent(itemsL);
 
-        WeatherService.fillItems(itemsL);
+        WeatherService.fillItems(itemsL); // НЕ УДАЛЯТЬ!
 
         Button buttonW = new Button("Обновить");
 
@@ -110,21 +105,23 @@ public class MainUI extends UI{
         });
 
         dayitem.addComponent(buttonW);
-        dayitem.setComponentAlignment(buttonW, Alignment.MIDDLE_CENTER);
+        dayitem.setComponentAlignment(buttonW, Alignment.BOTTOM_CENTER);
 
-        content.addComponent(dayitem);
-        panelW.setContent(content);
+        h2.addComponent(dayitem);
 
-        Panel panelM = new Panel("Курсы валют");
-        FormLayout contentM = new FormLayout();
+        //MONEY
         VerticalLayout vertLayout = new VerticalLayout();
+        vertLayout.setWidth("310px");
+        vertLayout.setHeight("450px");
         vertLayout.setStyleName("backColorGreen");
-        vertLayout.setMargin(false);
+        vertLayout.setMargin(true);
 
+        Label labelM = new Label("Курсы валют");
+        vertLayout.addComponent(labelM);
         Grid<Currency> grid = new Grid<>();
         grid.setWidth("270px");
         grid.setHeight("115px");
-        CurrencyService.fillGrid(grid);
+        CurrencyService.fillGrid(grid);  // НЕ УДАЛЯТЬ
         vertLayout.addComponent(grid);
         vertLayout.setComponentAlignment(grid, Alignment.MIDDLE_CENTER);
 
@@ -137,38 +134,33 @@ public class MainUI extends UI{
 
         vertLayout.addComponent(buttonM);
         vertLayout.setComponentAlignment(buttonM, Alignment.BOTTOM_CENTER);
-        contentM.addComponent(vertLayout);
 
-        panelM.setContent(contentM);
+        Panel panelCounter = new Panel("Счетчик посещений");
+        panelCounter.setStyleName("panelCounter");
+        panelCounter.setWidth("180px");
+        panelCounter.setContent(new Label(String.valueOf(counter)));
 
-        layoutAb.addComponent(panelCounter, "right: 10px; top: 150px;");
+        h2.addComponent(vertLayout);
+        h2.addComponent(panelCounter);
 
-        layoutHor.addComponent(panelW);
-        layoutHor.addComponent(panelM);
-        layoutHor.setComponentAlignment(panelW, Alignment.MIDDLE_CENTER);
-        layoutHor.setComponentAlignment(panelM, Alignment.MIDDLE_CENTER);
+        layout.addComponent(h2);
 
-        HorizontalLayout layoutLang = new HorizontalLayout();
-        Button button1 = new Button("Rus");
-        Button button2 = new Button("Eng");
-        layoutLang.addComponent(button1);
-        layoutLang.addComponent(button2);
-        layoutAb.addComponent(layoutLang, "right: 10px; top: 10px;");
-
-        layoutAb.addComponent(layoutHor);
+        HorizontalLayout h3 = new HorizontalLayout();
+        h3.setWidth("950px");
+        h3.setHeight("60px");
+        h3.setStyleName("backColorFooter");
 
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-
         Date date = new Date();
         Label stateInfo = new Label("Информация по состоянию на " + dateFormat.format(date));
         Label ipInfo = new Label("Ваш IP-адрес: " + GetCurrentIP.getIpAddress());
 
-        layoutAb.addComponent(stateInfo, "left: 10px; bottom: 0px;");
-        layoutAb.addComponent(ipInfo, "right: 10px; bottom: 0px;");
-        setContent(layout);
+        h3.addComponent(stateInfo);
+        h3.addComponent(ipInfo);
+        h3.setComponentAlignment(ipInfo, Alignment.TOP_RIGHT);
+        layout.addComponent(h3);
 
         panelCounter.setContent(new Label(String.valueOf(counter)));
-
         logger.info("Добро пожаловать на сайт!");
     }
 }

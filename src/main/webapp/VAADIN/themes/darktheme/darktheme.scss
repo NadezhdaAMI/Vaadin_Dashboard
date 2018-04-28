@@ -1,4 +1,4 @@
-//$v-background-color: hsl(199, 100%, 84%);
+$v-background-color: hsl(199, 100%, 84%);
 //$v-font-size: 18px;
 //$v-border-radius: 8px !default;
 
@@ -8,9 +8,6 @@
 @mixin darktheme {
   @include valo;
 
-  //.v-app {
-  //  background-color: red;
-  //}
   .v-button {
     background-image: none;
     background-color: #fffac5;
@@ -35,7 +32,6 @@
     background-color: #ffffff;
     width: 270px;
     height: 120px;
-    //margin: 20px;
   }
 
 
@@ -44,9 +40,6 @@
     height: 80px;
     background-color: #cdf1ff;
     text-align: center;
-    //align-content: center;
-    //margin: auto;
-    //margin-left: 30px;
   }
 
   .backColorBlue{
@@ -55,21 +48,40 @@
 
   .backColorGreen{
     background-color: #ffffff;
+    padding-left: 20px;
+    border-radius: 8px;
+    margin: 40px;
+  }
+
+  .backColorFon{
+    background-color: #ffffff;
+  }
+
+  .backColorFon2{
+    background-color: #ffffff;
+  }
+
+  .backColorYellow{
+    background-color: #ffffff;
   }
 
   .backColorGray{
     background-color: #ffffff;
-    border-radius: 8px;
-    //width: 900px;
-    //height: 500px;
-    //margin-left: 30px
   }
 
   .layoutDayItem{
     background-color: #cdf1ff;
     border-radius: 5px;
+    font-size: 12px;
     width: 250px;
-    height: 100px;
+    height: 90px;
   }
 
+  .backColorFooter{
+    background-color: #ffffff;
+  }
+
+  .textSizeToday{
+    font-size: 18px;
+  }
 }

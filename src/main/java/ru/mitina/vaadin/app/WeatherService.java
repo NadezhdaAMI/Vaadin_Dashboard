@@ -84,7 +84,10 @@ public class WeatherService {
 
         Weather day = new Weather();
         paramToday(day);
-        dayOptions.addComponent(new Label("днем " + day.gettDay() + " C"));
+        Label lab1 = new Label("" + day.gettDay() + " C");
+        lab1.addStyleName("textSizeToday");
+        dayOptions.addComponent(lab1);
+
         dayOptions.addComponent(new Label("ночью " + day.gettNigth() + " C"));
         dayOptions.addComponent(new Label("ветер " + day.getWindSpeed() + " м/с"));
         dayToday.addComponent(dayOptions);
