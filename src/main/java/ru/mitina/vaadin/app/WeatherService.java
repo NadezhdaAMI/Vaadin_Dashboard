@@ -15,11 +15,11 @@ import java.util.*;
 
 public class WeatherService {
 
-    private static final String beginURL = "http://api.openweathermap.org/data/2.5/forecast?id=";
+    private static final String beginURL = "http://api.openweathermap.org/data/2.5/weather?id=";
 
-    private static final String endURL = "&APPID=fd05633695761f3e038d2270479047af";
+    private static final String endURL = "&APPID=fd05633695761f3e038d2270479047af&units=metric";
 
-    public static String url = "http://api.openweathermap.org/data/2.5/forecast?id=1496747&APPID=fd05633695761f3e038d2270479047af"; // Novosibirsk
+    public static String url = "http://api.openweathermap.org/data/2.5/weather?id=1496747&APPID=fd05633695761f3e038d2270479047af&units=metric"; // Novosibirsk
 
     private static Map<Integer, String> map = new TreeMap<>();
 
@@ -54,24 +54,29 @@ public class WeatherService {
     }
 
     public static Weather paramToday(Weather day){
-        day.settDay(JsonPath.read(jsonWeather, "$.list[2].main.temp").toString()); // состояние на 15:00
-        day.settNigth(JsonPath.read(jsonWeather, "$.list[6].main.temp").toString()); // состояние на 3:00! (следующий день, 3:00)
-        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[2].wind.speed").toString()); // состояние на 3:00! (следующий день, 3:00)
+        day.settDay(JsonPath.read(jsonWeather, "$.main.temp").toString()); // текущее состояние
+//        day.settNigth(JsonPath.read(jsonWeather, "$.list[6].main.temp_min").toString()); // состояние на 3:00! (следующий день, 3:00)
+        day.setWindSpeed(JsonPath.read(jsonWeather, "$.wind.speed").toString()); //текущее состояние
+        day.setHumidity(JsonPath.read(jsonWeather, "$.main.humidity").toString());
+        day.setPressure(JsonPath.read(jsonWeather, "$.main.pressure").toString());
         log.info("Заполнен layout сегодняшнего дня");
         return day;
     }
 
-    public static Weather paramTomor(Weather day){
-
-        day.settDay((JsonPath.read(jsonWeather, "$.list[10].main.temp")).toString()); // состояние на 15:00 завтрашнего дня
-        day.settNigth(JsonPath.read(jsonWeather, "$.list[14].main.temp").toString()); // состояние на 3:00! (следующий день, 3:00)
-        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[10].wind.speed").toString()); // состояние на 3:00! (следующий день, 3:00)
-        log.info("Заполнен layout завтрашнего дня");
-        return day;
-    }
+//    public static Weather paramTomor(Weather day){
+//
+//        day.settDay((JsonPath.read(jsonWeather, "$.list[10].main.temp")).toString()); // состояние на 15:00 завтрашнего дня
+//        day.settNigth(JsonPath.read(jsonWeather, "$.list[14].main.temp_min").toString()); // состояние на 3:00! (следующий день, 3:00)
+//        day.setWindSpeed(JsonPath.read(jsonWeather, "$.list[10].wind.speed").toString()); // состояние на 3:00! (следующий день, 3:00)
+//        day.setHumidity(JsonPath.read(jsonWeather, "$.list[10].main.humidity").toString());
+//        day.setPressure(JsonPath.read(jsonWeather, "$.list[10].main.pressure").toString());
+//        log.info("Заполнен layout завтрашнего дня");
+//        return day;
+//    }
 
     public static void fillItems(VerticalLayout dayitem){
 
+        //today item
         HorizontalLayout dayToday = new HorizontalLayout();
         dayToday.setStyleName("layoutDayItem");
         DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
@@ -87,30 +92,45 @@ public class WeatherService {
         Label lab1 = new Label("" + day.gettDay() + " C");
         lab1.addStyleName("textSizeToday");
         dayOptions.addComponent(lab1);
+//        dayOptions.addComponent(new Label("ночью " + day.gettNigth() + " C"));
 
-        dayOptions.addComponent(new Label("ночью " + day.gettNigth() + " C"));
-        dayOptions.addComponent(new Label("ветер " + day.getWindSpeed() + " м/с"));
+        VerticalLayout dayOptions2 = new VerticalLayout();
+        dayOptions2.setMargin(false);
+        dayOptions2.addComponent(new Label("ветер " + day.getWindSpeed() + " м/с"));
+        dayOptions2.addComponent(new Label("давл " + day.getPressure() + " Па"));
+        dayOptions2.addComponent(new Label("влажн " + day.getHumidity() + " %"));
         dayToday.addComponent(dayOptions);
+        dayToday.addComponent(dayOptions2);
 
-        //tomorrow item
-        HorizontalLayout dayTomorrow = new HorizontalLayout();
-        dayTomorrow.setStyleName("layoutDayItem");
-        Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-        Label tomorrowInfo = new Label(dateFormatday.format(dateT)); // завтра
-        dayTomorrow.addComponent(tomorrowInfo);
-
-        VerticalLayout tomOptions = new VerticalLayout();
-        tomOptions.setMargin(false);
-
-        Weather tom = new Weather();
-        paramTomor(tom);
-        tomOptions.addComponent(new Label("днем " + tom.gettDay() + " C"));
-        tomOptions.addComponent(new Label("ночью " + tom.gettNigth() + " C"));
-        tomOptions.addComponent(new Label("ветер " + tom.getWindSpeed() + " м/с"));
-        dayTomorrow.addComponent(tomOptions);
+//        //tomorrow item
+//        HorizontalLayout dayTomorrow = new HorizontalLayout();
+//        dayTomorrow.setStyleName("layoutDayItem");
+//        Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+//        Label tomorrowInfo = new Label(dateFormatday.format(dateT)); // завтра
+//        dayTomorrow.addComponent(tomorrowInfo);
+//
+//        VerticalLayout tomOptions = new VerticalLayout();
+//        tomOptions.setMargin(false);
+//
+//        Weather tom = new Weather();
+////        paramTomor(tom);
+//        Label lab2 = new Label("" + tom.gettDay() + " C");
+//        tomOptions.addComponent(lab2);
+//        lab2.addStyleName("textSizeToday");
+//        tomOptions.addComponent(new Label("ночью " + tom.gettNigth() + " C"));
+//
+//        VerticalLayout tomOptions2 = new VerticalLayout();
+//        tomOptions2.setMargin(false);
+//
+//        tomOptions2.addComponent(new Label("ветер " + tom.getWindSpeed() + " м/с"));
+//        tomOptions2.addComponent(new Label("давл " + tom.getPressure() + " Па"));
+//        tomOptions2.addComponent(new Label("влажн " + tom.getHumidity() + " %"));
+//
+//        dayTomorrow.addComponent(tomOptions);
+//        dayTomorrow.addComponent(tomOptions2);
 
         dayitem.addComponent(dayToday);
-        dayitem.addComponent(dayTomorrow);
+//        dayitem.addComponent(dayTomorrow);
         log.info("Заполнены layout-ы каждого дня данными о погоде");
     }
 
