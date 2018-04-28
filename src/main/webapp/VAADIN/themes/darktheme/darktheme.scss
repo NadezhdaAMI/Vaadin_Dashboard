@@ -26,6 +26,8 @@
     width: 310px;
     height: 370px;
     margin: 20px;
+    align-content: center;
+    text-align: center;
   }
 
   .v-grid {
@@ -40,6 +42,10 @@
   .panelCounter {
     width: 170px;
     height: 80px;
+    background-color: #cdf1ff;
+    text-align: center;
+    //align-content: center;
+    //margin: auto;
     //margin-left: 30px;
   }
 

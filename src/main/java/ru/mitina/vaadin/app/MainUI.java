@@ -11,19 +11,47 @@ import java.util.*;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import ru.mitina.vaadin.app.mongodb.Counter;
+import ru.mitina.vaadin.app.mongodb.CounterRepository;
 
-
+@EnableAutoConfiguration
 @SpringUI
 @Theme("darktheme")
-public class MainUI extends UI {
+public class MainUI extends UI{
 
     static final Logger logger = LogManager.getLogger(MainUI.class.getName());
 
     public static Counter counter;
 
+    @Autowired
+    private CounterRepository repository;
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+
+        try {
+            repository.findAll().get(0).getId();
+            logger.info("Достаем из базы значение счетчика посещений");
+            logger.info("get(0).getId() = " + repository.findAll().get(0).getId());
+            logger.info("get(0) = " + repository.findAll().get(0));
+            logger.info("до - " + repository.findAll().get(0));
+            int n = repository.findAll().get(0).incCounter();
+            logger.info("после - " + n);
+            repository.deleteAll();
+            counter = new Counter(n);
+            repository.save(counter);
+
+            logger.info("get(0).getId() = " + repository.findAll().get(0).getId());
+            logger.info("get(0) = " + repository.findAll().get(0));
+            logger.info("size: " + repository.findAll().size());
+            logger.info("Счетчик посещений увеличен на 1");
+
+        } catch (NullPointerException ex){
+            ex.printStackTrace();
+            logger.error("Произошла ошибка при обращении к базе!");
+        }
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
@@ -40,9 +68,8 @@ public class MainUI extends UI {
         HorizontalLayout layoutHor = new HorizontalLayout();
 
         Panel panelCounter = new Panel("Счетчик посещений");
+        panelCounter.setStyleName("panelCounter");
         panelCounter.setWidth("180px");
-        panelCounter.setHeight("70px");
-
         panelCounter.setContent(new Label(String.valueOf(counter)));
 
         Panel panelW = new Panel("Прогноз погоды ");
