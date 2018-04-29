@@ -52,7 +52,7 @@ public class MainUI extends UI{
         layout.setStyleName("backColorFon");
 
         HorizontalLayout h2 = new HorizontalLayout();
-        h2.setWidth("950px");
+        h2.setWidth("970px");
         h2.setHeight("550px");
         h2.setMargin(false);
         h2.setStyleName("backColorBlue");
@@ -60,7 +60,7 @@ public class MainUI extends UI{
 
         logger.info("Заполняем layout для погоды");
         VerticalLayout dayitem = new VerticalLayout();
-        dayitem.setWidth("310px");
+        dayitem.setWidth("320px");
         dayitem.setHeight("450px");
         dayitem.setStyleName("backColorGreen");
         dayitem.setMargin(true);
@@ -73,6 +73,13 @@ public class MainUI extends UI{
         Label labelW = new Label("Прогноз погоды ");
         dayitemF.addComponent(labelW);
 
+        VerticalLayout itemsL = new VerticalLayout();
+        itemsL.setStyleName("backColorYellow");
+        itemsL.setMargin(false);
+//        dayitem.addComponent(itemsL);
+        WeatherService.fillItems(itemsL);
+
+
         Map<Integer, String> map = WeatherService.getMap();
 
         NativeSelect sample = new NativeSelect<>("", map.values());
@@ -83,17 +90,21 @@ public class MainUI extends UI{
         sample.addValueChangeListener(event -> {
             String cityName = String.valueOf(event.getValue());
             WeatherService.buildUrl(cityName);
+
+            itemsL.removeAllComponents();
+            WeatherService.setJsonWeather();
+            WeatherService.fillItems(itemsL);
+
         });
 
         dayitemF.addComponent(sample);
         dayitem.addComponent(dayitemF);
 
-        VerticalLayout itemsL = new VerticalLayout();
-        itemsL.setStyleName("backColorYellow");
-        itemsL.setMargin(false);
+//        VerticalLayout itemsL = new VerticalLayout();
+//        itemsL.setStyleName("backColorYellow");
+//        itemsL.setMargin(false);
         dayitem.addComponent(itemsL);
-
-        WeatherService.fillItems(itemsL);
+//        WeatherService.fillItems(itemsL);
 
         Button buttonW = new Button("Обновить");
 
@@ -110,7 +121,7 @@ public class MainUI extends UI{
 
         logger.info("Заполняем layout для валюты");
         VerticalLayout vertLayout = new VerticalLayout();
-        vertLayout.setWidth("310px");
+        vertLayout.setWidth("320px");
         vertLayout.setHeight("450px");
         vertLayout.setStyleName("backColorGreen");
         vertLayout.setMargin(true);

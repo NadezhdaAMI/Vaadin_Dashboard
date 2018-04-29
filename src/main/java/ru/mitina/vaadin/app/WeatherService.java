@@ -94,7 +94,7 @@ public class WeatherService {
         VerticalLayout dayOptions2 = new VerticalLayout();
         dayOptions2.setMargin(false);
         dayOptions2.addComponent(new Label("ветер " + day.getWindSpeed() + " м/с"));
-        dayOptions2.addComponent(new Label("давл " + day.getPressure() + " Па"));
+        dayOptions2.addComponent(new Label("давл " + day.getPressure() + " мм рт.ст."));
         dayOptions2.addComponent(new Label("влажн " + day.getHumidity() + " %"));
 
         dayToday.addComponent(dayOptions);
@@ -122,7 +122,7 @@ public class WeatherService {
 //        tomOptions2.setMargin(false);
 //
 //        tomOptions2.addComponent(new Label("ветер " + tom.getWindSpeed() + " м/с"));
-//        tomOptions2.addComponent(new Label("давл " + tom.getPressure() + " Па"));
+//        tomOptions2.addComponent(new Label("давл " + tom.getPressure() + " мм рт.ст."));
 //        tomOptions2.addComponent(new Label("влажн " + tom.getHumidity() + " %"));
 //
 //        dayTomorrow.addComponent(tomOptions);
