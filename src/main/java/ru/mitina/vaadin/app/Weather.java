@@ -12,6 +12,8 @@ public class Weather {
 
     private String humidity;
 
+    private String icon;
+
     public String gettDay() {
         double d = Double.parseDouble(tDay);
         String day = String.format("%.0f", d);
@@ -56,6 +58,14 @@ public class Weather {
 
     public void setHumidity(String humidity) {
         this.humidity = humidity;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
 

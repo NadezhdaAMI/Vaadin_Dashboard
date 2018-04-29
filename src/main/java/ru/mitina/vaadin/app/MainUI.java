@@ -51,7 +51,6 @@ public class MainUI extends UI{
         layout.setMargin(false);
         layout.setStyleName("backColorFon");
 
-        //MAIN
         HorizontalLayout h2 = new HorizontalLayout();
         h2.setWidth("950px");
         h2.setHeight("550px");
@@ -59,7 +58,7 @@ public class MainUI extends UI{
         h2.setStyleName("backColorBlue");
         h2.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
-            //WEATHER
+        logger.info("Заполняем layout для погоды");
         VerticalLayout dayitem = new VerticalLayout();
         dayitem.setWidth("310px");
         dayitem.setHeight("450px");
@@ -94,7 +93,7 @@ public class MainUI extends UI{
         itemsL.setMargin(false);
         dayitem.addComponent(itemsL);
 
-        WeatherService.fillItems(itemsL); // НЕ УДАЛЯТЬ!
+        WeatherService.fillItems(itemsL);
 
         Button buttonW = new Button("Обновить");
 
@@ -109,7 +108,7 @@ public class MainUI extends UI{
 
         h2.addComponent(dayitem);
 
-        //MONEY
+        logger.info("Заполняем layout для валюты");
         VerticalLayout vertLayout = new VerticalLayout();
         vertLayout.setWidth("310px");
         vertLayout.setHeight("450px");
@@ -121,7 +120,7 @@ public class MainUI extends UI{
         Grid<Currency> grid = new Grid<>();
         grid.setWidth("270px");
         grid.setHeight("115px");
-        CurrencyService.fillGrid(grid);  // НЕ УДАЛЯТЬ
+        CurrencyService.fillGrid(grid);
         vertLayout.addComponent(grid);
         vertLayout.setComponentAlignment(grid, Alignment.MIDDLE_CENTER);
 

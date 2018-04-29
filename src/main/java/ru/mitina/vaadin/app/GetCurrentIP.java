@@ -45,7 +45,6 @@ public class GetCurrentIP {
             }
         }
 
-
         return ipAddress;
     }
 }

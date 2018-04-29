@@ -1,9 +1,8 @@
 package ru.mitina.vaadin.app;
 
 import com.jayway.jsonpath.JsonPath;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.server.ThemeResource;
+import com.vaadin.ui.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,7 +30,6 @@ public class WeatherService {
         map.put(498817, "Санкт-Петербург");
         map.put(524901, "Москва");
         map.put(1496747, "Новосибирск");
-
         setJsonWeather();
     }
 
@@ -54,11 +52,11 @@ public class WeatherService {
     }
 
     public static Weather paramToday(Weather day){
-        day.settDay(JsonPath.read(jsonWeather, "$.main.temp").toString()); // текущее состояние
-//        day.settNigth(JsonPath.read(jsonWeather, "$.list[6].main.temp_min").toString()); // состояние на 3:00! (следующий день, 3:00)
-        day.setWindSpeed(JsonPath.read(jsonWeather, "$.wind.speed").toString()); //текущее состояние
+        day.settDay(JsonPath.read(jsonWeather, "$.main.temp").toString());
+        day.setWindSpeed(JsonPath.read(jsonWeather, "$.wind.speed").toString());
         day.setHumidity(JsonPath.read(jsonWeather, "$.main.humidity").toString());
         day.setPressure(JsonPath.read(jsonWeather, "$.main.pressure").toString());
+        day.setIcon(JsonPath.read(jsonWeather, "$.weather[0].icon").toString());
         log.info("Заполнен layout сегодняшнего дня");
         return day;
     }
@@ -76,7 +74,7 @@ public class WeatherService {
 
     public static void fillItems(VerticalLayout dayitem){
 
-        //today item
+        log.info("Заполняется layout сегодняшнего дня");
         HorizontalLayout dayToday = new HorizontalLayout();
         dayToday.setStyleName("layoutDayItem");
         DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
@@ -92,17 +90,18 @@ public class WeatherService {
         Label lab1 = new Label("" + day.gettDay() + " C");
         lab1.addStyleName("textSizeToday");
         dayOptions.addComponent(lab1);
-//        dayOptions.addComponent(new Label("ночью " + day.gettNigth() + " C"));
 
         VerticalLayout dayOptions2 = new VerticalLayout();
         dayOptions2.setMargin(false);
         dayOptions2.addComponent(new Label("ветер " + day.getWindSpeed() + " м/с"));
         dayOptions2.addComponent(new Label("давл " + day.getPressure() + " Па"));
         dayOptions2.addComponent(new Label("влажн " + day.getHumidity() + " %"));
+
         dayToday.addComponent(dayOptions);
         dayToday.addComponent(dayOptions2);
+        dayToday.addComponent(showIcon(day.getIcon()));
 
-//        //tomorrow item
+//        log.info("Заполняется layout завтрашнего дня");
 //        HorizontalLayout dayTomorrow = new HorizontalLayout();
 //        dayTomorrow.setStyleName("layoutDayItem");
 //        Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
@@ -148,10 +147,14 @@ public class WeatherService {
             }
         }
         StringBuilder s = new StringBuilder();
-        s.append(beginURL);
-        s.append(cityId);
-        s.append(endURL);
-        url = s.toString();
+        url = s.append(beginURL).append(cityId).append(endURL).toString();
         log.info("Получен url с учетом id города");
+    }
+
+    public static Image showIcon(String icon){
+        ThemeResource resource = new ThemeResource("icons/" + icon + ".png");
+        Image im = new Image("", resource);
+        log.info("Получена иконка");
+        return im;
     }
 }
