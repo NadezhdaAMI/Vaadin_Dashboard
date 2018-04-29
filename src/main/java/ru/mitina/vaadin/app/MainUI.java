@@ -163,7 +163,7 @@ public class MainUI extends UI{
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         Date date = new Date();
         Label stateInfo = new Label("Информация по состоянию на " + dateFormat.format(date));
-        Label ipInfo = new Label("Ваш IP-адрес: " + GetCurrentIP.getIpAddress());
+        Label ipInfo = new Label("Ваш IP-адрес: " + GetCurrentIP.getClientIp());
 
         h3.addComponent(stateInfo);
         h3.addComponent(ipInfo);

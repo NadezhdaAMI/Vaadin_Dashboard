@@ -2,21 +2,30 @@ package ru.mitina.vaadin.app;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class GetCurrentIP {
 
     private static final Logger log = LogManager.getLogger(GetCurrentIP.class);
 
-    public static String getIpAddress() {
+    public static String getClientIp() {
 
-        log.info("Получение IP адреса...");
+        log.info("Получение IP адреса клиента...");
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+                .getRequest();
+        String ip = request.getRemoteAddr();
+        return ip;
+    }
+
+    public static String getServerIp() {
+        log.info("Получение IP адреса сервера...");
         URL url;
         BufferedReader in;
         String ipAddress;
@@ -32,10 +41,10 @@ public class GetCurrentIP {
 
                 } catch(Exception exp) {
                     ipAddress = "ERROR";
-                    log.error("Ваш текущий IP адрес не доступен!");
+                    log.error("Ваш IP адрес не доступен!");
                 }
             }
-            log.info("Ваш текущий IP адрес получен");
+            log.info("Ваш IP адрес получен");
         } catch (Exception ex) {
 
             try {
@@ -43,10 +52,9 @@ public class GetCurrentIP {
                 ipAddress = (ip.getHostAddress()).trim();
             } catch(Exception exp) {
                 ipAddress = "ERROR";
-                log.error("Ваш текущий IP адрес не доступен!");
+                log.error("Ваш IP адрес не доступен!");
             }
         }
-
         return ipAddress;
     }
 }
