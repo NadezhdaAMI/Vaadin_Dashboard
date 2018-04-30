@@ -78,11 +78,11 @@ public class WeatherService {
         c.set(Calendar.MINUTE, 0);
         c.set(Calendar.SECOND, 0);
         c.set(Calendar.MILLISECOND, 0);
-        long midnight = c.getTimeInMillis();
+        long midnight = c.getTimeInMillis() / 1000;
 
         int n = 18;
-        double tmax = 0;
-        double tmin = 0;
+        double tmax = -70;
+        double tmin = 70;
         double windSum = 0;
         double presSum = 0;
         double humSum = 0;
@@ -99,6 +99,9 @@ public class WeatherService {
                 k++;
             }
         }
+        log.info("midnight = " + midnight);
+        log.info(Long.parseLong(JsonPath.read(jsonTom, "$.list[" + 0 + "].dt").toString()));
+        log.info("k = " + k);
         double windSpeed = windSum / k;
         double pressure = presSum / k;
         double humidity = humSum / k;
@@ -117,8 +120,10 @@ public class WeatherService {
         log.info("Заполняется layout сегодняшнего дня");
         HorizontalLayout dayToday = new HorizontalLayout();
         dayToday.setStyleName("layoutDayItem");
+        dayToday.setSpacing(true);
         VerticalLayout v1 = new VerticalLayout();
         v1.setMargin(false);
+        v1.setSpacing(false);
         v1.setHeight("20px");
         DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
         Date date = new Date();
@@ -127,7 +132,10 @@ public class WeatherService {
 
         paramToday(day);
 
-        v1.addComponent(new Label("сегодня"));
+        Label text = new Label("cегодня");
+        text.setStyleName("textSize");
+        v1.addComponent(text);
+
         Image image = showIcon(day.getIcon());
         v1.addComponent(image);
         image.setStyleName("delIndent");
@@ -152,6 +160,7 @@ public class WeatherService {
 
         log.info("Заполняется layout завтрашнего дня");
         HorizontalLayout dayTomorrow = new HorizontalLayout();
+        dayTomorrow.setSpacing(true);
 
         fillItemTom(dayTomorrow);
 
@@ -173,9 +182,13 @@ public class WeatherService {
         Weather tom = new Weather();
         paramTomor(tom);
 
-        Label lab2 = new Label("мин " + tom.gettDay() + " C");
+        Label lab2 = new Label("макс " + tom.gettDay() + " C");
+        lab2.setStyleName("textSize");
         tomOptions.addComponent(lab2);
-        tomOptions.addComponent(new Label("макс " + tom.gettNigth() + " C"));
+        Label lab3 = new Label("мин " + tom.gettNigth() + " C");
+        lab3.setStyleName("textSize");
+        tomOptions.addComponent(lab3);
+        tomOptions.setSpacing(false);
 
         VerticalLayout t3 = new VerticalLayout();
         t3.setMargin(false);
@@ -185,6 +198,7 @@ public class WeatherService {
 
         dayTom.addComponent(tomOptions);
         dayTom.addComponent(t3);
+        dayTom.setComponentAlignment(t3, Alignment.TOP_RIGHT);
     }
 
     public static void buildUrl(String cityName, String beginURL, String endURL, String req){
@@ -216,8 +230,8 @@ public class WeatherService {
     public static Image showIcon(String icon){
         ThemeResource resource = new ThemeResource("icons/" + icon + ".png");
         Image im = new Image("", resource);
-        im.setHeight("80px");
-        im.setWidth("80px");
+        im.setHeight("70px");
+        im.setWidth("70px");
         log.info("Получена иконка");
         return im;
     }

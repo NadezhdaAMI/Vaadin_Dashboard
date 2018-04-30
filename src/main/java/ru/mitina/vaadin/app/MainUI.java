@@ -55,6 +55,7 @@ public class MainUI extends UI{
         h2.setWidth("970px");
         h2.setHeight("550px");
         h2.setMargin(false);
+        h2.setSpacing(true);
         h2.setStyleName("backColorBlue");
         h2.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
@@ -76,7 +77,6 @@ public class MainUI extends UI{
         itemsL.setStyleName("backColorYellow");
         itemsL.setMargin(false);
         WeatherService.fillItems(itemsL);
-
         Map<Integer, String> map = WeatherService.getMap();
 
         NativeSelect sample = new NativeSelect<>("", map.values());

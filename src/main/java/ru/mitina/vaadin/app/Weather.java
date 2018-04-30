@@ -56,7 +56,9 @@ public class Weather {
     }
 
     public String getHumidity() {
-        return humidity;
+        double d = Double.parseDouble(humidity);
+        String w = String.format("%.0f", d);
+        return w;
     }
 
     public void setHumidity(String humidity) {
