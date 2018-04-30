@@ -26,6 +26,7 @@ public class MainService {
             response = client.execute(request);
         } catch (IOException e) {
             e.printStackTrace();
+            log.error("При выполнении запроса клиента произошла ошибка!");
         }
 
         BufferedReader rd = null;

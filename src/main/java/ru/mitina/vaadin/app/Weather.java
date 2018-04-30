@@ -47,7 +47,7 @@ public class Weather {
     public String getPressure() {
         double d = Double.parseDouble(pressure);
         double res = d/1.333224;
-        String w = String.format("%.1f", res);
+        String w = String.format("%.0f", res);
         return w;
     }
 

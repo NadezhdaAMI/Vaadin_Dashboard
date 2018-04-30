@@ -69,16 +69,13 @@ public class MainUI extends UI{
         dayitemF.setHeight("30px");
         dayitemF.setStyleName("backColorFon2");
         dayitemF.setMargin(false);
-
         Label labelW = new Label("Прогноз погоды ");
         dayitemF.addComponent(labelW);
 
         VerticalLayout itemsL = new VerticalLayout();
         itemsL.setStyleName("backColorYellow");
         itemsL.setMargin(false);
-//        dayitem.addComponent(itemsL);
         WeatherService.fillItems(itemsL);
-
 
         Map<Integer, String> map = WeatherService.getMap();
 
@@ -89,25 +86,17 @@ public class MainUI extends UI{
 
         sample.addValueChangeListener(event -> {
             String cityName = String.valueOf(event.getValue());
-            WeatherService.buildUrl(cityName);
-
+            WeatherService.buildUrl(cityName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
+            WeatherService.buildUrl(cityName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
             itemsL.removeAllComponents();
             WeatherService.setJsonWeather();
             WeatherService.fillItems(itemsL);
-
         });
 
         dayitemF.addComponent(sample);
         dayitem.addComponent(dayitemF);
-
-//        VerticalLayout itemsL = new VerticalLayout();
-//        itemsL.setStyleName("backColorYellow");
-//        itemsL.setMargin(false);
         dayitem.addComponent(itemsL);
-//        WeatherService.fillItems(itemsL);
-
         Button buttonW = new Button("Обновить");
-
         buttonW.addClickListener( e -> {
             itemsL.removeAllComponents();
             WeatherService.setJsonWeather();
