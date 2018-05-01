@@ -14,7 +14,7 @@ public class CurrencyService {
 
     private static String urlC = "https://www.cbr-xml-daily.ru/daily_json.js";
 
-    private static String urlS = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D30.04.2018%26_date_ato114%3D30.04.2018%26mode%3Dfull%26display%3Djson";
+    private static String urlS = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D01.05.2018%26_date_ato114%3D01.05.2018%26mode%3Dfull%26display%3Djson";
 
     private static final Logger log = LogManager.getLogger(WeatherService.class);
 
@@ -53,7 +53,7 @@ public class CurrencyService {
 
         grid.setItems(CurrencyService.getGridContent());
         grid.addColumn(Currency::getName).setCaption("Валюта");
-        grid.addColumn(Currency::getValue).setCaption("ЦБР");
+        grid.addColumn(Currency::getValue).setCaption("КУРС ЦБ");
         grid.addColumn(Currency::getBuy).setCaption("ПОКУПКА");
         grid.addColumn(Currency::getSell).setCaption("ПРОДАЖА");
         log.info("grid заполнена данными по валюте");

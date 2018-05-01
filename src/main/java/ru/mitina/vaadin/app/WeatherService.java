@@ -132,7 +132,7 @@ public class WeatherService {
 
         paramToday(day);
 
-        Label text = new Label("cегодня");
+        Label text = new Label("сегодня");
         text.setStyleName("textSize");
         v1.addComponent(text);
 

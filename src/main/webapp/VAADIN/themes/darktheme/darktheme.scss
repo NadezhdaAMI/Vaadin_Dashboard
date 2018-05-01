@@ -16,30 +16,21 @@ $v-background-color: hsl(199, 100%, 84%);
     align-content: center;
   }
 
-  .v-panel {
-    background-image: none;
-    background-color: #ffffff;
-    font-size: 14px;
-    width: 310px;
-    height: 370px;
-    margin: 20px;
-    align-content: center;
-    text-align: center;
-  }
-
   .v-grid {
     background-image: none;
     background-color: #ffffff;
     width: 320px;
     height: 150px;
+    margin-top: 0px;
   }
-
 
   .panelCounter {
     width: 170px;
     height: 80px;
-    background-color: #cdf1ff;
+    background-color: #ffffff;
+    border-radius: 8px;
     text-align: center;
+    margin-top: 20px;
   }
 
   .backColorBlue{
@@ -50,7 +41,7 @@ $v-background-color: hsl(199, 100%, 84%);
     background-color: #ffffff;
     padding-left: 20px;
     border-radius: 8px;
-    margin: 40px;
+    //margin: 30px;
   }
 
   .backColorFon{
@@ -58,14 +49,6 @@ $v-background-color: hsl(199, 100%, 84%);
   }
 
   .backColorFon2{
-    background-color: #ffffff;
-  }
-
-  .backColorYellow{
-    background-color: #ffffff;
-  }
-
-  .backColorGray{
     background-color: #ffffff;
   }
 
@@ -82,7 +65,14 @@ $v-background-color: hsl(199, 100%, 84%);
   }
 
   .backColorRose{
-    background-color: #ff96b9;
+    background-color: #91e5f9;
+    padding-right: 40px;
+  }
+
+  .backColorGreen2{
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-left: 0px;
   }
 
   .textSizeToday{
@@ -93,6 +83,6 @@ $v-background-color: hsl(199, 100%, 84%);
   .textSize{
     font-size: 16px;
     margin-top: 5px;
+    margin-left: 5px;
   }
-
 }

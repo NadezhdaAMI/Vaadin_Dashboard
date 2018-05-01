@@ -45,17 +45,16 @@ public class MainUI extends UI{
             logger.error("Произошла ошибка при обращении к базе!");
         }
 
-        VerticalLayout layout = new VerticalLayout();
-        setContent(layout);
-        layout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
-        layout.setMargin(false);
-        layout.setStyleName("backColorFon");
+        VerticalLayout lmain = new VerticalLayout();
+        setContent(lmain);
+        lmain.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+        lmain.setMargin(false);
+        lmain.setStyleName("backColorFon");
 
         HorizontalLayout h2 = new HorizontalLayout();
-        h2.setWidth("970px");
+        h2.setWidth("1080px");
         h2.setHeight("550px");
         h2.setMargin(false);
-        h2.setSpacing(true);
         h2.setStyleName("backColorBlue");
         h2.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
@@ -74,7 +73,6 @@ public class MainUI extends UI{
         dayitemF.addComponent(labelW);
 
         VerticalLayout itemsL = new VerticalLayout();
-        itemsL.setStyleName("backColorYellow");
         itemsL.setMargin(false);
         WeatherService.fillItems(itemsL);
         Map<Integer, String> map = WeatherService.getMap();
@@ -108,21 +106,23 @@ public class MainUI extends UI{
 
         h2.addComponent(dayitem);
 
+        VerticalLayout v2 = new VerticalLayout();
+        v2.setMargin(false);
+        v2.setStyleName("backColorRose");
         logger.info("Заполняем layout для валюты");
         VerticalLayout vertLayout = new VerticalLayout();
-        vertLayout.setWidth("320px");
-        vertLayout.setHeight("450px");
-        vertLayout.setStyleName("backColorGreen");
-        vertLayout.setMargin(true);
+        vertLayout.setHeight("300px");
+        vertLayout.setWidth("500px");
+        vertLayout.setStyleName("backColorGreen2");
+        vertLayout.setSpacing(false);
 
         Label labelM = new Label("Курсы валют");
         vertLayout.addComponent(labelM);
         Grid<Currency> grid = new Grid<>();
-        grid.setWidth("240px");
-        grid.setHeight("140px");
+        grid.setWidth("430px");
+        grid.setHeight("116px");
         CurrencyService.fillGrid(grid);
         vertLayout.addComponent(grid);
-        vertLayout.setComponentAlignment(grid, Alignment.MIDDLE_CENTER);
 
         Button buttonM = new Button("Обновить");
 
@@ -133,16 +133,18 @@ public class MainUI extends UI{
 
         vertLayout.addComponent(buttonM);
         vertLayout.setComponentAlignment(buttonM, Alignment.BOTTOM_CENTER);
+        v2.addComponent(vertLayout);
 
         Panel panelCounter = new Panel("Счетчик посещений");
         panelCounter.setStyleName("panelCounter");
         panelCounter.setWidth("180px");
         panelCounter.setContent(new Label(String.valueOf(counter)));
 
-        h2.addComponent(vertLayout);
-        h2.addComponent(panelCounter);
+        v2.addComponent(panelCounter);
+        v2.setComponentAlignment(panelCounter, Alignment.BOTTOM_CENTER);
+        h2.addComponent(v2);
 
-        layout.addComponent(h2);
+        lmain.addComponent(h2);
 
         HorizontalLayout h3 = new HorizontalLayout();
         h3.setWidth("950px");
@@ -157,7 +159,7 @@ public class MainUI extends UI{
         h3.addComponent(stateInfo);
         h3.addComponent(ipInfo);
         h3.setComponentAlignment(ipInfo, Alignment.TOP_RIGHT);
-        layout.addComponent(h3);
+        lmain.addComponent(h3);
 
         panelCounter.setContent(new Label(String.valueOf(counter)));
         logger.info("Добро пожаловать на сайт!");
