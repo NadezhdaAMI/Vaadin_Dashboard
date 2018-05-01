@@ -118,8 +118,8 @@ public class MainUI extends UI{
         Label labelM = new Label("Курсы валют");
         vertLayout.addComponent(labelM);
         Grid<Currency> grid = new Grid<>();
-        grid.setWidth("270px");
-        grid.setHeight("115px");
+        grid.setWidth("240px");
+        grid.setHeight("140px");
         CurrencyService.fillGrid(grid);
         vertLayout.addComponent(grid);
         vertLayout.setComponentAlignment(grid, Alignment.MIDDLE_CENTER);

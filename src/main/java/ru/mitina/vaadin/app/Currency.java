@@ -4,9 +4,12 @@ public class Currency {
 
     private String name;
 
-    private double value;
+    private String value;
 
-    private double previous;
+    private String buy;
+
+    private String sell;
+
 
     public String getName() {
         return name;
@@ -16,25 +19,29 @@ public class Currency {
         this.name = name;
     }
 
-    public double getValue() {
-        return value;
+    public String getValue() {
+        double d = Double.parseDouble(value);
+        String v = String.format("%.2f", d);
+        return v;
     }
 
-    public void setValue(double value) {
-
+    public void setValue(String value) {
         this.value = value;
-        String formattedDouble = String.format("%.2f", this.value);
-        this.value = Double.parseDouble(formattedDouble);
     }
 
-    public double getPrevious() {
-        return previous;
+    public String getBuy() {
+        return buy;
     }
 
-    public void setPrevious(double previous) {
+    public void setBuy(String buy) {
+        this.buy = buy;
+    }
 
-        this.previous = previous;
-        String formattedDouble = String.format("%.2f", this.previous);
-        this.previous = Double.parseDouble(formattedDouble);
+    public String getSell() {
+        return sell;
+    }
+
+    public void setSell(String sell) {
+        this.sell = sell;
     }
 }

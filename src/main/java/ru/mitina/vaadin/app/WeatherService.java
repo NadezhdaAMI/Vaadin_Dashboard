@@ -173,7 +173,7 @@ public class WeatherService {
         dayTom.setStyleName("layoutDayItem");
         Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
         DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
-        Label tomorrowInfo = new Label(dateFormatday.format(dateT)); // завтра
+        Label tomorrowInfo = new Label(dateFormatday.format(dateT));
         dayTom.addComponent(tomorrowInfo);
 
         VerticalLayout tomOptions = new VerticalLayout();
