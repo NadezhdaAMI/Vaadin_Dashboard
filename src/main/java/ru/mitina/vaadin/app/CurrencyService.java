@@ -47,10 +47,10 @@ public class CurrencyService {
         eur.setBuy(JsonPath.read(jsonSber, "$.2.quotes.*.buy").toString().substring(2, 7));
         eur.setSell(JsonPath.read(jsonSber, "$.2.quotes.*.sell").toString().substring(2, 7));
 
-        List<Currency> valute = Arrays.asList(usd, eur);
+        List<Currency> val = Arrays.asList(usd, eur);
         log.info("получен контент для grid");
 
-        return valute;
+        return val;
     }
 
     public static Grid fillGrid(Grid<Currency> grid){
@@ -66,11 +66,10 @@ public class CurrencyService {
 
     public static String buildUrl(){
         StringBuilder s = new StringBuilder();
-        DateFormat dateFormatday2 = new SimpleDateFormat("dd.MM.yyyy");
-        Date date2 = new Date();
-        String dateF = dateFormatday2.format(date2);
+        DateFormat formatD = new SimpleDateFormat("dd.MM.yyyy");
+        String dateF = formatD.format(new Date());
         String res = s.append(urlS1).append(dateF).append(urlS2).append(dateF).append(urlS3).toString();
-        log.info("Получен url для jsona c данными по валюте текущего дня " + date2);
+        log.info("Получен url для jsona c данными по валюте текущего дня " + dateF);
         return res;
     }
 }

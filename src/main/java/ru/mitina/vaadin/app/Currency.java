@@ -10,6 +10,7 @@ public class Currency {
 
     private String sell;
 
+    private String sign;
 
     public String getName() {
         return name;
@@ -44,4 +45,13 @@ public class Currency {
     public void setSell(String sell) {
         this.sell = sell;
     }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
+    }
 }
+

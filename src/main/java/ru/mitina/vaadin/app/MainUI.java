@@ -13,8 +13,12 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import ru.mitina.vaadin.app.mongodb.Counter;
 import ru.mitina.vaadin.app.mongodb.CounterRepository;
+
+import javax.servlet.http.HttpServletRequest;
 
 @EnableAutoConfiguration
 @SpringUI
@@ -45,136 +49,161 @@ public class MainUI extends UI{
             logger.error("Произошла ошибка при обращении к базе!");
         }
 
-        final VerticalLayout lmain = new VerticalLayout();
-        setContent(lmain);
-        lmain.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
-        lmain.setMargin(false);
-        lmain.setStyleName("backColorFon");
+        final VerticalLayout baseL = new VerticalLayout();
+        setContent(baseL);
+        baseL.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+        baseL.setPrimaryStyleName("styleBaseL");
 
-        HorizontalLayout h2 = new HorizontalLayout();
-        h2.setWidth("1080px");
-        h2.setHeight("550px");
-        h2.setMargin(false);
-        h2.setStyleName("backColorBlue");
-        h2.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+        HorizontalLayout mainL = new HorizontalLayout();
+        mainL.setPrimaryStyleName("styleMainL");
+        mainL.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
         logger.info("Заполняем layout для погоды");
-        VerticalLayout dayitem = new VerticalLayout();
-        dayitem.setWidth("320px");
-        dayitem.setHeight("450px");
-        dayitem.setStyleName("backColorGreen");
-        dayitem.setMargin(true);
+        VerticalLayout wL = new VerticalLayout();
+        wL.setHeight("450px"); /// TODO:убрать
+        wL.setPrimaryStyleName("styleWLayout");
 
-        VerticalLayout dayitemF = new VerticalLayout();
-        dayitemF.setHeight("30px");
-        dayitemF.setStyleName("backColorFon2");
-        dayitemF.setMargin(false);
+        VerticalLayout wHeader = new VerticalLayout();
+        wHeader.setPrimaryStyleName("styleWHeader");
         Label labelW = new Label("Прогноз погоды ");
-        dayitemF.addComponent(labelW);
+        wHeader.addComponent(labelW);
 
-        VerticalLayout itemsL = new VerticalLayout();
-        itemsL.setMargin(false);
-
-        ProgressBar bar = new ProgressBar();
-        bar.setIndeterminate(true);
-        itemsL.addComponent(bar);
-        itemsL.setComponentAlignment(bar, Alignment.BOTTOM_CENTER);
+        VerticalLayout wMainL = new VerticalLayout();
+        wMainL.setMargin(false);
 
         Map<Integer, String> map = WeatherService.getMap();
-
         NativeSelect sample = new NativeSelect<>("", map.values());
-
         sample.setEmptySelectionAllowed(false);
         sample.setSelectedItem(map.get(1496747));
+        WeatherService.setCityName(map.get(1496747));
 
         sample.addValueChangeListener(event -> {
-            itemsL.removeAllComponents();
-            itemsL.addComponent(bar);
-            itemsL.setComponentAlignment(bar, Alignment.BOTTOM_CENTER);
             String cityName = String.valueOf(event.getValue());
-            WeatherService.buildUrl(cityName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
-            WeatherService.buildUrl(cityName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
+            WeatherService.setCityName(cityName);
+            wMainL.removeAllComponents();
+            String cName = WeatherService.getCityName();
+            WeatherService.buildUrl(cName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
+            WeatherService.buildUrl(cName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
             WeatherService.setJsonWeather();
-            WeatherService.fillItems(itemsL);
-            itemsL.removeComponent(bar);
+            WeatherService.fillItems(wMainL);
         });
+        wHeader.addComponent(sample);
+        wL.addComponent(wHeader);
 
-        dayitemF.addComponent(sample);
-        dayitem.addComponent(dayitemF);
-        dayitem.addComponent(itemsL);
+        logger.info("Заполняется layout сегодняшнего дня");
+        HorizontalLayout todayL = new HorizontalLayout();
+        todayL.setPrimaryStyleName("layoutDayItem");
+
+        VerticalLayout todayLdate = new VerticalLayout();
+        todayLdate.setMargin(false);
+        todayLdate.setHeight("20px");
+        DateFormat formatDay = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
+        Date date = new Date();
+        todayLdate.addComponent(new Label(formatDay.format(date)));
+        Label text = new Label("сегодня");
+        text.setStyleName("textSize");
+        todayLdate.addComponent(text);
+        todayL.addComponent(todayLdate);
+
+        logger.info("Заполняется layout завтрашнего дня");
+        HorizontalLayout tomL = new HorizontalLayout();
+        tomL.setPrimaryStyleName("layoutDayItem");
+        Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+        Label tomInfo = new Label(formatDay.format(dateT));
+        tomL.addComponent(tomInfo);
+
+        wMainL.addComponent(todayL);
+        wMainL.addComponent(tomL);
+        logger.info("Заполнены layout-ы каждого дня данными о погоде");
+
+        wL.addComponent(wMainL);
         Button buttonW = new Button("Обновить");
         buttonW.addClickListener( e -> {
-            itemsL.removeAllComponents();
+            wMainL.removeAllComponents();
+            String cName = WeatherService.getCityName();
+            WeatherService.buildUrl(cName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
+            WeatherService.buildUrl(cName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
             WeatherService.setJsonWeather();
-            WeatherService.fillItems(itemsL);
+            WeatherService.fillItems(wMainL);
         });
 
-        dayitem.addComponent(buttonW);
-        dayitem.setComponentAlignment(buttonW, Alignment.BOTTOM_CENTER);
-
-        h2.addComponent(dayitem);
+        wL.addComponent(buttonW);
+        wL.setComponentAlignment(buttonW, Alignment.BOTTOM_CENTER);
+        mainL.addComponent(wL);
 
         VerticalLayout v2 = new VerticalLayout();
-        v2.setMargin(false);
-        v2.setStyleName("backColorRose");
+        v2.setPrimaryStyleName("styleV2");
         logger.info("Заполняем layout для валюты");
-        VerticalLayout vertLayout = new VerticalLayout();
-        vertLayout.setHeight("300px");
-        vertLayout.setWidth("500px");
-        vertLayout.setStyleName("backColorGreen2");
-        vertLayout.setSpacing(false);
+        VerticalLayout mL = new VerticalLayout();
+        mL.setPrimaryStyleName("styleMLayout");
 
         Label labelM = new Label("Курсы валют");
-        vertLayout.addComponent(labelM);
+        mL.addComponent(labelM);
         Grid<Currency> grid = new Grid<>();
         grid.setWidth("430px");
         grid.setHeight("116px");
 
+        Currency usd = new Currency();
+        usd.setName("USD/RUB");
+        usd.setSign("...");
+        Currency eur = new Currency();
+        eur.setName("EUR/RUB");
+        eur.setSign("...");
+
+        List<Currency> valute = Arrays.asList(usd, eur);
+        grid.setItems(valute);
+        logger.info("получен контент для grid");
+        grid.addColumn(Currency::getName).setCaption("Валюта");
+        grid.addColumn(Currency::getSign).setCaption("КУРС ЦБ");
+        grid.addColumn(Currency::getSign).setCaption("ПОКУПКА");
+        grid.addColumn(Currency::getSign).setCaption("ПРОДАЖА");
+        logger.info("grid заполнена ...");
+
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setMargin(false);
-        vertLayout.addComponent(vl2);
-        ProgressBar bar2 = new ProgressBar();
-        bar2.setIndeterminate(true);
-        vl2.addComponent(bar2);
-        vl2.setComponentAlignment(bar2, Alignment.BOTTOM_CENTER);
-        vertLayout.addComponent(vl2);
+        mL.addComponent(vl2);
+        vl2.addComponent(grid);
+        mL.addComponent(vl2);
         Button buttonM = new Button("Обновить");
         buttonM.addClickListener( e -> {
             grid.removeAllColumns();
             CurrencyService.fillGrid(grid);
             vl2.addComponent(grid);
-            vl2.removeComponent(bar2);
         });
 
-        vertLayout.addComponent(buttonM);
-        vertLayout.setComponentAlignment(buttonM, Alignment.BOTTOM_CENTER);
-        v2.addComponent(vertLayout);
+        mL.addComponent(buttonM);
+        mL.setComponentAlignment(buttonM, Alignment.BOTTOM_CENTER);
+        v2.addComponent(mL);
 
         Panel panelCounter = new Panel("Счетчик посещений");
-        panelCounter.setStyleName("panelCounter");
-        panelCounter.setWidth("180px");
+        panelCounter.setPrimaryStyleName("panelCounter");
         panelCounter.setContent(new Label(String.valueOf(counter)));
 
         v2.addComponent(panelCounter);
         v2.setComponentAlignment(panelCounter, Alignment.BOTTOM_CENTER);
-        h2.addComponent(v2);
+        mainL.addComponent(v2);
+        mainL.setComponentAlignment(v2, Alignment.TOP_RIGHT);
 
-        lmain.addComponent(h2);
+        baseL.addComponent(mainL);
 
-        HorizontalLayout h3 = new HorizontalLayout();
-        h3.setWidth("950px");
-        h3.setHeight("60px");
-        h3.setStyleName("backColorFooter");
+        HorizontalLayout footerL = new HorizontalLayout();
+        footerL.setWidth("950px");
+        footerL.setHeight("60px");
+        footerL.setStyleName("styleFooter");
 
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-        Date date = new Date();
-        Label stateInfo = new Label("Информация по состоянию на " + dateFormat.format(date));
-        Label ipInfo = new Label("Ваш IP-адрес: " + GetCurrentIP.getClientIp());
+        Date now = new Date();
+        Label stateInfo = new Label("Информация по состоянию на " + dateFormat.format(now));
 
-        h3.addComponent(stateInfo);
-        h3.addComponent(ipInfo);
-        h3.setComponentAlignment(ipInfo, Alignment.TOP_RIGHT);
-        lmain.addComponent(h3);
+        logger.info("Получение IP адреса клиента...");
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+                .getRequest();
+        Label ipInfo = new Label("Ваш IP-адрес: " + request.getRemoteAddr());
+
+        footerL.addComponent(stateInfo);
+        footerL.addComponent(ipInfo);
+        footerL.setComponentAlignment(ipInfo, Alignment.TOP_RIGHT);
+        baseL.addComponent(footerL);
 
         panelCounter.setContent(new Label(String.valueOf(counter)));
         logger.info("Добро пожаловать на сайт!");

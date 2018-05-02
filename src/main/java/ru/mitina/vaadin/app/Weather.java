@@ -6,7 +6,7 @@ public class Weather {
 
     private String tNigth;
 
-    private String windSpeed;
+    private String wind;
 
     private String pressure;
 
@@ -34,14 +34,14 @@ public class Weather {
         this.tNigth = tNigth;
     }
 
-    public String getWindSpeed() {
-        double d = Double.parseDouble(windSpeed);
+    public String getWind() {
+        double d = Double.parseDouble(wind);
         String w = String.format("%.0f", d);
         return w;
     }
 
-    public void setWindSpeed(String windSpeed) {
-        this.windSpeed = windSpeed;
+    public void setWind(String wind) {
+        this.wind = wind;
     }
 
     public String getPressure() {

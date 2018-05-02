@@ -12,10 +12,6 @@
             <AppenderRef ref="Console"/>
         </Logger>
 
-        <Logger name= "ru.mitina.vaadin.app.GetCurrentIP" level="debug" additivity="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-
         <Logger name= "ru.mitina.vaadin.app.WeatherService" level="debug" additivity="true">
             <AppenderRef ref="Console"/>
         </Logger>

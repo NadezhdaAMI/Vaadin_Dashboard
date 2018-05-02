@@ -25,54 +25,71 @@ $v-background-color: hsl(199, 100%, 84%);
   }
 
   .panelCounter {
-    width: 170px;
-    height: 80px;
+    width: 180px;
+    height: 70px;
     background-color: #ffffff;
     border-radius: 8px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    padding: 0px;
   }
 
-  .backColorBlue{
-    background-color: #91e5f9;
+  .styleMainL{
+    background-color: #cdf1ff;
+    width: 980px;
+    height: 520px;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 
-  .backColorGreen{
+  .styleBaseL{
     background-color: #ffffff;
+    margin: 0px;
+  }
+
+  .styleWLayout{
+    background-color: #ffffff;
+    width: 310px;
+    height: 450px;
     padding-left: 20px;
     border-radius: 8px;
-    //margin: 30px;
   }
 
-  .backColorFon{
+  .styleWHeader{
     background-color: #ffffff;
-  }
-
-  .backColorFon2{
-    background-color: #ffffff;
+    margin: 0px;
+    padding: 0px;
+    height: 30px;
   }
 
   .layoutDayItem{
     background-color: #cdf1ff;
     border-radius: 5px;
+    padding: 5px;
     font-size: 12px;
     width: 250px;
     height: 100px;
   }
 
-  .backColorFooter{
+  .styleFooter{
     background-color: #ffffff;
   }
 
-  .backColorRose{
-    background-color: #91e5f9;
-    padding-right: 40px;
+  .styleV2{
+    background-color: #cdf1ff;
+    margin: 0px;
+    margin-left: 40px;
+    padding: 0px;
   }
 
-  .backColorGreen2{
+  .styleMLayout{
     background-color: #ffffff;
+    height: 260px;
+    width: 500px;
     border-radius: 8px;
-    margin-left: 0px;
   }
 
   .textSizeToday{
@@ -83,6 +100,5 @@ $v-background-color: hsl(199, 100%, 84%);
   .textSize{
     font-size: 16px;
     margin-top: 5px;
-    margin-left: 5px;
   }
 }
