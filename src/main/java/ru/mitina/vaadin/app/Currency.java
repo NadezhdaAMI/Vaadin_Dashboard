@@ -22,8 +22,7 @@ public class Currency {
 
     public String getValue() {
         double d = Double.parseDouble(value);
-        String v = String.format("%.2f", d);
-        return v;
+        return String.format("%.2f", d);
     }
 
     public void setValue(String value) {

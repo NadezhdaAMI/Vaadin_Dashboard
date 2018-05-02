@@ -18,9 +18,14 @@ public class MainService {
     public static String jsonToString(String url) throws IOException {
 
         CloseableHttpClient client = HttpClientBuilder.create().build();
-        HttpGet request = new HttpGet(url);
-
-        request.addHeader("User-Agent", USER_AGENT);
+        HttpGet request = null;
+        try {
+            request = new HttpGet(url);
+            request.addHeader("User-Agent", USER_AGENT);
+        }catch (IllegalArgumentException ex){
+            ex.printStackTrace();
+            log.error("Ошибка при инициализации запроса через url!");
+        }
         CloseableHttpResponse response = null;
         try {
             response = client.execute(request);
@@ -28,19 +33,20 @@ public class MainService {
             e.printStackTrace();
             log.error("При выполнении запроса клиента произошла ошибка!");
         }
-
         BufferedReader rd = null;
         try {
-            rd = new BufferedReader(
-                    new InputStreamReader(response.getEntity().getContent()));
+            if (response != null) {
+                rd = new BufferedReader(
+                        new InputStreamReader(response.getEntity().getContent()));
+            }
         } catch (IOException e) {
             e.printStackTrace();
             log.info("Json файл не сохранен в строку!");
         }
 
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         String line;
-        while ((line = rd.readLine()) != null) {
+        while ((line = rd != null ? rd.readLine() : null) != null) { //complicated
             result.append(line);
         }
 

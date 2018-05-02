@@ -1,6 +1,7 @@
 package ru.mitina.vaadin.app;
 
 import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.PathNotFoundException;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.*;
 import org.apache.logging.log4j.LogManager;
@@ -55,14 +56,20 @@ public class WeatherService {
         }
     }
 
-    public static Weather paramToday(Weather day){
-        log.info(jsonToday);
-        day.settDay(JsonPath.read(jsonToday, "$.main.temp").toString());
-        day.setWind(JsonPath.read(jsonToday, "$.wind.speed").toString());
-        day.setHumidity(JsonPath.read(jsonToday, "$.main.humidity").toString());
-        day.setPressure(JsonPath.read(jsonToday, "$.main.pressure").toString());
-        day.setIcon(JsonPath.read(jsonToday, "$.weather[0].icon").toString());
-        log.info("Заполнен layout сегодняшнего дня");
+    public static Weather paramToday(Weather day) {
+        try {
+            log.info(jsonToday);
+            day.settDay(JsonPath.read(jsonToday, "$.main.temp").toString());
+            day.setWind(JsonPath.read(jsonToday, "$.wind.speed").toString());
+            day.setHumidity(JsonPath.read(jsonToday, "$.main.humidity").toString());
+            day.setPressure(JsonPath.read(jsonToday, "$.main.pressure").toString());
+            day.setIcon(JsonPath.read(jsonToday, "$.weather[0].icon").toString());
+            log.info("Заполнен layout сегодняшнего дня");
+        }
+        catch (PathNotFoundException ex){
+            ex.printStackTrace();
+            log.error("Не найден url для сохранения jsona в строку!");
+        }
         return day;
     }
 
@@ -207,15 +214,13 @@ public class WeatherService {
                 }
             }
         }
-        if (req == WeatherService.getUrlTod()){
-            StringBuilder s = new StringBuilder();
-            String res = s.append(beginURL).append(cityId).append(endURL).toString();
+        if (req.equals(WeatherService.getUrlTod())){
+            String res = beginURL+ cityId + endURL;
             log.info("Получен " + res + " с учетом id города");
             setUrlTod(res);
         }
-        if (req == WeatherService.getUrlTom()){
-            StringBuilder s = new StringBuilder();
-            String res2 = s.append(beginURL2).append(cityId).append(endURL).toString();
+        if (req.equals(WeatherService.getUrlTom())){
+            String res2 = beginURL2 + cityId + endURL;
             log.info("Получен " + res2 + " с учетом id города");
             setUrlTom(res2);
         }
@@ -242,7 +247,7 @@ public class WeatherService {
         return urlTom;
     }
 
-    public static void setUrlTom(String urlTom) {
+    private static void setUrlTom(String urlTom) {
         WeatherService.urlTom = urlTom;
     }
 

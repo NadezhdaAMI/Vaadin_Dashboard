@@ -2,6 +2,7 @@ package ru.mitina.vaadin.app;
 
 
 import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.PathNotFoundException;
 import com.vaadin.ui.Grid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,11 +14,10 @@ import java.util.*;
 
 public class CurrencyService {
 
-    private static String urlC = "https://www.cbr-xml-daily.ru/daily_json.js";
-
-    private static String urlS1 = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D";
-    private static String urlS2 = "%26_date_ato114%3D";
-    private static String urlS3 = "%26mode%3Dfull%26display%3Djson";
+    private static final String urlC = "https://www.cbr-xml-daily.ru/daily_json.js";
+    private static final String urlS1 = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D";
+    private static final String urlS2 = "%26_date_ato114%3D";
+    private static final String urlS3 = "%26mode%3Dfull%26display%3Djson";
 
     private static final Logger log = LogManager.getLogger(WeatherService.class);
 
@@ -54,13 +54,18 @@ public class CurrencyService {
     }
 
     public static Grid fillGrid(Grid<Currency> grid){
-
-        grid.setItems(CurrencyService.getGridContent());
-        grid.addColumn(Currency::getName).setCaption("Валюта");
-        grid.addColumn(Currency::getValue).setCaption("КУРС ЦБ");
-        grid.addColumn(Currency::getBuy).setCaption("ПОКУПКА");
-        grid.addColumn(Currency::getSell).setCaption("ПРОДАЖА");
-        log.info("grid заполнена данными по валюте");
+        try {
+            grid.setItems(CurrencyService.getGridContent());
+            grid.addColumn(Currency::getName).setCaption("Валюта");
+            grid.addColumn(Currency::getValue).setCaption("КУРС ЦБ");
+            grid.addColumn(Currency::getBuy).setCaption("ПОКУПКА");
+            grid.addColumn(Currency::getSell).setCaption("ПРОДАЖА");
+            log.info("grid заполнена данными по валюте");
+        }
+        catch (PathNotFoundException ex){
+            ex.printStackTrace();
+            log.error("Не найден url для сохранения jsona в строку!");
+        }
         return grid;
     }
 

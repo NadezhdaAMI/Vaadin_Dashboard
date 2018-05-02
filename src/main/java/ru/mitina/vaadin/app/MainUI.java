@@ -25,9 +25,9 @@ import javax.servlet.http.HttpServletRequest;
 @Theme("darktheme")
 public class MainUI extends UI{
 
-    static final Logger logger = LogManager.getLogger(MainUI.class.getName());
+    private static final Logger logger = LogManager.getLogger(MainUI.class.getName());
 
-    public static Counter counter;
+    private static Counter counter;
 
     @Autowired
     private CounterRepository repository;
@@ -60,7 +60,7 @@ public class MainUI extends UI{
 
         logger.info("Заполняем layout для погоды");
         VerticalLayout wL = new VerticalLayout();
-        wL.setHeight("450px"); /// TODO:убрать
+        wL.setHeight("450px");
         wL.setPrimaryStyleName("styleWLayout");
 
         VerticalLayout wHeader = new VerticalLayout();
@@ -84,8 +84,16 @@ public class MainUI extends UI{
             String cName = WeatherService.getCityName();
             WeatherService.buildUrl(cName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
             WeatherService.buildUrl(cName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
-            WeatherService.setJsonWeather();
-            WeatherService.fillItems(wMainL);
+            try {
+                WeatherService.setJsonWeather();
+                WeatherService.fillItems(wMainL);
+            }
+            catch (Exception er){
+                er.printStackTrace();
+                Label eLabel = new Label("Сервер временно недоступен!");
+                eLabel.setStyleName("indentM");
+                wMainL.addComponent(eLabel);
+            }
         });
         wHeader.addComponent(sample);
         wL.addComponent(wHeader);
@@ -123,8 +131,16 @@ public class MainUI extends UI{
             String cName = WeatherService.getCityName();
             WeatherService.buildUrl(cName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
             WeatherService.buildUrl(cName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
-            WeatherService.setJsonWeather();
-            WeatherService.fillItems(wMainL);
+            try {
+                WeatherService.setJsonWeather();
+                WeatherService.fillItems(wMainL);
+            }
+            catch (Exception er){
+                er.printStackTrace();
+                Label eLabel = new Label("Сервер временно недоступен!");
+                eLabel.setStyleName("indentM");
+                wMainL.addComponent(eLabel);
+            }
         });
 
         wL.addComponent(buttonW);
@@ -166,9 +182,18 @@ public class MainUI extends UI{
         mL.addComponent(vl2);
         Button buttonM = new Button("Обновить");
         buttonM.addClickListener( e -> {
-            grid.removeAllColumns();
-            CurrencyService.fillGrid(grid);
-            vl2.addComponent(grid);
+            try {
+                vl2.removeAllComponents();
+                grid.removeAllColumns();
+                CurrencyService.fillGrid(grid);
+                vl2.addComponent(grid);
+            } catch (Exception err){
+                vl2.removeComponent(grid);
+                err.printStackTrace();
+                Label eLabel = new Label("Cервер временно недоступен!");
+                eLabel.setStyleName("indent");
+                vl2.addComponent(eLabel);
+            }
         });
 
         mL.addComponent(buttonM);

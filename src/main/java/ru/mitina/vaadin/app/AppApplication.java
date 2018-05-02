@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+
 @EnableAutoConfiguration
 @SpringBootApplication
 public class AppApplication implements CommandLineRunner {
@@ -19,7 +20,7 @@ public class AppApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args){
 	}
 }
 

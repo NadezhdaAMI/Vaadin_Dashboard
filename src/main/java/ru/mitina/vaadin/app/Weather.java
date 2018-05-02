@@ -16,8 +16,7 @@ public class Weather {
 
     public String gettDay() {
         double d = Double.parseDouble(tDay);
-        String day = String.format("%.0f", d);
-        return day;
+        return String.format("%.0f", d);
     }
 
     public void settDay(String tDay) {
@@ -26,8 +25,7 @@ public class Weather {
 
     public String gettNigth() {
         double d = Double.parseDouble(tNigth);
-        String n = String.format("%.0f", d);
-        return n;
+        return String.format("%.0f", d);
     }
 
     public void settNigth(String tNigth) {
@@ -36,8 +34,7 @@ public class Weather {
 
     public String getWind() {
         double d = Double.parseDouble(wind);
-        String w = String.format("%.0f", d);
-        return w;
+        return String.format("%.0f", d);
     }
 
     public void setWind(String wind) {
@@ -47,8 +44,7 @@ public class Weather {
     public String getPressure() {
         double d = Double.parseDouble(pressure);
         double res = d/1.333224;
-        String w = String.format("%.0f", res);
-        return w;
+        return String.format("%.0f", res);
     }
 
     public void setPressure(String pressure) {
@@ -57,8 +53,7 @@ public class Weather {
 
     public String getHumidity() {
         double d = Double.parseDouble(humidity);
-        String w = String.format("%.0f", d);
-        return w;
+        return String.format("%.0f", d);
     }
 
     public void setHumidity(String humidity) {
