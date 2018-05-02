@@ -45,7 +45,7 @@ public class MainUI extends UI{
             logger.error("Произошла ошибка при обращении к базе!");
         }
 
-        VerticalLayout lmain = new VerticalLayout();
+        final VerticalLayout lmain = new VerticalLayout();
         setContent(lmain);
         lmain.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         lmain.setMargin(false);
@@ -74,7 +74,12 @@ public class MainUI extends UI{
 
         VerticalLayout itemsL = new VerticalLayout();
         itemsL.setMargin(false);
-        WeatherService.fillItems(itemsL);
+
+        ProgressBar bar = new ProgressBar();
+        bar.setIndeterminate(true);
+        itemsL.addComponent(bar);
+        itemsL.setComponentAlignment(bar, Alignment.BOTTOM_CENTER);
+
         Map<Integer, String> map = WeatherService.getMap();
 
         NativeSelect sample = new NativeSelect<>("", map.values());
@@ -83,12 +88,15 @@ public class MainUI extends UI{
         sample.setSelectedItem(map.get(1496747));
 
         sample.addValueChangeListener(event -> {
+            itemsL.removeAllComponents();
+            itemsL.addComponent(bar);
+            itemsL.setComponentAlignment(bar, Alignment.BOTTOM_CENTER);
             String cityName = String.valueOf(event.getValue());
             WeatherService.buildUrl(cityName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
             WeatherService.buildUrl(cityName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
-            itemsL.removeAllComponents();
             WeatherService.setJsonWeather();
             WeatherService.fillItems(itemsL);
+            itemsL.removeComponent(bar);
         });
 
         dayitemF.addComponent(sample);
@@ -121,14 +129,21 @@ public class MainUI extends UI{
         Grid<Currency> grid = new Grid<>();
         grid.setWidth("430px");
         grid.setHeight("116px");
-        CurrencyService.fillGrid(grid);
-        vertLayout.addComponent(grid);
 
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setMargin(false);
+        vertLayout.addComponent(vl2);
+        ProgressBar bar2 = new ProgressBar();
+        bar2.setIndeterminate(true);
+        vl2.addComponent(bar2);
+        vl2.setComponentAlignment(bar2, Alignment.BOTTOM_CENTER);
+        vertLayout.addComponent(vl2);
         Button buttonM = new Button("Обновить");
-
         buttonM.addClickListener( e -> {
             grid.removeAllColumns();
             CurrencyService.fillGrid(grid);
+            vl2.addComponent(grid);
+            vl2.removeComponent(bar2);
         });
 
         vertLayout.addComponent(buttonM);

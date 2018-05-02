@@ -6,15 +6,18 @@ import com.vaadin.ui.Grid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.*;
-import java.util.Arrays;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 public class CurrencyService {
 
     private static String urlC = "https://www.cbr-xml-daily.ru/daily_json.js";
 
-    private static String urlS = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D01.05.2018%26_date_ato114%3D01.05.2018%26mode%3Dfull%26display%3Djson";
+    private static String urlS1 = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D";
+    private static String urlS2 = "%26_date_ato114%3D";
+    private static String urlS3 = "%26mode%3Dfull%26display%3Djson";
 
     private static final Logger log = LogManager.getLogger(WeatherService.class);
 
@@ -24,6 +27,7 @@ public class CurrencyService {
         String jsonSber = null;
         try {
             jsonCbr = MainService.jsonToString(urlC);
+            String urlS = buildUrl();
             jsonSber = MainService.jsonToString(urlS);
             log.info("json с сайта валют сохранен в строку");
         } catch (IOException exp) {
@@ -58,5 +62,15 @@ public class CurrencyService {
         grid.addColumn(Currency::getSell).setCaption("ПРОДАЖА");
         log.info("grid заполнена данными по валюте");
         return grid;
+    }
+
+    public static String buildUrl(){
+        StringBuilder s = new StringBuilder();
+        DateFormat dateFormatday2 = new SimpleDateFormat("dd.MM.yyyy");
+        Date date2 = new Date();
+        String dateF = dateFormatday2.format(date2);
+        String res = s.append(urlS1).append(dateF).append(urlS2).append(dateF).append(urlS3).toString();
+        log.info("Получен url для jsona c данными по валюте текущего дня " + date2);
+        return res;
     }
 }
