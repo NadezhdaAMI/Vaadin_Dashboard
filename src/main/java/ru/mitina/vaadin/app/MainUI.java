@@ -25,10 +25,10 @@ import javax.servlet.http.HttpServletRequest;
 @Theme("darktheme")
 public class MainUI extends UI{
 
-    private static final Logger logger = LogManager.getLogger(MainUI.class.getName());
+    private static final Logger LOG = LogManager.getLogger(MainUI.class.getName());
 
     /** Id города Новосибирска */
-    public static final int nskId = 1496747;
+    public static final int NSK_ID = 1496747;
 
     /** Счетчик посещений */
     private static Counter counter;
@@ -41,7 +41,6 @@ public class MainUI extends UI{
 
         incCounter();
 
-
         /* Базовый layout */
         final VerticalLayout baseL = new VerticalLayout();
         setContent(baseL);
@@ -53,7 +52,7 @@ public class MainUI extends UI{
         mainL.setPrimaryStyleName("styleMainL");
         mainL.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
-        logger.info("Заполняем layout для погоды");
+        LOG.info("Заполняем layout для погоды");
 
         /* wL - layout для погоды */
         VerticalLayout wL = new VerticalLayout();
@@ -75,22 +74,22 @@ public class MainUI extends UI{
         Map<Integer, String> map = WeatherService.getMap();
         NativeSelect sample = new NativeSelect<>("", map.values());
         sample.setEmptySelectionAllowed(false);
-        sample.setSelectedItem(map.get(nskId));
-        WeatherService.setCityName(map.get(nskId));
+        sample.setSelectedItem(map.get(NSK_ID));
+        WeatherService.setCityName(map.get(NSK_ID));
 
         sample.addValueChangeListener(event -> {
             String cityName = String.valueOf(event.getValue());
             WeatherService.setCityName(cityName);
             wMainL.removeAllComponents();
             String cName = WeatherService.getCityName();
-            WeatherService.buildUrl(cName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
-            WeatherService.buildUrl(cName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
+            WeatherService.buildUrl(cName, WeatherService.BEGIN_URL, WeatherService.END_URL, WeatherService.getUrlTod());
+            WeatherService.buildUrl(cName, WeatherService.BEGIN_URL2, WeatherService.END_URL, WeatherService.getUrlTom());
             notifyClient(wMainL);
         });
         wHeader.addComponent(sample);
         wL.addComponent(wHeader);
 
-        logger.info("Заполняется layout сегодняшнего дня");
+        LOG.info("Заполняется layout сегодняшнего дня");
         /* todayL горизонтальный layout со всеми данными о погоде сегодня*/
         HorizontalLayout todayL = new HorizontalLayout();
         todayL.setPrimaryStyleName("layoutDayItem");
@@ -105,7 +104,7 @@ public class MainUI extends UI{
         todayLdate.addComponent(text);
         todayL.addComponent(todayLdate);
 
-        logger.info("Заполняется layout завтрашнего дня");
+        LOG.info("Заполняется layout завтрашнего дня");
         /* tomL горизонтальный layout со всеми данными о погоде завтра */
         HorizontalLayout tomL = new HorizontalLayout();
         tomL.setPrimaryStyleName("layoutDayItem");
@@ -115,15 +114,15 @@ public class MainUI extends UI{
 
         wMainL.addComponent(todayL);
         wMainL.addComponent(tomL);
-        logger.info("Заполнены layout-ы каждого дня данными о погоде");
+        LOG.info("Заполнены layout-ы каждого дня данными о погоде");
 
         wL.addComponent(wMainL);
         Button buttonW = new Button("Обновить");
         buttonW.addClickListener( e -> {
             wMainL.removeAllComponents();
             String cName = WeatherService.getCityName();
-            WeatherService.buildUrl(cName, WeatherService.beginURL, WeatherService.endURL, WeatherService.getUrlTod());
-            WeatherService.buildUrl(cName, WeatherService.beginURL2, WeatherService.endURL, WeatherService.getUrlTom());
+            WeatherService.buildUrl(cName, WeatherService.BEGIN_URL, WeatherService.END_URL, WeatherService.getUrlTod());
+            WeatherService.buildUrl(cName, WeatherService.BEGIN_URL2, WeatherService.END_URL, WeatherService.getUrlTom());
             notifyClient(wMainL);
         });
 
@@ -134,7 +133,7 @@ public class MainUI extends UI{
         /* v2 - layout содержит layout-ы с валютой и счетчиком, нужен для выравнивания */
         VerticalLayout v2 = new VerticalLayout();
         v2.setPrimaryStyleName("styleV2");
-        logger.info("Заполняем layout для валюты");
+        LOG.info("Заполняем layout для валюты");
 
         /* mL - layout для валюты */
         VerticalLayout mL = new VerticalLayout();
@@ -157,12 +156,12 @@ public class MainUI extends UI{
 
         List<Currency> valute = Arrays.asList(usd, eur);
         grid.setItems(valute);
-        logger.info("получен контент для grid");
+        LOG.info("получен контент для grid");
         grid.addColumn(Currency::getName).setCaption("Валюта");
         grid.addColumn(Currency::getSign).setCaption("КУРС ЦБ");
         grid.addColumn(Currency::getSign).setCaption("ПОКУПКА");
         grid.addColumn(Currency::getSign).setCaption("ПРОДАЖА");
-        logger.info("grid заполнена ...");
+        LOG.info("grid заполнена ...");
 
         /* vl2 layout нужен для выравнивания и обновления grid */
         VerticalLayout vl2 = new VerticalLayout();
@@ -210,7 +209,7 @@ public class MainUI extends UI{
         Date now = new Date();
         Label stateInfo = new Label("Информация по состоянию на " + dateFormat.format(now));
 
-        logger.info("Получение IP адреса клиента...");
+        LOG.info("Получение IP адреса клиента...");
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
                 .getRequest();
         Label ipInfo = new Label("Ваш IP-адрес: " + request.getRemoteAddr());
@@ -222,23 +221,27 @@ public class MainUI extends UI{
         baseL.addComponent(footerL);
 
         panelCounter.setContent(new Label(String.valueOf(counter)));
-        logger.info("Добро пожаловать на сайт!");
+        LOG.info("Добро пожаловать на сайт!");
     }
 
     /** Увеличиваем счетчик посещений на 1 при каждой загрузке страницы */
     private void incCounter(){
         try {
-            logger.info("до - " + repository.findAll().get(0));
+            if (repository.findAll().isEmpty()) {
+                counter = new Counter(0);
+                repository.save(counter);
+            }
+            LOG.info("до - " + repository.findAll().get(0));
             int n = repository.findAll().get(0).incCounter();
-            logger.info("после - " + n);
+            LOG.info("после - " + n);
             repository.deleteAll();
             counter = new Counter(n);
             repository.save(counter);
-            logger.info("Счетчик посещений увеличен на 1");
+            LOG.info("Счетчик посещений увеличен на 1");
 
         } catch (NullPointerException ex){
             ex.printStackTrace();
-            logger.error("Произошла ошибка при обращении к базе!");
+            LOG.error("Произошла ошибка при обращении к базе!");
         }
     }
 

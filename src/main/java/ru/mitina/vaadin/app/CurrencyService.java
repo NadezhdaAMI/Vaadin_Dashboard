@@ -6,7 +6,6 @@ import com.jayway.jsonpath.PathNotFoundException;
 import com.vaadin.ui.Grid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;

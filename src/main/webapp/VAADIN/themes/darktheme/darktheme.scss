@@ -16,10 +16,12 @@ $v-background-color: hsl(199, 100%, 84%);
     align-content: center;
   }
 
-  .v-grid {
+  .v-grid<Currency> {
     background-image: none;
     background-color: #ffffff;
     margin-top: 20px;
+    //width: 430px;
+    //height: 116px;
   }
 
   .styleGrid{

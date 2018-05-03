@@ -7,7 +7,6 @@ import com.vaadin.ui.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -17,16 +16,16 @@ import java.util.*;
  */
 public class WeatherService {
 
-    public static final String beginURL = "http://api.openweathermap.org/data/2.5/weather?id=";
-    public static final String beginURL2 = "http://api.openweathermap.org/data/2.5/forecast?id=";
-    public static final String endURL = "&APPID=fd05633695761f3e038d2270479047af&units=metric";
+    public static final String BEGIN_URL = "http://api.openweathermap.org/data/2.5/weather?id=";
+    public static final String BEGIN_URL2 = "http://api.openweathermap.org/data/2.5/forecast?id=";
+    public static final String END_URL = "&APPID=fd05633695761f3e038d2270479047af&units=metric";
 
     private static String urlTod = "http://api.openweathermap.org/data/2.5/weather?id=1496747&APPID=fd05633695761f3e038d2270479047af&units=metric";
     private static String urlTom = "http://api.openweathermap.org/data/2.5/forecast?id=1496747&APPID=fd05633695761f3e038d2270479047af&units=metric";
 
     private static Map<Integer, String> map = new TreeMap<>();
 
-    private static final Logger log = LogManager.getLogger(WeatherService.class);
+    private static final Logger LOG = LogManager.getLogger(WeatherService.class);
 
     private static String jsonToday = null;
     private static String jsonTom = null;
@@ -50,11 +49,11 @@ public class WeatherService {
     public static void setJsonWeather() {
         try {
             jsonToday = MainService.jsonToString(urlTod);
-            log.info("Данные с сайта " + urlTod +" сохранились в строку jsonToday");
+            LOG.info("Данные с сайта " + urlTod +" сохранились в строку jsonToday");
             jsonTom = MainService.jsonToString(urlTom);
-            log.info("Данные с сайта " + urlTom + " сохранились в строку jsonTom");
+            LOG.info("Данные с сайта " + urlTom + " сохранились в строку jsonTom");
         } catch (ClassCastException exp) {
-            log.error("Данные с сайта не сохранились в строку!");
+            LOG.error("Данные с сайта не сохранились в строку!");
             exp.printStackTrace();
         }
     }
@@ -64,17 +63,17 @@ public class WeatherService {
      */
     public static Weather paramToday(Weather day) {
         try {
-            log.info(jsonToday);
+            LOG.info("Заполнение layout-а сегодняшнего дня");
             day.settDay(JsonPath.read(jsonToday, "$.main.temp").toString());
             day.setWind(JsonPath.read(jsonToday, "$.wind.speed").toString());
             day.setHumidity(JsonPath.read(jsonToday, "$.main.humidity").toString());
             day.setPressure(JsonPath.read(jsonToday, "$.main.pressure").toString());
             day.setIcon(JsonPath.read(jsonToday, "$.weather[0].icon").toString());
-            log.info("Заполнен layout сегодняшнего дня");
+            LOG.info("Заполнен layout сегодняшнего дня");
         }
         catch (PathNotFoundException ex){
             ex.printStackTrace();
-            log.error("Не найден url для сохранения jsona в строку!");
+            LOG.error("Не найден url для сохранения jsona в строку!");
         }
         return day;
     }
@@ -89,7 +88,7 @@ public class WeatherService {
      */
     public static Weather paramTomor(Weather day){
 
-        /** Получение даты завтрашнего дня и установление значения времени в полночь*/
+        /* Получение даты завтрашнего дня и установление значения времени в полночь*/
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, 1);
         c.set(Calendar.HOUR_OF_DAY, 0);
@@ -98,7 +97,8 @@ public class WeatherService {
         c.set(Calendar.MILLISECOND, 0);
         long midnight = c.getTimeInMillis() / 1000;
 
-        int n = 18;
+        /* n < 17 максимальное кол-во 3х часовых интервалов, по которым происходит усреднение*/
+        int n = 17;
         double tmax = -70;
         double tmin = 70;
         double windSum = 0;
@@ -116,18 +116,13 @@ public class WeatherService {
                 k++;
             }
         }
-        log.info("midnight = " + midnight);
-        log.info(Long.parseLong(JsonPath.read(jsonTom, "$.list[" + 0 + "].dt").toString()));
-        log.info("k = " + k);
-        double wind = windSum / k;
-        double pressure = presSum / k;
-        double humidity = humSum / k;
+        LOG.info("midnight = " + midnight);
         day.settDay(String.valueOf(tmax));
         day.settNigth(String.valueOf(tmin));
-        day.setWind(String.valueOf(wind));
-        day.setPressure(String.valueOf(pressure));
-        day.setHumidity(String.valueOf(humidity));
-        log.info("Заполнен layout завтрашнего дня");
+        day.setWind(String.valueOf(windSum / k));
+        day.setPressure(String.valueOf(presSum / k));
+        day.setHumidity(String.valueOf(humSum / k));
+        LOG.info("Заполнен layout завтрашнего дня");
         return day;
     }
 
@@ -137,7 +132,7 @@ public class WeatherService {
      */
     public static void fillItems(VerticalLayout dayitem){
 
-        log.info("Заполняется layout сегодняшнего дня");
+        LOG.info("Заполняется layout сегодняшнего дня");
         HorizontalLayout todL = new HorizontalLayout();
         todL.setStyleName("layoutDayItem");
         todL.setSpacing(true);
@@ -178,14 +173,14 @@ public class WeatherService {
         todL.addComponent(v2);
         todL.addComponent(v3);
 
-        log.info("Заполняется layout завтрашнего дня");
+        LOG.info("Заполняется layout завтрашнего дня");
         HorizontalLayout tomL = new HorizontalLayout();
         tomL.setSpacing(true);
 
         fillItemTom(tomL);
         dayitem.addComponent(todL);
         dayitem.addComponent(tomL);
-        log.info("Заполнены layout-ы каждого дня данными о погоде");
+        LOG.info("Заполнены layout-ы каждого дня данными о погоде");
     }
 
     /** Метод для заполнения горизонтального layout-а завтрашнего дня
@@ -245,12 +240,12 @@ public class WeatherService {
         }
         if (req.equals(WeatherService.getUrlTod())){
             String res = beginURL+ cityId + endURL;
-            log.info("Получен " + res + " с учетом id города");
+            LOG.info("Получен " + res + " с учетом id города");
             setUrlTod(res);
         }
         if (req.equals(WeatherService.getUrlTom())){
-            String res2 = beginURL2 + cityId + endURL;
-            log.info("Получен " + res2 + " с учетом id города");
+            String res2 = BEGIN_URL2 + cityId + endURL;
+            LOG.info("Получен " + res2 + " с учетом id города");
             setUrlTom(res2);
         }
     }
@@ -263,7 +258,7 @@ public class WeatherService {
         Image im = new Image("", resource);
         im.setHeight("70px");
         im.setWidth("70px");
-        log.info("Получена иконка");
+        LOG.info("Получена иконка");
         return im;
     }
 
