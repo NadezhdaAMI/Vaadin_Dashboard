@@ -12,7 +12,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
+/**
+ *  Класс для получения данных о погоде из публичных информеров
+ */
 public class WeatherService {
 
     public static final String beginURL = "http://api.openweathermap.org/data/2.5/weather?id=";
@@ -44,6 +46,7 @@ public class WeatherService {
         return jsonToday;
     }
 
+    /** Метод для сохранения файла json в строку по заданному url*/
     public static void setJsonWeather() {
         try {
             jsonToday = MainService.jsonToString(urlTod);
@@ -56,6 +59,9 @@ public class WeatherService {
         }
     }
 
+    /** Метод заполнения параметров погоды для текущего дня
+     * @param day текущий день
+     */
     public static Weather paramToday(Weather day) {
         try {
             log.info(jsonToday);
@@ -73,8 +79,17 @@ public class WeatherService {
         return day;
     }
 
+    /** Метод вычисления средних значений скорости ветра, давления и влажности
+     * и минимальной и максимальной температуры завтрашнего дня
+     * Поскольку в json файле для завтрашнего дня хранятся значения погоды для каждых трех часов
+     * и каждые 3 часа меняется время в файле, с которого начинается отсчет, то находим
+     * количество прогнозов и средние значения по завтрашним суткам
+     * для каждого параметра (скорость ветра, давление, влажность)
+     * @param day  завтрашний день
+     */
     public static Weather paramTomor(Weather day){
 
+        /** Получение даты завтрашнего дня и установление значения времени в полночь*/
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, 1);
         c.set(Calendar.HOUR_OF_DAY, 0);
@@ -112,11 +127,14 @@ public class WeatherService {
         day.setWind(String.valueOf(wind));
         day.setPressure(String.valueOf(pressure));
         day.setHumidity(String.valueOf(humidity));
-
         log.info("Заполнен layout завтрашнего дня");
         return day;
     }
 
+    /** Метод для заполнения вертикального layout-а
+     * @param dayitem содержит два горизонтальных layout-а с данными о сегодняшнем и завтрашнем дне
+     * {@link WeatherService#fillItemTom(HorizontalLayout tL)}
+     */
     public static void fillItems(VerticalLayout dayitem){
 
         log.info("Заполняется layout сегодняшнего дня");
@@ -170,6 +188,9 @@ public class WeatherService {
         log.info("Заполнены layout-ы каждого дня данными о погоде");
     }
 
+    /** Метод для заполнения горизонтального layout-а завтрашнего дня
+     * @param tL  горизонтальный layout с параметрами погоды для завтрашнего дня
+     */
     public static void fillItemTom(HorizontalLayout tL){
         tL.setStyleName("layoutDayItem");
         Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
@@ -202,6 +223,14 @@ public class WeatherService {
         tL.setComponentAlignment(t3, Alignment.TOP_RIGHT);
     }
 
+    /** Метод для создания url с учетом id города
+     *  в зависимости от дня (сегодняшнего или завтрашнего)
+     *  @param cityNameL имя города, для которого смотрим погоду
+     *  @param beginURL первая часть url строки без id города
+     *  @param endURL вторая часть url строки
+     *  @param req полный url c учетом id города и передаваемого запроса для сегодняшнего или
+     *  завтрашнего дня
+     */
     public static void buildUrl(String cityNameL, String beginURL, String endURL, String req){
         int cityId = 0;
         Collection<Integer> collection = map.keySet();
@@ -226,6 +255,9 @@ public class WeatherService {
         }
     }
 
+    /** Метод для отображения иконки текущих погодных условий
+     * @param icon  иконка для отображения текущих погодных условий
+     */
     public static Image showIcon(String icon){
         ThemeResource resource = new ThemeResource("icons/" + icon + ".png");
         Image im = new Image("", resource);

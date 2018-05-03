@@ -10,11 +10,18 @@ import java.io.*;
 
 import static org.springframework.http.HttpHeaders.USER_AGENT;
 
+/**
+ * Класс содержит общий метод для сохранения файла json по заданному url в строку
+ */
 
 public class MainService {
 
     private static final Logger log = LogManager.getLogger(MainService.class);
 
+    /** метод для сохранения файла json по заданному url в строку
+     * @param url  url публичных информеров с данными в формате json
+     * @throws IOException при чтении из потока rd
+    */
     public static String jsonToString(String url) throws IOException {
 
         CloseableHttpClient client = HttpClientBuilder.create().build();

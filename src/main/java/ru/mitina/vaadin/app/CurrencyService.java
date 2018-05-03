@@ -11,7 +11,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
+/**
+ *  Класс для получения данных о валюте из публичных информеров
+ */
 public class CurrencyService {
 
     private static final String urlC = "https://www.cbr-xml-daily.ru/daily_json.js";
@@ -21,6 +23,9 @@ public class CurrencyService {
 
     private static final Logger log = LogManager.getLogger(WeatherService.class);
 
+    /** Метод для получения контента для grid
+     * @return val массив валют
+     */
     public static List<Currency> getGridContent(){
 
         String jsonCbr = null;
@@ -53,6 +58,9 @@ public class CurrencyService {
         return val;
     }
 
+    /** Метод заполнения grid текущими данными о валюте
+     * @param grid  таблица, содержащая текущие данные о валютах
+     */
     public static Grid fillGrid(Grid<Currency> grid){
         try {
             grid.setItems(CurrencyService.getGridContent());
@@ -69,6 +77,9 @@ public class CurrencyService {
         return grid;
     }
 
+    /** Метод создания url с учетом текущей даты
+     * @return res  url c учетом текущей даты
+     */
     public static String buildUrl(){
         StringBuilder s = new StringBuilder();
         DateFormat formatD = new SimpleDateFormat("dd.MM.yyyy");

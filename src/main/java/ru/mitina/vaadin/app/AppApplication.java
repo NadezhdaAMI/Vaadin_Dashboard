@@ -8,6 +8,13 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 
+/**
+ * @autor: Надежда A. Митина
+ * @version 1.0
+ *
+ * Класс для запуска приложения
+ */
+
 @EnableAutoConfiguration
 @SpringBootApplication
 public class AppApplication implements CommandLineRunner {

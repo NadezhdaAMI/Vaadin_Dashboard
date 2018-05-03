@@ -1,15 +1,24 @@
 package ru.mitina.vaadin.app;
 
+/**
+ * Класс для описания значений валюты
+ *
+ * */
 public class Currency {
 
+    /**  Название валюты*/
     private String name;
 
+    /** Текущее значение валюты по курсу Центробанка РФ */
     private String value;
 
+    /** Стоимость при покупке валюты в Сбербанке */
     private String buy;
 
+    /** Стоимость при продаже валюты в Сбербанке */
     private String sell;
 
+    /** Значение всех полей, когда сервер информера недоступен*/
     private String sign;
 
     public String getName() {

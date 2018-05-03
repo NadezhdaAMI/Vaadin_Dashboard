@@ -1,17 +1,27 @@
 package ru.mitina.vaadin.app;
 
+/**
+ * Класс для описания параметров погоды
+ *
+ * */
 public class Weather {
 
+    /** Текущая температура*/
     private String tDay;
 
+    /** Температура ночью*/
     private String tNigth;
 
+    /** Скорость ветра*/
     private String wind;
 
+    /** Давление в мм рт. ст.*/
     private String pressure;
 
+    /** Влажность*/
     private String humidity;
 
+    /** Иконка для отображения текущего состояния погодных условий*/
     private String icon;
 
     public String gettDay() {
