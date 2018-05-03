@@ -93,12 +93,12 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.portlet</groupId>
-			<artifactId>portlet-api</artifactId>
-			<version>3.0.0</version>
-			<scope>provided</scope>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>javax.portlet</groupId>-->
+			<!--<artifactId>portlet-api</artifactId>-->
+			<!--<version>3.0.0</version>-->
+			<!--<scope>provided</scope>-->
+		<!--</dependency>-->
 
 	</dependencies>
 	<dependencyManagement>
@@ -149,36 +149,6 @@
 				</executions>
 			</plugin>
 
-			<!--javadoc-->
-			<!--  START SNIPPET: source  -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!--  END SNIPPET: source  -->
-			<!--  START SNIPPET: javadoc  -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!--  END SNIPPET: javadoc  -->
-
 		</plugins>
 
 		<resources>
@@ -190,5 +160,4 @@
 			</resource>
 		</resources>
 	</build>
-
 </project>
