@@ -19,9 +19,15 @@ $v-background-color: hsl(199, 100%, 84%);
   .v-grid {
     background-image: none;
     background-color: #ffffff;
-    width: 320px;
-    height: 150px;
-    margin-top: 0;
+    margin-top: 20px;
+  }
+
+  .styleGrid{
+    background-image: none;
+    background-color: #cdf1ff;
+    width: 430px;
+    height: 116px;
+    padding: 0;
   }
 
   .panelCounter {
@@ -35,7 +41,7 @@ $v-background-color: hsl(199, 100%, 84%);
   }
 
   .styleMainL{
-    background-color: #cdf1ff;
+    background-color: #8bd9e4;
     width: 960px;
     height: 520px;
     border-radius: 8px;
@@ -76,10 +82,18 @@ $v-background-color: hsl(199, 100%, 84%);
 
   .styleFooter{
     background-color: #ffffff;
+    height: 60px;
+    width: 950px;
+    padding: 0;
+  }
+
+  .ipInfo{
+    margin-left: 320px;
+    padding: 0;
   }
 
   .styleV2{
-    background-color: #cdf1ff;
+    background-color: #8bd9e4;
     margin: 0;
     margin-left: 40px;
     padding: 0;
@@ -87,9 +101,15 @@ $v-background-color: hsl(199, 100%, 84%);
 
   .styleMLayout{
     background-color: #ffffff;
-    height: 260px;
+    height: 280px;
     width: 500px;
     border-radius: 8px;
+  }
+
+  .todayLdate{
+    height: 20px;
+    margin: 0;
+    padding: 0;
   }
 
   .textSizeToday{
@@ -112,5 +132,11 @@ $v-background-color: hsl(199, 100%, 84%);
     margin-top: 70px;
     margin-bottom: 50px;
     margin-left: 20px;
+  }
+
+  .styleTitle{
+    color: #095988;
+    font-weight: bold;
+    font-size: 22px;
   }
 }

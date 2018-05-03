@@ -53,7 +53,7 @@ public class WeatherService {
             log.info("Данные с сайта " + urlTod +" сохранились в строку jsonToday");
             jsonTom = MainService.jsonToString(urlTom);
             log.info("Данные с сайта " + urlTom + " сохранились в строку jsonTom");
-        } catch (IOException exp) {
+        } catch (ClassCastException exp) {
             log.error("Данные с сайта не сохранились в строку!");
             exp.printStackTrace();
         }

@@ -28,33 +28,33 @@ public class CurrencyService {
      */
     public static List<Currency> getGridContent(){
 
-        String jsonCbr = null;
-        String jsonSber = null;
+        String jsonCbr;
+        String jsonSber;
+        List<Currency> val = null;
         try {
             jsonCbr = MainService.jsonToString(urlC);
             String urlS = buildUrl();
             jsonSber = MainService.jsonToString(urlS);
             log.info("json с сайта валют сохранен в строку");
-        } catch (IOException exp) {
-            log.error("json с сайта валют не сохранен в строку!");
+
+            Currency usd = new Currency();
+            usd.setName(JsonPath.read(jsonCbr, "$.Valute.USD.CharCode").toString() + "/RUB");
+            usd.setValue(JsonPath.read(jsonCbr, "$.Valute.USD.Value").toString());
+            usd.setBuy(JsonPath.read(jsonSber, "$.3.quotes.*.buy").toString().substring(2, 7));
+            usd.setSell(JsonPath.read(jsonSber, "$.3.quotes.*.sell").toString().substring(2, 7));
+
+            Currency eur = new Currency();
+            eur.setName(JsonPath.read(jsonCbr, "$.Valute.EUR.CharCode").toString() + "/RUB");
+            eur.setValue(JsonPath.read(jsonCbr, "$.Valute.EUR.Value").toString());
+            eur.setBuy(JsonPath.read(jsonSber, "$.2.quotes.*.buy").toString().substring(2, 7));
+            eur.setSell(JsonPath.read(jsonSber, "$.2.quotes.*.sell").toString().substring(2, 7));
+
+            val = Arrays.asList(usd, eur);
+            log.info("получен контент для grid");
+        } catch (PathNotFoundException exp) {
+            log.error("ошибка в пути к элементам в json файле!");
             exp.printStackTrace();
         }
-
-        Currency usd = new Currency();
-        usd.setName(JsonPath.read(jsonCbr, "$.Valute.USD.CharCode").toString() + "/RUB");
-        usd.setValue(JsonPath.read(jsonCbr, "$.Valute.USD.Value").toString());
-        usd.setBuy(JsonPath.read(jsonSber, "$.3.quotes.*.buy").toString().substring(2, 7));
-        usd.setSell(JsonPath.read(jsonSber, "$.3.quotes.*.sell").toString().substring(2, 7));
-
-        Currency eur = new Currency();
-        eur.setName(JsonPath.read(jsonCbr, "$.Valute.EUR.CharCode").toString() + "/RUB");
-        eur.setValue(JsonPath.read(jsonCbr, "$.Valute.EUR.Value").toString());
-        eur.setBuy(JsonPath.read(jsonSber, "$.2.quotes.*.buy").toString().substring(2, 7));
-        eur.setSell(JsonPath.read(jsonSber, "$.2.quotes.*.sell").toString().substring(2, 7));
-
-        List<Currency> val = Arrays.asList(usd, eur);
-        log.info("получен контент для grid");
-
         return val;
     }
 

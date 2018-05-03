@@ -1,8 +1,8 @@
 package ru.mitina.vaadin.app;
 
-import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,44 +20,27 @@ public class MainService {
 
     /** метод для сохранения файла json по заданному url в строку
      * @param url  url публичных информеров с данными в формате json
-     * @throws IOException при чтении из потока rd
     */
-    public static String jsonToString(String url) throws IOException {
+    public static String jsonToString(String url) throws ClassCastException{
 
-        CloseableHttpClient client = HttpClientBuilder.create().build();
-        HttpGet request = null;
+        String res = "";
         try {
-            request = new HttpGet(url);
+            HttpClient client = HttpClientBuilder.create().build();
+            HttpGet request = new HttpGet(url);
             request.addHeader("User-Agent", USER_AGENT);
-        }catch (IllegalArgumentException ex){
-            ex.printStackTrace();
-            log.error("Ошибка при инициализации запроса через url!");
-        }
-        CloseableHttpResponse response = null;
-        try {
-            response = client.execute(request);
+            HttpResponse response = client.execute(request);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            StringBuffer result = new StringBuffer();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                result.append(line);
+            }
+            res = result.toString();
+            log.info("Json файл сохранен в строку");
         } catch (IOException e) {
             e.printStackTrace();
             log.error("При выполнении запроса клиента произошла ошибка!");
         }
-        BufferedReader rd = null;
-        try {
-            if (response != null) {
-                rd = new BufferedReader(
-                        new InputStreamReader(response.getEntity().getContent()));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            log.info("Json файл не сохранен в строку!");
-        }
-
-        StringBuilder result = new StringBuilder();
-        String line;
-        while ((line = rd != null ? rd.readLine() : null) != null) { //complicated
-            result.append(line);
-        }
-
-        log.info("Json файл сохранен в строку");
-        return result.toString();
+        return res;
     }
 }
