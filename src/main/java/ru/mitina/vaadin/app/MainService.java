@@ -11,12 +11,11 @@ import java.io.*;
 import static org.springframework.http.HttpHeaders.USER_AGENT;
 
 /**
- * Класс содержит общий метод для сохранения файла json по заданному url в строку
+ * Класс содержит метод для сохранения файла json по заданному url в строку
  */
-
 public class MainService {
 
-    private static final Logger log = LogManager.getLogger(MainService.class);
+    private static final Logger LOG = LogManager.getLogger(MainService.class);
 
     /** метод для сохранения файла json по заданному url в строку
      * @param url  url публичных информеров с данными в формате json
@@ -30,16 +29,16 @@ public class MainService {
             request.addHeader("User-Agent", USER_AGENT);
             HttpResponse response = client.execute(request);
             BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-            StringBuffer result = new StringBuffer();
+            StringBuilder result = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 result.append(line);
             }
             res = result.toString();
-            log.info("Json файл сохранен в строку");
+            LOG.info("Json файл сохранен в строку");
         } catch (IOException e) {
             e.printStackTrace();
-            log.error("При выполнении запроса клиента произошла ошибка!");
+            LOG.error("При выполнении запроса клиента произошла ошибка!");
         }
         return res;
     }

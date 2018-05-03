@@ -16,8 +16,13 @@ import java.util.*;
  */
 public class WeatherService {
 
+    /** BEGIN_URL - получение текущей погоды, обновляется каждые 10 минут*/
     public static final String BEGIN_URL = "http://api.openweathermap.org/data/2.5/weather?id=";
+
+    /** BEGIN_URL2 - получение погоды на завтра*/
     public static final String BEGIN_URL2 = "http://api.openweathermap.org/data/2.5/forecast?id=";
+
+    /** END_URL - ключ для доступа к сервису*/
     public static final String END_URL = "&APPID=fd05633695761f3e038d2270479047af&units=metric";
 
     private static String urlTod = "http://api.openweathermap.org/data/2.5/weather?id=1496747&APPID=fd05633695761f3e038d2270479047af&units=metric";
@@ -30,6 +35,8 @@ public class WeatherService {
     private static String strToday = null;
     private static String strTom = null;
     private static String cityName;
+
+    private static final String DEGREE  = "\u00b0";
 
     static {
         map.put(498817, "Санкт-Петербург");
@@ -50,7 +57,6 @@ public class WeatherService {
             LOG.info("Данные с сайта " + urlTom + " сохранились в строку strTom");
         } catch (ClassCastException exp) {
             LOG.error("Данные с сайта не сохранились в строку!");
-            exp.printStackTrace();
         }
     }
 
@@ -68,7 +74,6 @@ public class WeatherService {
             LOG.info("Заполнен layout сегодняшнего дня");
         }
         catch (PathNotFoundException ex){
-            ex.printStackTrace();
             LOG.error("Не найден url для сохранения jsona в строку!");
         }
         return day;
@@ -77,7 +82,7 @@ public class WeatherService {
     /** Метод нахождения и преобразования элемента в строку
      * @param q путь в строке к нужному элементу
      */
-    public static String readJs(String q){
+    private static String readJs(String q){
         String s = "";
         try {
             s = JsonPath.read(strToday, q).toString();
@@ -95,7 +100,7 @@ public class WeatherService {
      * для каждого параметра (скорость ветра, давление, влажность)
      * @param day  завтрашний день
      */
-    public static Weather paramTomor(Weather day){
+    public static Weather paramTom(Weather day){
 
         /* Получение даты завтрашнего дня и установление значения времени в полночь*/
         Calendar c = Calendar.getInstance();
@@ -116,9 +121,9 @@ public class WeatherService {
                 double t1 = strToD("main.temp", i);
                 tmax = (t1 > tmax ? t1 : tmax);
                 tmin = (t1 < tmin ? t1 : tmin);
-                windSum = windSum + strToD("wind.speed", i);
-                presSum = presSum + strToD("main.pressure", i);
-                humSum = humSum + strToD("main.humidity", i);
+                windSum += strToD("wind.speed", i);
+                presSum += strToD("main.pressure", i);
+                humSum += strToD("main.humidity", i);
                 k++;
             }
         }
@@ -135,7 +140,7 @@ public class WeatherService {
      * @param q путь в строке к нужному элементу
      * @param i индекс в цикле
      */
-    public static double strToD(String q, int i){
+    private static double strToD(String q, int i){
         double d = 0;
         try {
             d = Double.parseDouble(JsonPath.read(strTom, "$.list[" + i + "]." + q).toString());
@@ -146,18 +151,32 @@ public class WeatherService {
     }
 
     /** Метод для заполнения вертикального layout-а
-     * @param dayitem содержит два горизонтальных layout-а с данными о сегодняшнем и завтрашнем дне
+     * @param days содержит два горизонтальных layout-а с данными о сегодняшнем и завтрашнем дне
      * {@link WeatherService#fillItemTom(HorizontalLayout tL)}
      */
-    public static void fillItems(VerticalLayout dayitem){
+    public static void fillItems(VerticalLayout days){
+        LOG.info("Заполняется главный layout для двух дней");
+        HorizontalLayout todL = new HorizontalLayout();
+        HorizontalLayout tomL = new HorizontalLayout();
+        tomL.setSpacing(true);
+        fillItemTod(todL);
+        fillItemTom(tomL);
+        days.addComponent(todL);
+        days.addComponent(tomL);
+        LOG.info("Заполнены layout-ы каждого дня данными о погоде");
+    }
+
+    /** Метод для заполнения горизонтального layout-а текущего дня
+     * @param todL  горизонтальный layout с параметрами погоды для текущего дня
+     */
+    private static void fillItemTod(HorizontalLayout todL){
 
         LOG.info("Заполняется layout сегодняшнего дня");
-        HorizontalLayout todL = new HorizontalLayout();
         todL.setStyleName("layoutDayItem");
         todL.setSpacing(true);
         VerticalLayout v1 = new VerticalLayout();
-        v1.setMargin(false);
         v1.setSpacing(false);
+        v1.setMargin(false);
         v1.setHeight("20px");
         DateFormat dateFormatday = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
         Date date = new Date();
@@ -175,9 +194,8 @@ public class WeatherService {
         todL.addComponent(v1);
 
         VerticalLayout v2 = new VerticalLayout();
-        v2.setMargin(false);
-        v2.setHeight("100px");
-        Label lab1 = new Label("" + day.gettDay() + " C");
+        v2.setStyleName("mystyleV2");
+        Label lab1 = new Label("" + day.gettDay() + " " + DEGREE + "C");
         lab1.addStyleName("textSizeToday");
         v2.addComponent(lab1);
         v2.setComponentAlignment(lab1, Alignment.MIDDLE_CENTER);
@@ -190,22 +208,14 @@ public class WeatherService {
 
         todL.addComponent(v2);
         todL.addComponent(v3);
-
-        LOG.info("Заполняется layout завтрашнего дня");
-        HorizontalLayout tomL = new HorizontalLayout();
-        tomL.setSpacing(true);
-
-        fillItemTom(tomL);
-
-        dayitem.addComponent(todL);
-        dayitem.addComponent(tomL);
-        LOG.info("Заполнены layout-ы каждого дня данными о погоде");
     }
 
     /** Метод для заполнения горизонтального layout-а завтрашнего дня
      * @param tL  горизонтальный layout с параметрами погоды для завтрашнего дня
      */
     public static void fillItemTom(HorizontalLayout tL){
+
+        LOG.info("Заполняется layout сегодняшнего дня");
         tL.setStyleName("layoutDayItem");
         Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
         DateFormat formatd = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
@@ -216,12 +226,12 @@ public class WeatherService {
         tomOptions.setMargin(false);
 
         Weather tom = new Weather();
-        paramTomor(tom);
+        paramTom(tom);
 
-        Label lab2 = new Label("макс " + tom.gettDay() + " C");
+        Label lab2 = new Label("макс " + tom.gettDay() + " " + DEGREE + "C");
         lab2.setStyleName("textSize");
         tomOptions.addComponent(lab2);
-        Label lab3 = new Label("мин " + tom.gettNigth() + " C");
+        Label lab3 = new Label("мин " + tom.gettNigth() + " " + DEGREE + "C");
         lab3.setStyleName("textSize");
         tomOptions.addComponent(lab3);
         tomOptions.setSpacing(false);
@@ -257,16 +267,9 @@ public class WeatherService {
                 }
             }
         }
-        if (req.equals(WeatherService.getUrlTod())){
-            String res = beginURL+ cityId + endURL;
-            LOG.info("Получен " + res + " с учетом id города");
-            setUrlTod(res);
-        }
-        if (req.equals(WeatherService.getUrlTom())){
-            String res2 = BEGIN_URL2 + cityId + endURL;
-            LOG.info("Получен " + res2 + " с учетом id города");
-            setUrlTom(res2);
-        }
+        if (req.equals(WeatherService.getUrlTod())) setUrlTod(beginURL+ cityId + endURL);
+        if (req.equals(WeatherService.getUrlTom())) setUrlTom(BEGIN_URL2 + cityId + endURL);
+        LOG.info("Получен url с учетом id города");
     }
 
     /** Метод для отображения иконки текущих погодных условий

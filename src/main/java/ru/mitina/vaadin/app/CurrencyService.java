@@ -15,7 +15,10 @@ import java.util.*;
  */
 public class CurrencyService {
 
+    /** URL_C - url для получения курса валют Центробанка РФ */
     private static final String URL_C = "https://www.cbr-xml-daily.ru/daily_json.js";
+
+    /** URL_S(123) - для получения стоимости покупки и продажи валюты в Сбербанке */
     private static final String URL_S1 = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D";
     private static final String URL_S2 = "%26_date_ato114%3D";
     private static final String URL_S3 = "%26mode%3Dfull%26display%3Djson";
@@ -51,8 +54,7 @@ public class CurrencyService {
             val = Arrays.asList(usd, eur);
             LOG.info("получен контент для grid");
         } catch (PathNotFoundException exp) {
-            LOG.error("ошибка в пути к элементам в json файле!");
-            exp.printStackTrace();
+            LOG.error("неверный путь к элементам в json файле!");
         }
         return val;
     }
@@ -77,7 +79,7 @@ public class CurrencyService {
     }
 
     /** Метод создания url с учетом текущей даты
-     * @return res  url c учетом текущей даты
+     * @return res url c учетом текущей даты
      */
     public static String buildUrl(){
         StringBuilder s = new StringBuilder();

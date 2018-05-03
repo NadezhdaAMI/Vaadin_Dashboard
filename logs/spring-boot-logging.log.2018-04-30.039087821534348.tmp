@@ -5694,7 +5694,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:17:44.811 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:17:44.813 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:17:44.817 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:17:44.856 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:17:44.856 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:17:44.858 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:17:44.879 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 17:17:45.550 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5710,7 +5710,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:27.613 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:27.616 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:27.618 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:27.632 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:27.632 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:27.637 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:20:29.736 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
 30-04-2018 17:20:29.737 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
@@ -5721,7 +5721,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:30.524 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:30.524 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:30.525 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:30.536 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:30.536 [http-nio-8080-exec-3] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:30.540 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:20:31.852 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
 30-04-2018 17:20:32.290 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5730,7 +5730,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:32.294 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:32.294 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:32.295 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:32.308 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:32.308 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:32.313 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:20:33.502 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
 30-04-2018 17:20:33.505 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
@@ -5741,7 +5741,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:34.308 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:34.309 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:34.314 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:34.326 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:34.326 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:34.328 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:20:34.694 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
 30-04-2018 17:20:35.103 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5750,7 +5750,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:35.106 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:35.107 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:35.108 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:35.125 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:35.125 [http-nio-8080-exec-7] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:35.127 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:20:36.422 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
 30-04-2018 17:20:36.854 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5759,7 +5759,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:36.857 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:36.858 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:36.859 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:36.870 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:36.870 [http-nio-8080-exec-10] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:36.871 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:20:39.130 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
 30-04-2018 17:20:39.522 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5768,7 +5768,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:39.528 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:39.528 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:39.529 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:39.541 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:39.541 [http-nio-8080-exec-8] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:39.543 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:20:41.638 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
 30-04-2018 17:20:41.639 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
@@ -5779,7 +5779,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:42.747 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:42.748 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:42.750 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:42.761 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:42.761 [http-nio-8080-exec-9] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:42.763 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:20:43.153 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
 30-04-2018 17:20:43.573 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5788,7 +5788,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:20:43.576 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:20:43.578 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:20:43.580 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:20:43.591 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:20:43.591 [http-nio-8080-exec-1] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:20:43.592 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:25:11.624 [Thread-26] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1d685c7a: startup date [Mon Apr 30 17:17:22 NOVT 2018]; root of context hierarchy
 30-04-2018 17:25:11.638 [Thread-26] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -5859,7 +5859,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:25:33.263 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:25:33.265 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:25:33.268 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:25:33.312 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:25:33.312 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:25:33.313 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:25:33.328 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 17:25:33.974 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5877,7 +5877,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:25:38.506 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:25:38.508 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:25:38.509 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:25:38.522 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:25:38.522 [http-nio-8080-exec-7] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:25:38.524 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:25:38.867 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
 30-04-2018 17:25:39.303 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5886,7 +5886,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:25:39.305 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:25:39.306 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:25:39.309 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:25:39.322 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:25:39.322 [http-nio-8080-exec-8] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:25:39.323 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:25:40.626 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
 30-04-2018 17:25:40.631 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
@@ -5897,7 +5897,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:25:41.416 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:25:41.416 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:25:41.417 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:25:41.429 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:25:41.429 [http-nio-8080-exec-2] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:25:41.433 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:25:43.567 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
 30-04-2018 17:25:43.569 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
@@ -5908,7 +5908,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:25:44.626 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:25:44.627 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:25:44.628 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:25:44.640 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:25:44.640 [http-nio-8080-exec-3] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:25:44.641 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:25:46.807 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
 30-04-2018 17:25:46.808 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен urlTod с учетом id города
@@ -5919,7 +5919,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:25:47.658 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:25:47.659 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:25:47.660 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:25:47.676 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:25:47.676 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:25:47.677 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:25:49.564 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
 30-04-2018 17:25:49.963 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -5928,7 +5928,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:25:49.968 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:25:49.969 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:25:49.970 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:25:49.986 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:25:49.986 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:25:49.987 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:38:20.696 [Thread-25] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@25d2da08: startup date [Mon Apr 30 17:25:19 NOVT 2018]; root of context hierarchy
 30-04-2018 17:38:20.701 [Thread-25] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6000,7 +6000,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:38:44.911 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:38:44.913 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:38:44.917 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:38:44.957 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:38:44.957 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:38:44.958 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:38:44.974 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 17:38:46.094 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6019,7 +6019,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:39:47.221 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:39:47.224 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:39:47.228 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:39:47.240 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:39:47.240 [http-nio-8080-exec-2] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:39:47.242 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:40:26.411 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 17:40:26.412 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -6031,7 +6031,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:40:28.364 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:40:28.364 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:40:28.365 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:40:28.377 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:40:28.377 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:40:28.378 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:49:20.704 [Thread-25] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4e294fde: startup date [Mon Apr 30 17:38:28 NOVT 2018]; root of context hierarchy
 30-04-2018 17:49:20.717 [Thread-25] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6104,7 +6104,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:49:42.402 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:49:42.404 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:49:42.407 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:49:42.444 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:49:42.444 [http-nio-8080-exec-7] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:49:42.445 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:49:42.462 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 17:49:43.702 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6124,7 +6124,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:50:39.658 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:50:39.661 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:50:39.663 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:50:39.676 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:50:39.676 [http-nio-8080-exec-7] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:50:39.679 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:52:10.511 [Thread-24] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7a59081b: startup date [Mon Apr 30 17:49:28 NOVT 2018]; root of context hierarchy
 30-04-2018 17:52:10.562 [Thread-24] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6197,7 +6197,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:52:32.521 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:52:32.523 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:52:32.527 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:52:32.569 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:52:32.569 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:52:32.570 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:52:32.586 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 17:52:33.246 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6217,7 +6217,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:52:39.685 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:52:39.686 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:52:39.687 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:52:39.698 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:52:39.698 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:52:39.703 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:52:41.427 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 17:52:41.428 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -6230,7 +6230,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:52:42.515 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:52:42.516 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:52:42.517 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:52:42.529 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:52:42.529 [http-nio-8080-exec-10] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:52:42.530 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:54:24.059 [Thread-26] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1f50824f: startup date [Mon Apr 30 17:52:19 NOVT 2018]; root of context hierarchy
 30-04-2018 17:54:24.066 [Thread-26] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6303,7 +6303,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:54:44.391 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:54:44.393 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:54:44.396 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:54:44.437 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:54:44.437 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:54:44.439 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:54:44.452 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 17:54:45.130 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6323,7 +6323,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:54:51.430 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:54:51.431 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:54:51.431 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:54:51.463 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:54:51.463 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:54:51.465 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 17:54:54.908 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 17:54:54.909 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -6336,7 +6336,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 17:54:55.715 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 17:54:55.716 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 17:54:55.717 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 17:54:55.733 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 17:54:55.733 [http-nio-8080-exec-8] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 17:54:55.734 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:01:14.519 [Thread-26] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@39da13eb: startup date [Mon Apr 30 17:54:31 NOVT 2018]; root of context hierarchy
 30-04-2018 18:01:14.531 [Thread-26] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6409,7 +6409,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:01:36.325 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:01:36.330 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:01:36.334 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:01:36.373 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:01:36.373 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:01:36.375 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:01:36.394 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 18:01:37.256 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6429,7 +6429,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:01:40.731 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:01:40.731 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:01:40.732 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:01:40.746 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:01:40.746 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:01:40.748 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:01:43.204 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 18:01:43.205 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -6442,7 +6442,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:01:44.171 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:01:44.171 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:01:44.172 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:01:44.185 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:01:44.185 [http-nio-8080-exec-9] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:01:44.187 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:03:19.017 [Thread-25] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@39ff4c7d: startup date [Mon Apr 30 18:01:22 NOVT 2018]; root of context hierarchy
 30-04-2018 18:03:19.027 [Thread-25] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6515,7 +6515,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:03:44.833 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:03:44.836 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:03:44.839 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:03:44.873 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:03:44.873 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:03:44.874 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:03:44.892 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 18:03:45.605 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6535,7 +6535,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:04:04.937 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:04:04.937 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:04:04.938 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:04:04.952 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:04:04.952 [http-nio-8080-exec-10] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:04:04.954 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:06:59.001 [Thread-25] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7f87c95f: startup date [Mon Apr 30 18:03:26 NOVT 2018]; root of context hierarchy
 30-04-2018 18:06:59.015 [Thread-25] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6608,7 +6608,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:07:18.262 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:07:18.267 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:07:18.270 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:07:18.324 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:07:18.324 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:07:18.326 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:07:18.346 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 18:07:19.001 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6628,7 +6628,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:07:21.861 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:07:21.861 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:07:21.862 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:07:21.873 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:07:21.873 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:07:21.875 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:07:24.547 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 18:07:24.550 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -6641,7 +6641,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:07:25.354 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:07:25.354 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:07:25.358 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:07:25.372 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:07:25.372 [http-nio-8080-exec-7] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:07:25.373 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:18:36.969 [Thread-25] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7a6a9fee: startup date [Mon Apr 30 18:07:06 NOVT 2018]; root of context hierarchy
 30-04-2018 18:18:36.978 [Thread-25] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6714,7 +6714,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:18:55.739 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:18:55.742 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:18:55.744 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:18:55.776 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:18:55.776 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:18:55.778 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:18:55.795 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 18:18:56.914 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6736,7 +6736,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:19:11.459 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:19:11.459 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:19:11.460 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:19:11.476 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:19:11.476 [http-nio-8080-exec-7] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:19:11.479 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:19:17.134 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 18:19:17.138 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metricтеперь равен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric
@@ -6751,7 +6751,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:19:18.873 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:19:18.873 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:19:18.877 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:19:18.890 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:19:18.890 [http-nio-8080-exec-1] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:19:18.892 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:20:37.517 [Thread-25] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@550ac9c1: startup date [Mon Apr 30 18:18:44 NOVT 2018]; root of context hierarchy
 30-04-2018 18:20:37.532 [Thread-25] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -6824,7 +6824,7 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 18:21:01.180 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 18:21:01.185 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 18:21:01.188 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 18:21:01.234 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 18:21:01.234 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 18:21:01.236 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 18:21:01.253 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 18:21:01.940 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6905,8 +6905,8 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:19:59.620 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:19:59.628 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:19:59.631 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:19:59.672 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 0
-30-04-2018 21:19:59.673 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:19:59.672 [http-nio-8080-exec-5] INFO  paramTom - k = 0
+30-04-2018 21:19:59.673 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:19:59.674 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:19:59.714 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:20:00.564 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -6986,9 +6986,9 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:21:35.329 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:21:35.330 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:21:35.333 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:21:35.368 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:21:35.368 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 0
-30-04-2018 21:21:35.369 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:21:35.368 [http-nio-8080-exec-4] INFO  paramTom - 1525100400
+30-04-2018 21:21:35.368 [http-nio-8080-exec-4] INFO  paramTom - k = 0
+30-04-2018 21:21:35.369 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:21:35.370 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:21:35.386 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:21:36.111 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7068,10 +7068,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:22:44.122 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:22:44.124 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:22:44.127 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:22:44.175 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600000
-30-04-2018 21:22:44.177 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:22:44.177 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 0
-30-04-2018 21:22:44.178 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:22:44.175 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600000
+30-04-2018 21:22:44.177 [http-nio-8080-exec-4] INFO  paramTom - 1525100400
+30-04-2018 21:22:44.177 [http-nio-8080-exec-4] INFO  paramTom - k = 0
+30-04-2018 21:22:44.178 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:22:44.179 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:22:44.196 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:22:45.013 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7151,10 +7151,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:24:01.766 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:24:01.769 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:24:01.771 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:24:01.843 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:24:01.844 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:24:01.845 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:24:01.845 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:24:01.843 [http-nio-8080-exec-5] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:24:01.844 [http-nio-8080-exec-5] INFO  paramTom - 1525100400
+30-04-2018 21:24:01.845 [http-nio-8080-exec-5] INFO  paramTom - k = 17
+30-04-2018 21:24:01.845 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:24:01.846 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:24:01.863 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:24:02.709 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7173,10 +7173,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:24:48.807 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:24:48.808 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:24:48.809 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:24:48.904 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:24:48.905 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:24:48.906 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:24:48.906 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:24:48.904 [http-nio-8080-exec-3] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:24:48.905 [http-nio-8080-exec-3] INFO  paramTom - 1525100400
+30-04-2018 21:24:48.906 [http-nio-8080-exec-3] INFO  paramTom - k = 17
+30-04-2018 21:24:48.906 [http-nio-8080-exec-3] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:24:48.908 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:24:48.909 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:24:50.752 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7256,10 +7256,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:27:22.997 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:27:22.999 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:27:23.002 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:27:23.085 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:27:23.086 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:27:23.087 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:27:23.088 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:27:23.085 [http-nio-8080-exec-6] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:27:23.086 [http-nio-8080-exec-6] INFO  paramTom - 1525100400
+30-04-2018 21:27:23.087 [http-nio-8080-exec-6] INFO  paramTom - k = 17
+30-04-2018 21:27:23.088 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:27:23.089 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:27:23.106 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:27:24.233 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7339,10 +7339,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:29:00.508 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:29:00.512 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:29:00.516 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:29:00.596 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:29:00.597 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:29:00.598 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:29:00.599 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:29:00.596 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:29:00.597 [http-nio-8080-exec-4] INFO  paramTom - 1525100400
+30-04-2018 21:29:00.598 [http-nio-8080-exec-4] INFO  paramTom - k = 17
+30-04-2018 21:29:00.599 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:29:00.600 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:29:00.617 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:29:01.458 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7362,10 +7362,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:29:15.491 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:29:15.491 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:29:15.492 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:29:15.542 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:29:15.543 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:29:15.543 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:29:15.544 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:29:15.542 [http-nio-8080-exec-9] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:29:15.543 [http-nio-8080-exec-9] INFO  paramTom - 1525100400
+30-04-2018 21:29:15.543 [http-nio-8080-exec-9] INFO  paramTom - k = 17
+30-04-2018 21:29:15.544 [http-nio-8080-exec-9] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:29:15.546 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:29:24.709 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 21:29:24.710 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -7378,10 +7378,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:29:27.064 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:29:27.064 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:29:27.065 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:29:27.167 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:29:27.170 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:29:27.171 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:29:27.173 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:29:27.167 [http-nio-8080-exec-1] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:29:27.170 [http-nio-8080-exec-1] INFO  paramTom - 1525100400
+30-04-2018 21:29:27.171 [http-nio-8080-exec-1] INFO  paramTom - k = 17
+30-04-2018 21:29:27.173 [http-nio-8080-exec-1] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:29:27.175 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:29:56.415 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=1496747&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 21:29:56.416 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=1496747&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -7394,10 +7394,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:29:57.259 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:29:57.259 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:29:57.260 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:29:57.312 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:29:57.313 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:29:57.313 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:29:57.314 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:29:57.312 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:29:57.313 [http-nio-8080-exec-4] INFO  paramTom - 1525100400
+30-04-2018 21:29:57.313 [http-nio-8080-exec-4] INFO  paramTom - k = 17
+30-04-2018 21:29:57.314 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:29:57.315 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:30:02.765 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 21:30:02.766 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -7410,10 +7410,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:30:08.273 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:30:08.273 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:30:08.274 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:30:08.334 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:30:08.335 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:30:08.335 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:30:08.335 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:30:08.334 [http-nio-8080-exec-7] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:30:08.335 [http-nio-8080-exec-7] INFO  paramTom - 1525100400
+30-04-2018 21:30:08.335 [http-nio-8080-exec-7] INFO  paramTom - k = 17
+30-04-2018 21:30:08.335 [http-nio-8080-exec-7] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:30:08.337 [http-nio-8080-exec-7] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:30:08.724 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
 30-04-2018 21:30:08.725 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.setJsonWeather - Данные с сайта http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=fd05633695761f3e038d2270479047af&units=metric сохранились в строку jsonToday
@@ -7424,10 +7424,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:30:09.146 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:30:09.147 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:30:09.148 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:30:09.189 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:30:09.190 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:30:09.190 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:30:09.190 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:30:09.189 [http-nio-8080-exec-8] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:30:09.190 [http-nio-8080-exec-8] INFO  paramTom - 1525100400
+30-04-2018 21:30:09.190 [http-nio-8080-exec-8] INFO  paramTom - k = 17
+30-04-2018 21:30:09.190 [http-nio-8080-exec-8] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:30:09.192 [http-nio-8080-exec-8] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:30:15.314 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=1496747&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 21:30:15.315 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=1496747&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -7440,10 +7440,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:30:16.993 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:30:16.995 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:30:16.997 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:30:17.043 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:30:17.044 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:30:17.045 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:30:17.045 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:30:17.043 [http-nio-8080-exec-6] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:30:17.044 [http-nio-8080-exec-6] INFO  paramTom - 1525100400
+30-04-2018 21:30:17.045 [http-nio-8080-exec-6] INFO  paramTom - k = 17
+30-04-2018 21:30:17.045 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:30:17.046 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:32:08.336 [Thread-25] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@33400bf7: startup date [Mon Apr 30 21:28:44 NOVT 2018]; root of context hierarchy
 30-04-2018 21:32:08.347 [Thread-25] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -7516,10 +7516,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:32:33.088 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:32:33.090 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:32:33.094 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:32:33.174 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:32:33.175 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:32:33.176 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:32:33.176 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:32:33.174 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:32:33.175 [http-nio-8080-exec-4] INFO  paramTom - 1525100400
+30-04-2018 21:32:33.176 [http-nio-8080-exec-4] INFO  paramTom - k = 17
+30-04-2018 21:32:33.176 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:32:33.178 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:32:33.194 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:32:33.987 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7538,10 +7538,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 21:32:39.885 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 21:32:39.886 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 21:32:39.887 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 21:32:39.967 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 21:32:39.968 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525100400
-30-04-2018 21:32:39.968 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 17
-30-04-2018 21:32:39.969 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 21:32:39.967 [http-nio-8080-exec-2] INFO  paramTom - midnight = 1525107600
+30-04-2018 21:32:39.968 [http-nio-8080-exec-2] INFO  paramTom - 1525100400
+30-04-2018 21:32:39.968 [http-nio-8080-exec-2] INFO  paramTom - k = 17
+30-04-2018 21:32:39.969 [http-nio-8080-exec-2] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 21:32:39.975 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 21:32:39.976 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 21:32:41.833 [http-nio-8080-exec-2] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7620,10 +7620,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:06:15.632 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:06:15.637 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:06:15.640 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:06:15.721 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:06:15.722 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:06:15.723 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:06:15.724 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:06:15.721 [http-nio-8080-exec-6] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:06:15.722 [http-nio-8080-exec-6] INFO  paramTom - 1525111200
+30-04-2018 22:06:15.723 [http-nio-8080-exec-6] INFO  paramTom - k = 18
+30-04-2018 22:06:15.724 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:06:15.726 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:06:15.762 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:06:16.687 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -7975,10 +7975,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:14:27.953 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:14:27.961 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:14:27.964 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:14:28.049 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:14:28.050 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:14:28.051 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:14:28.051 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:14:28.049 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:14:28.050 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 22:14:28.051 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 22:14:28.051 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:14:28.052 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:14:28.092 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:14:29.020 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -8080,10 +8080,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:18:56.988 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:18:56.994 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:18:56.997 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:18:57.120 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:18:57.124 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:18:57.125 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:18:57.126 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:18:57.120 [http-nio-8080-exec-5] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:18:57.124 [http-nio-8080-exec-5] INFO  paramTom - 1525111200
+30-04-2018 22:18:57.125 [http-nio-8080-exec-5] INFO  paramTom - k = 18
+30-04-2018 22:18:57.126 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:18:57.130 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:18:57.187 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:18:58.337 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -8163,10 +8163,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:19:53.367 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:19:53.370 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:19:53.374 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:19:53.458 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:19:53.459 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:19:53.460 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:19:53.460 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:19:53.458 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:19:53.459 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 22:19:53.460 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 22:19:53.460 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:19:53.462 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:19:53.477 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:19:54.895 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -8185,10 +8185,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:21:33.772 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:21:33.773 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:21:33.774 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:21:33.927 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:21:33.929 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:21:33.934 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:21:33.936 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:21:33.927 [http-nio-8080-exec-6] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:21:33.929 [http-nio-8080-exec-6] INFO  paramTom - 1525111200
+30-04-2018 22:21:33.934 [http-nio-8080-exec-6] INFO  paramTom - k = 18
+30-04-2018 22:21:33.936 [http-nio-8080-exec-6] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:21:33.942 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:21:33.943 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:21:34.672 [http-nio-8080-exec-6] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -8556,10 +8556,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:28:42.167 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:28:42.187 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:28:42.195 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:28:42.470 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:28:42.476 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:28:42.476 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:28:42.477 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:28:42.470 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:28:42.476 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 22:28:42.476 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 22:28:42.477 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:28:42.478 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:28:42.545 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:28:43.775 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -8659,10 +8659,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:30:19.499 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:30:19.501 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:30:19.506 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:30:19.726 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:30:19.728 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:30:19.728 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:30:19.739 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:30:19.726 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:30:19.728 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 22:30:19.728 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 22:30:19.739 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:30:19.752 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:30:19.789 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:30:20.713 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9010,10 +9010,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:36:09.261 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:36:09.266 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:36:09.269 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:36:09.342 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:36:09.343 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:36:09.344 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:36:09.344 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:36:09.342 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:36:09.343 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 22:36:09.344 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 22:36:09.344 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:36:09.346 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:36:09.382 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:36:10.285 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9033,10 +9033,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:37:01.358 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:37:01.358 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:37:01.359 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:37:01.410 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:37:01.412 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:37:01.412 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:37:01.413 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:37:01.410 [http-nio-8080-exec-1] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:37:01.412 [http-nio-8080-exec-1] INFO  paramTom - 1525111200
+30-04-2018 22:37:01.412 [http-nio-8080-exec-1] INFO  paramTom - k = 18
+30-04-2018 22:37:01.413 [http-nio-8080-exec-1] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:37:01.415 [http-nio-8080-exec-1] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:37:05.806 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/weather?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
 30-04-2018 22:37:05.807 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.buildUrl - Получен http://api.openweathermap.org/data/2.5/forecast?id=498817&APPID=fd05633695761f3e038d2270479047af&units=metric с учетом id города
@@ -9051,10 +9051,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:38:11.347 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:38:11.348 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:38:11.350 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:38:11.420 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:38:11.421 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:38:11.422 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:38:11.423 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:38:11.420 [http-nio-8080-exec-3] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:38:11.421 [http-nio-8080-exec-3] INFO  paramTom - 1525111200
+30-04-2018 22:38:11.422 [http-nio-8080-exec-3] INFO  paramTom - k = 18
+30-04-2018 22:38:11.423 [http-nio-8080-exec-3] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:38:11.425 [http-nio-8080-exec-3] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:38:25.702 [Thread-24] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.doClose - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3a859f07: startup date [Mon Apr 30 22:35:48 NOVT 2018]; root of context hierarchy
 30-04-2018 22:38:25.717 [Thread-24] INFO  o.s.j.e.a.AnnotationMBeanExporter.destroy - Unregistering JMX-exposed beans on shutdown
@@ -9127,10 +9127,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:39:00.582 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:39:00.583 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:39:00.587 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:39:00.709 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:39:00.711 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:39:00.711 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:39:00.712 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:39:00.709 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:39:00.711 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 22:39:00.711 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 22:39:00.712 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:39:00.713 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:39:00.727 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:39:01.705 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9153,10 +9153,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:40:16.269 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:40:16.270 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:40:16.272 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:40:16.343 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:40:16.344 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:40:16.345 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:40:16.346 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:40:16.343 [http-nio-8080-exec-10] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:40:16.344 [http-nio-8080-exec-10] INFO  paramTom - 1525111200
+30-04-2018 22:40:16.345 [http-nio-8080-exec-10] INFO  paramTom - k = 18
+30-04-2018 22:40:16.346 [http-nio-8080-exec-10] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:40:16.348 [http-nio-8080-exec-10] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:40:26.240 [restartedMain] INFO  ru.mitina.vaadin.app.AppApplication.logStarting - Starting AppApplication on userubuntu with PID 29977 (/home/user/demo/app/target/classes started by user in /home/user/demo/app)
 30-04-2018 22:40:26.244 [restartedMain] INFO  ru.mitina.vaadin.app.AppApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
@@ -9498,10 +9498,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:42:02.396 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:42:02.404 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:42:02.407 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:42:02.485 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:42:02.486 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:42:02.486 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:42:02.487 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:42:02.485 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:42:02.486 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 22:42:02.486 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 22:42:02.487 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:42:02.488 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:42:02.527 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:42:03.541 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9650,10 +9650,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:52:38.865 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:52:38.873 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:52:38.876 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:52:38.951 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:52:38.952 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:52:38.953 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:52:38.953 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:52:38.951 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:52:38.952 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 22:52:38.953 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 22:52:38.953 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:52:38.954 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:52:38.992 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:52:39.898 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9672,10 +9672,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:52:45.649 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:52:45.650 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:52:45.659 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:52:45.753 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:52:45.755 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:52:45.756 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:52:45.757 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:52:45.753 [http-nio-8080-exec-9] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:52:45.755 [http-nio-8080-exec-9] INFO  paramTom - 1525111200
+30-04-2018 22:52:45.756 [http-nio-8080-exec-9] INFO  paramTom - k = 18
+30-04-2018 22:52:45.757 [http-nio-8080-exec-9] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:52:45.761 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:52:45.764 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:52:46.387 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9759,10 +9759,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 22:56:37.091 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 22:56:37.093 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 22:56:37.096 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 22:56:37.170 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 22:56:37.171 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 22:56:37.172 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 22:56:37.173 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 22:56:37.170 [http-nio-8080-exec-5] INFO  paramTom - midnight = 1525107600
+30-04-2018 22:56:37.171 [http-nio-8080-exec-5] INFO  paramTom - 1525111200
+30-04-2018 22:56:37.172 [http-nio-8080-exec-5] INFO  paramTom - k = 18
+30-04-2018 22:56:37.173 [http-nio-8080-exec-5] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 22:56:37.174 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 22:56:37.190 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 22:56:38.050 [http-nio-8080-exec-5] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9842,10 +9842,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 23:00:16.071 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 23:00:16.072 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 23:00:16.076 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 23:00:16.219 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 23:00:16.221 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 23:00:16.223 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 23:00:16.223 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 23:00:16.219 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 23:00:16.221 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 23:00:16.223 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 23:00:16.223 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 23:00:16.225 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 23:00:16.263 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 23:00:17.178 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9925,10 +9925,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 23:03:53.233 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 23:03:53.235 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 23:03:53.238 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 23:03:53.322 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 23:03:53.323 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 23:03:53.324 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 23:03:53.324 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 23:03:53.322 [http-nio-8080-exec-4] INFO  paramTom - midnight = 1525107600
+30-04-2018 23:03:53.323 [http-nio-8080-exec-4] INFO  paramTom - 1525111200
+30-04-2018 23:03:53.324 [http-nio-8080-exec-4] INFO  paramTom - k = 18
+30-04-2018 23:03:53.324 [http-nio-8080-exec-4] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 23:03:53.326 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 23:03:53.343 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 23:03:54.249 [http-nio-8080-exec-4] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
@@ -9947,10 +9947,10 @@ To show debug window, add ?debug to your application URL.
 30-04-2018 23:06:41.249 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramToday - Заполнен layout сегодняшнего дня
 30-04-2018 23:06:41.250 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.showIcon - Получена иконка
 30-04-2018 23:06:41.256 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполняется layout завтрашнего дня
-30-04-2018 23:06:41.338 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - midnight = 1525107600
-30-04-2018 23:06:41.339 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - 1525111200
-30-04-2018 23:06:41.340 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - k = 18
-30-04-2018 23:06:41.341 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.paramTomor - Заполнен layout завтрашнего дня
+30-04-2018 23:06:41.338 [http-nio-8080-exec-9] INFO  paramTom - midnight = 1525107600
+30-04-2018 23:06:41.339 [http-nio-8080-exec-9] INFO  paramTom - 1525111200
+30-04-2018 23:06:41.340 [http-nio-8080-exec-9] INFO  paramTom - k = 18
+30-04-2018 23:06:41.341 [http-nio-8080-exec-9] INFO  paramTom - Заполнен layout завтрашнего дня
 30-04-2018 23:06:41.344 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.WeatherService.fillItems - Заполнены layout-ы каждого дня данными о погоде
 30-04-2018 23:06:41.345 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.MainUI.init - Заполняем layout для валюты
 30-04-2018 23:06:41.980 [http-nio-8080-exec-9] INFO  ru.mitina.vaadin.app.MainService.jsonToString - Json файл сохранен в строку
