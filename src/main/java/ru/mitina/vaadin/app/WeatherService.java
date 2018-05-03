@@ -27,8 +27,8 @@ public class WeatherService {
 
     private static final Logger LOG = LogManager.getLogger(WeatherService.class);
 
-    private static String jsonToday = null;
-    private static String jsonTom = null;
+    private static String strToday = null;
+    private static String strTom = null;
     private static String cityName;
 
     static {
@@ -41,17 +41,13 @@ public class WeatherService {
         return map;
     }
 
-    public static String getJsonToday() {
-        return jsonToday;
-    }
-
     /** Метод для сохранения файла json в строку по заданному url*/
     public static void setJsonWeather() {
         try {
-            jsonToday = MainService.jsonToString(urlTod);
-            LOG.info("Данные с сайта " + urlTod +" сохранились в строку jsonToday");
-            jsonTom = MainService.jsonToString(urlTom);
-            LOG.info("Данные с сайта " + urlTom + " сохранились в строку jsonTom");
+            strToday = MainService.jsonToString(urlTod);
+            LOG.info("Данные с сайта " + urlTod +" сохранились в строку strToday");
+            strTom = MainService.jsonToString(urlTom);
+            LOG.info("Данные с сайта " + urlTom + " сохранились в строку strTom");
         } catch (ClassCastException exp) {
             LOG.error("Данные с сайта не сохранились в строку!");
             exp.printStackTrace();
@@ -64,11 +60,11 @@ public class WeatherService {
     public static Weather paramToday(Weather day) {
         try {
             LOG.info("Заполнение layout-а сегодняшнего дня");
-            day.settDay(JsonPath.read(jsonToday, "$.main.temp").toString());
-            day.setWind(JsonPath.read(jsonToday, "$.wind.speed").toString());
-            day.setHumidity(JsonPath.read(jsonToday, "$.main.humidity").toString());
-            day.setPressure(JsonPath.read(jsonToday, "$.main.pressure").toString());
-            day.setIcon(JsonPath.read(jsonToday, "$.weather[0].icon").toString());
+            day.settDay(readJs("$.main.temp"));
+            day.setWind(readJs("$.wind.speed"));
+            day.setHumidity(readJs("$.main.humidity"));
+            day.setPressure(readJs("$.main.pressure"));
+            day.setIcon(readJs("$.weather[0].icon"));
             LOG.info("Заполнен layout сегодняшнего дня");
         }
         catch (PathNotFoundException ex){
@@ -76,6 +72,19 @@ public class WeatherService {
             LOG.error("Не найден url для сохранения jsona в строку!");
         }
         return day;
+    }
+
+    /** Метод нахождения и преобразования элемента в строку
+     * @param q путь в строке к нужному элементу
+     */
+    public static String readJs(String q){
+        String s = "";
+        try {
+            s = JsonPath.read(strToday, q).toString();
+        }catch (PathNotFoundException e){
+            LOG.error("Неверно указан путь в строке к элементу");
+        }
+        return s;
     }
 
     /** Метод вычисления средних значений скорости ветра, давления и влажности
@@ -96,27 +105,23 @@ public class WeatherService {
         c.set(Calendar.SECOND, 0);
         c.set(Calendar.MILLISECOND, 0);
         long midnight = c.getTimeInMillis() / 1000;
+        LOG.info("midnight = " + midnight);
 
         /* n < 17 максимальное кол-во 3х часовых интервалов, по которым происходит усреднение*/
-        int n = 17;
-        double tmax = -70;
-        double tmin = 70;
-        double windSum = 0;
-        double presSum = 0;
-        double humSum = 0;
-        int k = 0;
+        int n = 17, k = 0;
+        double tmax = -70, tmin = 70;
+        double windSum = 0, presSum = 0, humSum = 0;
         for (int i = 0; i < n; i++) {
-            if (Long.parseLong(JsonPath.read(jsonTom, "$.list[" + i + "].dt").toString()) >= midnight){
-                double t1 = Double.parseDouble(JsonPath.read(jsonTom, "$.list[" + i + "].main.temp").toString());
+            if (Long.parseLong(JsonPath.read(strTom, "$.list[" + i + "].dt").toString()) >= midnight){
+                double t1 = strToD("main.temp", i);
                 tmax = (t1 > tmax ? t1 : tmax);
                 tmin = (t1 < tmin ? t1 : tmin);
-                windSum = windSum + Double.parseDouble(JsonPath.read(jsonTom, "$.list[" + i + "].wind.speed").toString());
-                presSum = presSum + Double.parseDouble(JsonPath.read(jsonTom, "$.list[" + i + "].main.pressure").toString());
-                humSum = humSum + Double.parseDouble(JsonPath.read(jsonTom, "$.list[" + i + "].main.humidity").toString());
+                windSum = windSum + strToD("wind.speed", i);
+                presSum = presSum + strToD("main.pressure", i);
+                humSum = humSum + strToD("main.humidity", i);
                 k++;
             }
         }
-        LOG.info("midnight = " + midnight);
         day.settDay(String.valueOf(tmax));
         day.settNigth(String.valueOf(tmin));
         day.setWind(String.valueOf(windSum / k));
@@ -124,6 +129,20 @@ public class WeatherService {
         day.setHumidity(String.valueOf(humSum / k));
         LOG.info("Заполнен layout завтрашнего дня");
         return day;
+    }
+
+    /** Метод нахождения и преобразования элемента к типу double
+     * @param q путь в строке к нужному элементу
+     * @param i индекс в цикле
+     */
+    public static double strToD(String q, int i){
+        double d = 0;
+        try {
+            d = Double.parseDouble(JsonPath.read(strTom, "$.list[" + i + "]." + q).toString());
+        }catch (PathNotFoundException e){
+            LOG.error("Неверно указан путь в строке к элементу");
+        }
+        return d;
     }
 
     /** Метод для заполнения вертикального layout-а
@@ -153,7 +172,6 @@ public class WeatherService {
 
         Image image = showIcon(day.getIcon());
         v1.addComponent(image);
-        image.setStyleName("delIndent");
         todL.addComponent(v1);
 
         VerticalLayout v2 = new VerticalLayout();
@@ -178,6 +196,7 @@ public class WeatherService {
         tomL.setSpacing(true);
 
         fillItemTom(tomL);
+
         dayitem.addComponent(todL);
         dayitem.addComponent(tomL);
         LOG.info("Заполнены layout-ы каждого дня данными о погоде");
@@ -256,8 +275,7 @@ public class WeatherService {
     public static Image showIcon(String icon){
         ThemeResource resource = new ThemeResource("icons/" + icon + ".png");
         Image im = new Image("", resource);
-        im.setHeight("70px");
-        im.setWidth("70px");
+        im.setStyleName("styleImage");
         LOG.info("Получена иконка");
         return im;
     }

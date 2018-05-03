@@ -28,7 +28,7 @@ public class MainUI extends UI{
     private static final Logger LOG = LogManager.getLogger(MainUI.class.getName());
 
     /** Id города Новосибирска */
-    public static final int NSK_ID = 1496747;
+    private static final int NSK_ID = 1496747;
 
     /** Счетчик посещений */
     private static Counter counter;

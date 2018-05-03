@@ -15,12 +15,12 @@ import java.util.*;
  */
 public class CurrencyService {
 
-    private static final String urlC = "https://www.cbr-xml-daily.ru/daily_json.js";
-    private static final String urlS1 = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D";
-    private static final String urlS2 = "%26_date_ato114%3D";
-    private static final String urlS3 = "%26mode%3Dfull%26display%3Djson";
+    private static final String URL_C = "https://www.cbr-xml-daily.ru/daily_json.js";
+    private static final String URL_S1 = "http://www.sberbank.ru/common%2Fjs%2Fget_quote_values.php%3Fversion%3D1%26inf_block%3D123%26_number_amount114%3D10000%26qid%5B%5D=3%26qid%5B%5D=2%26cbrf%3D0%26period%3Don%26_date_afrom114%3D";
+    private static final String URL_S2 = "%26_date_ato114%3D";
+    private static final String URL_S3 = "%26mode%3Dfull%26display%3Djson";
 
-    private static final Logger log = LogManager.getLogger(WeatherService.class);
+    private static final Logger LOG = LogManager.getLogger(WeatherService.class);
 
     /** Метод для получения контента для grid
      * @return val массив валют
@@ -31,10 +31,10 @@ public class CurrencyService {
         String jsonSber;
         List<Currency> val = null;
         try {
-            jsonCbr = MainService.jsonToString(urlC);
+            jsonCbr = MainService.jsonToString(URL_C);
             String urlS = buildUrl();
             jsonSber = MainService.jsonToString(urlS);
-            log.info("json с сайта валют сохранен в строку");
+            LOG.info("json с сайта валют сохранен в строку");
 
             Currency usd = new Currency();
             usd.setName(JsonPath.read(jsonCbr, "$.Valute.USD.CharCode").toString() + "/RUB");
@@ -49,9 +49,9 @@ public class CurrencyService {
             eur.setSell(JsonPath.read(jsonSber, "$.2.quotes.*.sell").toString().substring(2, 7));
 
             val = Arrays.asList(usd, eur);
-            log.info("получен контент для grid");
+            LOG.info("получен контент для grid");
         } catch (PathNotFoundException exp) {
-            log.error("ошибка в пути к элементам в json файле!");
+            LOG.error("ошибка в пути к элементам в json файле!");
             exp.printStackTrace();
         }
         return val;
@@ -67,11 +67,11 @@ public class CurrencyService {
             grid.addColumn(Currency::getValue).setCaption("КУРС ЦБ");
             grid.addColumn(Currency::getBuy).setCaption("ПОКУПКА");
             grid.addColumn(Currency::getSell).setCaption("ПРОДАЖА");
-            log.info("grid заполнена данными по валюте");
+            LOG.info("grid заполнена данными по валюте");
         }
         catch (PathNotFoundException ex){
             ex.printStackTrace();
-            log.error("Не найден url для сохранения jsona в строку!");
+            LOG.error("Не найден url для сохранения jsona в строку!");
         }
         return grid;
     }
@@ -83,8 +83,8 @@ public class CurrencyService {
         StringBuilder s = new StringBuilder();
         DateFormat formatD = new SimpleDateFormat("dd.MM.yyyy");
         String dateF = formatD.format(new Date());
-        String res = s.append(urlS1).append(dateF).append(urlS2).append(dateF).append(urlS3).toString();
-        log.info("Получен url для jsona c данными по валюте текущего дня " + dateF);
+        String res = s.append(URL_S1).append(dateF).append(URL_S2).append(dateF).append(URL_S3).toString();
+        LOG.info("Получен url для jsona c данными по валюте текущего дня " + dateF);
         return res;
     }
 }
