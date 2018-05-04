@@ -20,7 +20,7 @@ public class MainService {
     /** метод для сохранения файла json по заданному url в строку
      * @param url  url публичных информеров с данными в формате json
     */
-    public static String jsonToString(String url) throws ClassCastException{
+    public static String jsonToString(String url){
 
         String res = "";
         try {
@@ -37,7 +37,6 @@ public class MainService {
             res = result.toString();
             LOG.info("Json файл сохранен в строку");
         } catch (IOException e) {
-            e.printStackTrace();
             LOG.error("При выполнении запроса клиента произошла ошибка!");
         }
         return res;

@@ -48,7 +48,7 @@ public class WeatherService {
         return map;
     }
 
-    /** Метод для сохранения файла json в строку по заданному url*/
+    /** Метод для сохранения файлов json в строки по заданному url*/
     public static void setJsonWeather() {
         try {
             strToday = MainService.jsonToString(urlTod);
@@ -60,7 +60,8 @@ public class WeatherService {
         }
     }
 
-    /** Метод заполнения параметров погоды для текущего дня
+    /** Метод заполнения параметров погоды для текущего дня,
+     * сервер источника(openweathermap.org) обновляет данные текущего дня каждые 10 минут
      * @param day текущий день
      */
     public static Weather paramToday(Weather day) {
@@ -112,7 +113,9 @@ public class WeatherService {
         long midnight = c.getTimeInMillis() / 1000;
         LOG.info("midnight = " + midnight);
 
-        /* n < 17 максимальное кол-во 3х часовых интервалов, по которым происходит усреднение*/
+        /* n < 17 максимальное кол-во 3х часовых интервалов, по которым происходит усреднение
+        * n будет изменяться в зависимости от времени обращения к серверу
+        */
         int n = 17, k = 0;
         double tmax = -70, tmin = 70;
         double windSum = 0, presSum = 0, humSum = 0;
@@ -127,8 +130,9 @@ public class WeatherService {
                 k++;
             }
         }
+        /* Заполняем параметры погоды завтрашнего дня полученными средними значениями*/
         day.settDay(String.valueOf(tmax));
-        day.settNigth(String.valueOf(tmin));
+        day.settNight(String.valueOf(tmin));
         day.setWind(String.valueOf(windSum / k));
         day.setPressure(String.valueOf(presSum / k));
         day.setHumidity(String.valueOf(humSum / k));
@@ -152,7 +156,6 @@ public class WeatherService {
 
     /** Метод для заполнения вертикального layout-а
      * @param days содержит два горизонтальных layout-а с данными о сегодняшнем и завтрашнем дне
-     * {@link WeatherService#fillItemTom(HorizontalLayout tL)}
      */
     public static void fillItems(VerticalLayout days){
         LOG.info("Заполняется главный layout для двух дней");
@@ -208,6 +211,7 @@ public class WeatherService {
 
         todL.addComponent(v2);
         todL.addComponent(v3);
+        todL.setComponentAlignment(v3, Alignment.TOP_RIGHT);
     }
 
     /** Метод для заполнения горизонтального layout-а завтрашнего дня
@@ -215,7 +219,7 @@ public class WeatherService {
      */
     public static void fillItemTom(HorizontalLayout tL){
 
-        LOG.info("Заполняется layout сегодняшнего дня");
+        LOG.info("Заполняется layout завтрашнего дня");
         tL.setStyleName("layoutDayItem");
         Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
         DateFormat formatd = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
@@ -228,10 +232,13 @@ public class WeatherService {
         Weather tom = new Weather();
         paramTom(tom);
 
+        /* Считаем, что максимальная температура это дневная */
         Label lab2 = new Label("макс " + tom.gettDay() + " " + DEGREE + "C");
         lab2.setStyleName("textSize");
         tomOptions.addComponent(lab2);
-        Label lab3 = new Label("мин " + tom.gettNigth() + " " + DEGREE + "C");
+
+        /* Считаем, что минимальная температура это ночная */
+        Label lab3 = new Label("мин " + tom.gettNight() + " " + DEGREE + "C");
         lab3.setStyleName("textSize");
         tomOptions.addComponent(lab3);
         tomOptions.setSpacing(false);
@@ -247,13 +254,11 @@ public class WeatherService {
         tL.setComponentAlignment(t3, Alignment.TOP_RIGHT);
     }
 
-    /** Метод для создания url с учетом id города
-     *  в зависимости от дня (сегодняшнего или завтрашнего)
+    /** Метод для создания url с учетом id города в зависимости от дня (сегодняшнего или завтрашнего)
      *  @param cityNameL имя города, для которого смотрим погоду
      *  @param beginURL первая часть url строки без id города
      *  @param endURL вторая часть url строки
-     *  @param req полный url c учетом id города и передаваемого запроса для сегодняшнего или
-     *  завтрашнего дня
+     *  @param req полный url c учетом id города и передаваемого запроса для сегодняшнего или завтрашнего дня
      */
     public static void buildUrl(String cityNameL, String beginURL, String endURL, String req){
         int cityId = 0;

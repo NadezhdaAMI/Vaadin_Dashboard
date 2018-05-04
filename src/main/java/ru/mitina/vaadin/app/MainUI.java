@@ -20,6 +20,8 @@ import ru.mitina.vaadin.app.mongodb.CounterRepository;
 
 import javax.servlet.http.HttpServletRequest;
 
+
+/** Класс для создания пользовательского интерфейса */
 @EnableAutoConfiguration
 @SpringUI
 @Theme("darktheme")
@@ -39,7 +41,8 @@ public class MainUI extends UI{
     @Override
     protected void init(VaadinRequest vaadinRequest) {
 
-        incCounter();
+        /* Увеличиваем счетчик при каждой загрузке страницы */
+        incCount();
 
         /* Базовый layout */
         final VerticalLayout baseL = new VerticalLayout();
@@ -143,7 +146,7 @@ public class MainUI extends UI{
         labelM.setStyleName("styleTitle");
         mL.addComponent(labelM);
         Grid<Currency> grid = new Grid<>();
-        grid.setWidth("430px");
+        grid.setWidth("430px"); // не подчиняется форматированию через setStyleName()
         grid.setHeight("116px");
 
         /* При стартовой загрузке страницы ячейки grid заполняются "..." */
@@ -178,7 +181,6 @@ public class MainUI extends UI{
                 vl2.addComponent(grid);
             } catch (Exception err){
                 vl2.removeComponent(grid);
-                err.printStackTrace();
                 Label eLabel = new Label("Сервер временно недоступен!");
                 eLabel.setStyleName("indent");
                 vl2.addComponent(eLabel);
@@ -210,9 +212,14 @@ public class MainUI extends UI{
         Label stateInfo = new Label("Информация по состоянию на " + dateFormat.format(now));
 
         LOG.info("Получение IP адреса клиента...");
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
-                .getRequest();
-        Label ipInfo = new Label("Ваш IP-адрес: " + request.getRemoteAddr());
+        Label ipInfo = new Label("Ваш IP-адрес: ");
+        try {
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+                    .getRequest();
+            ipInfo = new Label("Ваш IP-адрес: " + request.getRemoteAddr());
+        } catch (IllegalStateException e){
+            LOG.error("Ваш IP-адрес не удалось установить");
+        }
         ipInfo.setStyleName("ipInfo");
 
         footerL.addComponent(stateInfo);
@@ -225,7 +232,7 @@ public class MainUI extends UI{
     }
 
     /** Увеличиваем счетчик посещений на 1 при каждой загрузке страницы */
-    private void incCounter(){
+    private void incCount(){
         try {
             if (repository.findAll().isEmpty()) {
                 counter = new Counter(0);

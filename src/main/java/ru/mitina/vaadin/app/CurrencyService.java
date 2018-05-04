@@ -54,12 +54,13 @@ public class CurrencyService {
             val = Arrays.asList(usd, eur);
             LOG.info("получен контент для grid");
         } catch (PathNotFoundException exp) {
-            LOG.error("неверный путь к элементам в json файле!");
+            LOG.error("элементы для контента не получены!");
         }
         return val;
     }
 
-    /** Метод заполнения grid текущими данными о валюте
+    /** Метод заполнения grid полученным контентом
+     * @see CurrencyService#getGridContent()
      * @param grid  таблица, содержащая текущие данные о валютах
      */
     public static Grid fillGrid(Grid<Currency> grid){
@@ -72,7 +73,6 @@ public class CurrencyService {
             LOG.info("grid заполнена данными по валюте");
         }
         catch (PathNotFoundException ex){
-            ex.printStackTrace();
             LOG.error("Не найден url для сохранения jsona в строку!");
         }
         return grid;

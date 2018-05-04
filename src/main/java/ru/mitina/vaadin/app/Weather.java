@@ -10,7 +10,7 @@ public class Weather {
     private String tDay;
 
     /** Температура ночью*/
-    private String tNigth;
+    private String tNight;
 
     /** Скорость ветра*/
     private String wind;
@@ -21,7 +21,7 @@ public class Weather {
     /** Влажность*/
     private String humidity;
 
-    /** Иконка для отображения текущего состояния погодных условий*/
+    /** Иконка для отображения текущего состояния погодных условий */
     private String icon;
 
     public String gettDay() {
@@ -33,13 +33,13 @@ public class Weather {
         this.tDay = tDay;
     }
 
-    public String gettNigth() {
-        double d = Double.parseDouble(tNigth);
+    public String gettNight() {
+        double d = Double.parseDouble(tNight);
         return String.format("%.0f", d);
     }
 
-    public void settNigth(String tNigth) {
-        this.tNigth = tNigth;
+    public void settNight(String tNight) {
+        this.tNight = tNight;
     }
 
     public String getWind() {
@@ -53,6 +53,7 @@ public class Weather {
 
     public String getPressure() {
         double d = Double.parseDouble(pressure);
+        /* Перевод из паскалей в мм рт. ст. */
         double res = d/1.333224;
         return String.format("%.0f", res);
     }

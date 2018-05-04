@@ -3423,7 +3423,7 @@ java.lang.NullPointerException: null
 	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1838)
 	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
 	at java.lang.Double.parseDouble(Double.java:538)
-	at ru.mitina.vaadin.app.Weather.gettNigth(Weather.java:28)
+	at gettNight(Weather.java:28)
 	at ru.mitina.vaadin.app.WeatherService.fillItemTom(WeatherService.java:128)
 	at ru.mitina.vaadin.app.WeatherService.fillItems(WeatherService.java:106)
 	at ru.mitina.vaadin.app.MainUI.init(MainUI.java:80)
