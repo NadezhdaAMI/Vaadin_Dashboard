@@ -36,8 +36,9 @@ $ git clone https://github.com/NadezhdaAMI/Vaadin_Dashboard
 Документация
 ------------
 
-Данное приложение полностью документировано, javadoc можно найти через
-app/src/main/java/javadoc
+Данное приложение полностью документировано, javadoc можно найти по ссылке
+
+https://github.com/NadezhdaAMI/Documentation/blob/master/javadoc.tar.gz
 
 
 Логи
