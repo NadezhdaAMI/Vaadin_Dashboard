@@ -5,6 +5,7 @@
 # Log file
 *.log
 /log/
+addons.scss
 
 # BlueJ files
 *.ctxt

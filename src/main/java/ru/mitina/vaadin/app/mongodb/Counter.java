@@ -4,6 +4,8 @@ package ru.mitina.vaadin.app.mongodb;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/** Создание репозитория
+ */
 @Document(collection = "countservice")
 public class Counter {
 
