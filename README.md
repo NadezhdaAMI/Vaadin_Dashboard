@@ -29,7 +29,7 @@ $ git clone https://github.com/NadezhdaAMI/Vaadin_Dashboard
 Выполнить в командной строке:
 
 1. mvn package 
-2. mvn tomcat:run
+2. mvn spring-boot:run
 3. открыть http://localhost:8080 в веб браузере.
 
 
@@ -38,7 +38,7 @@ $ git clone https://github.com/NadezhdaAMI/Vaadin_Dashboard
 
 Данное приложение полностью документировано, javadoc можно найти по ссылке
 
-https://github.com/NadezhdaAMI/Documentation/blob/master/javadoc.tar.gz
+https://github.com/NadezhdaAMI/Vaadin_Dashboard/blob/master/javadoc.tar.gz
 
 
 Логи
