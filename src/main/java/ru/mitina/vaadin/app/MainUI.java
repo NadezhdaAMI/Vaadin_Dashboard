@@ -228,6 +228,7 @@ public class MainUI extends UI{
         baseL.addComponent(footerL);
 
         panelCounter.setContent(new Label(String.valueOf(counter)));
+
         LOG.info("Добро пожаловать на сайт!");
     }
 

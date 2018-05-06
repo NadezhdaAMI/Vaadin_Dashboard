@@ -28,7 +28,7 @@ public class CurrencyService {
     /** Метод для получения контента для grid
      * @return val массив валют
      */
-    public static List<Currency> getGridContent(){
+    private static List<Currency> getGridContent(){
 
         String jsonCbr;
         String jsonSber;
@@ -61,9 +61,9 @@ public class CurrencyService {
 
     /** Метод заполнения grid полученным контентом
      * @see CurrencyService#getGridContent()
-     * @param grid  таблица, содержащая текущие данные о валютах
+     * @param grid  таблица, для заполнения данными о валютах
      */
-    public static Grid fillGrid(Grid<Currency> grid){
+    public static void fillGrid(Grid<Currency> grid){
         try {
             grid.setItems(CurrencyService.getGridContent());
             grid.addColumn(Currency::getName).setCaption("Валюта");
@@ -75,13 +75,12 @@ public class CurrencyService {
         catch (PathNotFoundException ex){
             LOG.error("Не найден url для сохранения jsona в строку!");
         }
-        return grid;
     }
 
     /** Метод создания url с учетом текущей даты
      * @return res url c учетом текущей даты
      */
-    public static String buildUrl(){
+    private static String buildUrl(){
         StringBuilder s = new StringBuilder();
         DateFormat formatD = new SimpleDateFormat("dd.MM.yyyy");
         String dateF = formatD.format(new Date());

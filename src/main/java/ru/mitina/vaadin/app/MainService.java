@@ -19,6 +19,7 @@ public class MainService {
 
     /** метод для сохранения файла json по заданному url в строку
      * @param url  url публичных информеров с данными в формате json
+     * @return res  строка, в которую произошло сохранение json файла
     */
     public static String jsonToString(String url){
 

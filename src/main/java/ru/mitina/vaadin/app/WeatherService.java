@@ -64,7 +64,7 @@ public class WeatherService {
      * сервер источника(openweathermap.org) обновляет данные текущего дня каждые 10 минут
      * @param day текущий день
      */
-    public static Weather paramToday(Weather day) {
+    private static void paramToday(Weather day) {
         try {
             LOG.info("Заполнение layout-а сегодняшнего дня");
             day.settDay(readJs("$.main.temp"));
@@ -77,7 +77,6 @@ public class WeatherService {
         catch (PathNotFoundException ex){
             LOG.error("Не найден url для сохранения jsona в строку!");
         }
-        return day;
     }
 
     /** Метод нахождения и преобразования элемента в строку
@@ -101,7 +100,7 @@ public class WeatherService {
      * для каждого параметра (скорость ветра, давление, влажность)
      * @param day  завтрашний день
      */
-    public static Weather paramTom(Weather day){
+    private static void paramTom(Weather day){
 
         /* Получение даты завтрашнего дня и установление значения времени в полночь*/
         Calendar c = Calendar.getInstance();
@@ -137,7 +136,6 @@ public class WeatherService {
         day.setPressure(String.valueOf(presSum / k));
         day.setHumidity(String.valueOf(humSum / k));
         LOG.info("Заполнен layout завтрашнего дня");
-        return day;
     }
 
     /** Метод нахождения и преобразования элемента к типу double
@@ -217,7 +215,7 @@ public class WeatherService {
     /** Метод для заполнения горизонтального layout-а завтрашнего дня
      * @param tL  горизонтальный layout с параметрами погоды для завтрашнего дня
      */
-    public static void fillItemTom(HorizontalLayout tL){
+    private static void fillItemTom(HorizontalLayout tL){
 
         LOG.info("Заполняется layout завтрашнего дня");
         tL.setStyleName("layoutDayItem");
@@ -279,8 +277,9 @@ public class WeatherService {
 
     /** Метод для отображения иконки текущих погодных условий
      * @param icon  иконка для отображения текущих погодных условий
+     * @return im отформатированная иконка для вывода в layout
      */
-    public static Image showIcon(String icon){
+    private static Image showIcon(String icon){
         ThemeResource resource = new ThemeResource("icons/" + icon + ".png");
         Image im = new Image("", resource);
         im.setStyleName("styleImage");
@@ -292,7 +291,7 @@ public class WeatherService {
         return urlTod;
     }
 
-    public static void setUrlTod(String urlTod) {
+    private static void setUrlTod(String urlTod) {
         WeatherService.urlTod = urlTod;
     }
 

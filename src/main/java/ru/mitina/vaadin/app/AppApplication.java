@@ -9,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 
 
 /**
- * @autor: Надежда A. Митина
+ * @author Надежда A. М.
  * @version 1.0
  *
  * Класс для запуска приложения
@@ -29,5 +29,7 @@ public class AppApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args){
 	}
+
+
 }
 
