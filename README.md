@@ -32,6 +32,7 @@ $ git clone https://github.com/NadezhdaAMI/Vaadin_Dashboard
 2. mvn spring-boot:run
 3. открыть http://localhost:8080 в веб браузере.
 
+##### В процессе разработки выяснилось, что некоторые провайдеры блокируют https://openweathermap.org/,который используется для получения параметров погоды в данном приложении
 
 Документация
 ------------
@@ -39,6 +40,8 @@ $ git clone https://github.com/NadezhdaAMI/Vaadin_Dashboard
 Данное приложение полностью документировано, javadoc можно найти по ссылке
 
 https://github.com/NadezhdaAMI/Vaadin_Dashboard/blob/master/javadoc.tar.gz
+
+или собрать командой c помощью мавен: mvn javadoc:javadoc
 
 
 Логи

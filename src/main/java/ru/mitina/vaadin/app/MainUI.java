@@ -80,6 +80,11 @@ public class MainUI extends UI{
         sample.setSelectedItem(map.get(NSK_ID));
         WeatherService.setCityName(map.get(NSK_ID));
 
+        /* стартовая загрузка данных в layout-ах */
+        WeatherService.buildUrl(map.get(NSK_ID), WeatherService.BEGIN_URL, WeatherService.END_URL, WeatherService.getUrlTod());
+        WeatherService.buildUrl(map.get(NSK_ID), WeatherService.BEGIN_URL2, WeatherService.END_URL, WeatherService.getUrlTom());
+        notifyClient(wMainL);
+
         sample.addValueChangeListener(event -> {
             String cityName = String.valueOf(event.getValue());
             WeatherService.setCityName(cityName);
@@ -91,33 +96,6 @@ public class MainUI extends UI{
         });
         wHeader.addComponent(sample);
         wL.addComponent(wHeader);
-
-        LOG.info("Заполняется layout сегодняшнего дня");
-        /* todayL горизонтальный layout со всеми данными о погоде сегодня*/
-        HorizontalLayout todayL = new HorizontalLayout();
-        todayL.setPrimaryStyleName("layoutDayItem");
-
-        VerticalLayout todayLdate = new VerticalLayout();
-        todayLdate.setStyleName("todayLdate");
-        DateFormat formatDay = new SimpleDateFormat("E', ' dd.MM ", new Locale("ru"));
-        Date date = new Date();
-        todayLdate.addComponent(new Label(formatDay.format(date)));
-        Label text = new Label("сегодня");
-        text.setStyleName("textSize");
-        todayLdate.addComponent(text);
-        todayL.addComponent(todayLdate);
-
-        LOG.info("Заполняется layout завтрашнего дня");
-        /* tomL горизонтальный layout со всеми данными о погоде завтра */
-        HorizontalLayout tomL = new HorizontalLayout();
-        tomL.setPrimaryStyleName("layoutDayItem");
-        Date dateT = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-        Label tomInfo = new Label(formatDay.format(dateT));
-        tomL.addComponent(tomInfo);
-
-        wMainL.addComponent(todayL);
-        wMainL.addComponent(tomL);
-        LOG.info("Заполнены layout-ы каждого дня данными о погоде");
 
         wL.addComponent(wMainL);
         Button buttonW = new Button("Обновить");
@@ -149,29 +127,19 @@ public class MainUI extends UI{
         grid.setWidth("430px"); // не подчиняется форматированию через setStyleName()
         grid.setHeight("116px");
 
-        /* При стартовой загрузке страницы ячейки grid заполняются "..." */
-        Currency usd = new Currency();
-        usd.setName("USD/RUB");
-        usd.setSign("...");
-        Currency eur = new Currency();
-        eur.setName("EUR/RUB");
-        eur.setSign("...");
-
-        List<Currency> valute = Arrays.asList(usd, eur);
-        grid.setItems(valute);
-        LOG.info("получен контент для grid");
-        grid.addColumn(Currency::getName).setCaption("Валюта");
-        grid.addColumn(Currency::getSign).setCaption("КУРС ЦБ");
-        grid.addColumn(Currency::getSign).setCaption("ПОКУПКА");
-        grid.addColumn(Currency::getSign).setCaption("ПРОДАЖА");
-        LOG.info("grid заполнена ...");
-
         /* vl2 layout нужен для выравнивания и обновления grid */
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setMargin(false);
         mL.addComponent(vl2);
-        vl2.addComponent(grid);
         mL.addComponent(vl2);
+        try {
+            CurrencyService.fillGrid(grid);
+            vl2.addComponent(grid);
+        } catch (Exception err){
+            Label eLabel = new Label("Сервер временно недоступен!");
+            eLabel.setStyleName("indent");
+            vl2.addComponent(eLabel);
+        }
         Button buttonM = new Button("Обновить");
         buttonM.addClickListener( e -> {
             try {
