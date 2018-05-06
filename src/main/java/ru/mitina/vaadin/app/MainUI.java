@@ -216,7 +216,6 @@ public class MainUI extends UI{
             LOG.info("Счетчик посещений увеличен на 1");
 
         } catch (NullPointerException ex){
-            ex.printStackTrace();
             LOG.error("Произошла ошибка при обращении к базе!");
         }
     }
@@ -230,7 +229,6 @@ public class MainUI extends UI{
             WeatherService.fillItems(wMainL);
         }
         catch (Exception er){
-            er.printStackTrace();
             Label eLabel = new Label("Сервер временно недоступен!");
             eLabel.setStyleName("indentM");
             wMainL.addComponent(eLabel);

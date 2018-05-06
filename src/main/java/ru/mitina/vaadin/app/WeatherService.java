@@ -86,8 +86,8 @@ public class WeatherService {
         String s = "";
         try {
             s = JsonPath.read(strToday, q).toString();
-        }catch (PathNotFoundException e){
-            LOG.error("Неверно указан путь в строке к элементу");
+        }catch (Exception e){
+            LOG.error("не удалось прочитать json");
         }
         return s;
     }
