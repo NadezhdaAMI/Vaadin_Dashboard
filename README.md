@@ -1,6 +1,6 @@
 ## Информер прогноза погоды и валют
 
-![Интерфейс приложения](https://github.com/NadezhdaAMI/LeetCode/blob/master/Content/ui2.png)
+![Интерфейс приложения](https://github.com/NadezhdaAMI/LeetCode/blob/master/Content/screen.gif)
 
 ####     Данное приложение позволяет получить следующую информацию: 
 * основные параметры погоды в трех городах (Новосибирск, Москва, Санкт-Петербург) в настоящий момент и на завтра, 
@@ -17,6 +17,7 @@
 
 1. Java Development Kit (JDK) 8
 2. Maven 3
+3. Установленные пакеты mongo-сервера
 
 
 Установка и настройка
@@ -35,8 +36,9 @@ $ git clone https://github.com/NadezhdaAMI/Vaadin_Dashboard
 Документация
 ------------
 
-Данное приложение полностью документировано, javadoc можно найти через
-app/src/main/java/javadoc
+Данное приложение полностью документировано, javadoc можно найти по ссылке
+
+https://github.com/NadezhdaAMI/Documentation/blob/master/javadoc.tar.gz
 
 
 Логи
